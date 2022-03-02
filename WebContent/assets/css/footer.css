@@ -1,7 +1,8 @@
 #footer{
     width: 100%;
-    height: 232px;
+    height: 300px;
     background-color: #333;
+    padding: 0 !important;
 }
 
 #footer .right-wrapper #footer .left-wrapper {
@@ -73,6 +74,7 @@
 #footer .lower-footer .wrapper.right-wrapper .sns-btn-list {
     text-align: center;
     margin-top: 1rem;
+    
 }
 
 #footer .lower-footer .wrapper.left-wrapper .header {
@@ -97,4 +99,9 @@
 
 #footer .lower-footer .wrapper.left-wrapper .header .logo{
     margin-right: 0;
+}
+
+#footer div.right-wrapper{
+	width: 400px !important;
+	height: 200px !important;
 }

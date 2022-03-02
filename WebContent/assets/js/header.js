@@ -1,5 +1,5 @@
 // 메인 메뉴
-const div = document.querySelector('#container');
+const div = document.querySelector('#header');
 
 // 서브 메뉴
 const over = document.querySelectorAll('.mouseover');
