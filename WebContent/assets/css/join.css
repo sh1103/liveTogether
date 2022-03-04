@@ -182,7 +182,8 @@ div.login_banner {
 	font-size: 15px;
 	background-color: #f6f6f6;
 	color: #fff  !important;
-	font-weight: 550;
+	font-weight: 600;
+	font-family: 'GmarketSansLight';
 }
 
 /* .btn_g:hover {
