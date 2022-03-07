@@ -18,7 +18,7 @@
 	<!-- Aside -->
 	<jsp:include page="../fix/aside.jsp" />
 	
-      <article class="first-wrap">
+      <article class="noticeDetail-first-wrap">
         <div class="second-wrap">
           <div class="third-wrap">
             <p id="first-p">가치살자 공지사항</p>

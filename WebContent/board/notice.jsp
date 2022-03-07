@@ -18,10 +18,10 @@
 	<!-- Aside -->
 	<jsp:include page="../fix/aside.jsp" />
 	
-  <article class="first-wrap">
+  <article class="notice-first-wrap">
     <div class="second-wrap">
       <div class="third-wrap">
-        <p class="first-ptag">가치살자 공지사항<div class="gradation-div"></p></div><br>
+        <p class="first-ptag">가치살자 공지사항<div class="gradation-div"></div><br>
         <form action="" id="search">
           <input type="search" maxlength="150" class="first-input" placeholder="검색어를 입력하세요">
           <button type="button" class="img1"></button>

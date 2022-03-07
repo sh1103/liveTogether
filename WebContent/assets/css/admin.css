@@ -27,72 +27,72 @@
     		margin: 0;
     	}
     	
-        #first-wrapper{
+        div#admin-whole-wrapper div#first-wrapper{
             width: 87%;
             height: 100vh;
             background-color: white;
         }
 
-        #second-wrapper{
+        div#admin-whole-wrapper div#second-wrapper{
             width: 100%;
             background-color: #edf0f5;
             display: inline-block;
             height: 100vh;
         }
 
-        .two-wrapper{
+        div#admin-whole-wrapper div.two-wrapper{
             display: flex;
             width: 100%;
             height: 280px;
             justify-content: space-evenly;
         }
         
-        #two-wrapper-final{
+        div#admin-whole-wrapper div#two-wrapper-final{
             display: flex;
             width: 100%;
             height: 98px;
             justify-content: space-evenly;
         }
 
-        #two-wrapper-first{
+        div#admin-whole-wrapper div#two-wrapper-first{
             margin-top: 15px;
         }
 
-        #firstBox, #secondBox, #thirdBox, #fourthBox, #fifthBox, #sixthBox{
+        div#admin-whole-wrapper div#firstBox, div#admin-whole-wrapper div#secondBox, div#admin-whole-wrapper div#thirdBox, div#admin-whole-wrapper div#fourthBox, div#admin-whole-wrapper div#fifthBox, div#admin-whole-wrapper div#sixthBox{
             background: white;
             width: 48%;
             height: 93%;
         }
 
-        #seventhBox{
+        div#admin-whole-wrapper div#seventhBox{
             background: #f8f9fd;
             width: 97.307%;
             height: 93%;
         }
 
-        div#hr-tag{
+        div#admin-whole-wrapper div#hr-tag{
 			border-bottom: 3px solid #edf0f5;
 		}
         
-        div#hr-tag2{
+        div#admin-whole-wrapper div#hr-tag2{
 			border-bottom: 1px solid #edf0f5;
             width: 80%;
             margin-left: 40px;
 		}
         
-        div#hr-tag3{
+        div#admin-whole-wrapper div#hr-tag3{
 			border-bottom: 1px solid #515d6e;
             width: 80%;
             margin-left: 21px;
 		}
 
-        div#hr-tag4{
+        div#admin-whole-wrapper div#hr-tag4{
 			border-bottom: 1px solid #edf0f5;
             width: 80%;
             margin-left: 33px;
 		}
 
-        p.header-p{
+        div#admin-whole-wrapper p.header-p{
             text-align: left;
             padding-left: 25px;
             letter-spacing: -0.5px;
@@ -100,23 +100,23 @@
             font-size: 20px;
         }
 
-        #guest-div, #host-div{
+        div#admin-whole-wrapper div#guest-div, div#admin-whole-wrapper div#host-div{
             font-size: 15px;
             text-align: center;
         }
 
-        #navigation{
+        div#admin-whole-wrapper div#navigation{
             width: 13%;
             height: 100vh;
             background-color: #445163;
         }
 
-        #whole-wrapper{
+        div#admin-whole-wrapper{
             display: flex;
             width: 100%;
         }
 
-        #padding-div{
+        div#admin-whole-wrapper div#padding-div{
             width: 85%;
             height: 95%;
             margin-left: 19px;
@@ -126,19 +126,19 @@
             text-align: center;
         }
 
-        a:link , a:visited{
+        a.admin-a:link , a.admin-a:visited{
             color: white;
         }
 
-        a {
+        a.admin-a {
             text-decoration-line: none;
         }
 
-        #guest-host-member-wrapper{
+        div#admin-whole-wrapper div#guest-host-member-wrapper{
             height: 73%;
         }
 
-        #guest-host-div{
+        div#admin-whole-wrapper div#guest-host-div{
             display: flex;
             justify-content: space-around;
             align-items: flex-end;
@@ -147,17 +147,17 @@
             font-weight: 540;
         }
         
-        #member-wrapper{
+        div#admin-whole-wrapper div#member-wrapper{
             height: 85%;
             display: flex;
         }
         
-        #chart-wrapper{
+        div#admin-whole-wrapper div#chart-wrapper{
             height: 100%;
             display: flex;
         }
 
-        #member-first-half, #member-second-half{
+        div#admin-whole-wrapper div#member-first-half, div#admin-whole-wrapper div#member-second-half{
             height: 100%;
             width: 50%;
             color: #606060;
@@ -166,26 +166,26 @@
             flex-direction: column;
         }
 
-        #member-first-first-div, #member-first-second-div, #member-first-third-div, #member-second-first-div, #member-second-second-div, #member-second-third-div{
+        div#admin-whole-wrapper div#member-first-first-div, div#admin-whole-wrapper div#member-first-second-div, div#admin-whole-wrapper div#member-first-third-div, div#admin-whole-wrapper div#member-second-first-div, div#admin-whole-wrapper div#member-second-second-div, div#admin-whole-wrapper div#member-second-third-div{
             display: flex;
             justify-content: space-evenly;
         }
 
-        div.left-span{
+        div#admin-whole-wrapper div.left-span{
             width: 45%;
         }
 
-        div.flex{
+        div#admin-whole-wrapper div.flex{
             display: flex;
             width: 6%;
             text-align: right;
         }
 
-        span.data{
+        div#admin-whole-wrapper span.data{
             color: black;
         }
 
-        #first-a-wrapper{
+        div#admin-whole-wrapper div#first-a-wrapper{
             height: 55%;
             display: flex;
             flex-direction: column;
@@ -193,63 +193,63 @@
             border-bottom: 1px solid #515d6e;
         }
 
-        #second-a-wrapper{
+        div#admin-whole-wrapper div#second-a-wrapper{
             height: 45%;
             display: flex;
             flex-direction: column;
         }
 
-        .no-navigation1{
+        div#admin-whole-wrapper div.no-navigation1{
             height: 27%;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
         }
 
-        .no-navigation2{
+        div#admin-whole-wrapper div.no-navigation2{
             height: 46%;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
         }
 
-        .a-wrapper2 a{
+        div#admin-whole-wrapper div.a-wrapper2 a{
             font-size: 12px;
             color: #95b7e3;
         }
         
-        .a-wrapper3 a{
+        div#admin-whole-wrapper div.a-wrapper3 a{
             color: #dedede;
         }
 
-        .review-wrapper1{
+        div#admin-whole-wrapper div.review-wrapper1{
             width: 35%;
             height: 100%;
             color: #606060;
         }
 
-        .review-wrapper2{
+        div#admin-whole-wrapper div.review-wrapper2{
             width: 65%;
             height: 100%;
         }
 
-        .review-whole-wrapper{
+        div#admin-whole-wrapper div.review-whole-wrapper{
             display: flex;
             height: 73%;
         }
 
-        .review-span-wrapper{
+        div#admin-whole-wrapper div.review-span-wrapper{
             display: flex;
             justify-content: space-around;
         }
 
-        .review-wrapper1{
+        div#admin-whole-wrapper div.review-wrapper1{
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
         }
 
-        .review-half-right{
+        div#admin-whole-wrapper div.review-half-right{
             width: 90%;
             height: 85%;
             margin: auto;
@@ -257,7 +257,7 @@
             border-left: 1px solid #edf0f5;
         }
 
-        div.img{
+        div#admin-whole-wrapper div.img{
             width: 40%;
             height: 100%;
             margin: 0 auto;
@@ -267,13 +267,13 @@
             align-items: flex-end;
         }
 
-        .img-wrappers{
+        div#admin-whole-wrapper div.img-wrappers{
             height: 73%;
             width: 100%;
             display: flex;
         }
 
-        .img-container{
+        div#admin-whole-wrapper div.img-container{
             width: 33.3%;
             height: 100%;
             text-align: center;
@@ -281,39 +281,39 @@
             align-items: center;
         }
 
-        .dummy-div{
+        div#admin-whole-wrapper div.dummy-div{
             width: 33.3%;
             height: 100%;
         }
 
-        .img-p-wrapper{
+        div#admin-whole-wrapper div.img-p-wrapper{
             margin: auto;
             margin-top: 51.5px;
         }
         
-        #banner-img{
+        div#admin-whole-wrapper div#banner-img{
             width: 100%;
             height: 100%;
         }
 
-        #smartStore-wrapper{
+        div#admin-whole-wrapper div#smartStore-wrapper{
             display: flex;
             width: 100%;
             height: 100%;
         }
 
-        .smartStore{
+        div#admin-whole-wrapper div.smartStore{
             width: 15%;
             height: 100%;
             display: flex;
         }
 
-        .smartStore-dummy{
+        div#admin-whole-wrapper div.smartStore-dummy{
             width: 5%;
             height: 100%;
         }
 
-        .smartStore-img{
+        div#admin-whole-wrapper div.smartStore-img{
             width: 30%;
             height: 100%;
             display: flex;
@@ -321,7 +321,7 @@
             align-items: center;
         }
 
-        .smartStore-span-wrapper{
+        div#admin-whole-wrapper div.smartStore-span-wrapper{
             width: 70%;
             height: 100%;
             display: flex;
@@ -329,6 +329,11 @@
             justify-content: center;
         }
 
-        .smartStore-span{
-
+        @media (max-width: 414px){
+			div#navigation {
+   				width: 13%;
+    			height: 100vh;
+    			background-color: #445163;
+    			display: none !important;
+}            
         }
