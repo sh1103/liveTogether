@@ -1,4 +1,4 @@
-const navi = document.getElementById('nav-filter');
+const navfilter = document.getElementById('nav-filter');
 const open = document.getElementById('open_img');
 const close = document.getElementById('open_img2');
 const filter = document.getElementById("img_wrap");
@@ -8,15 +8,15 @@ var check=-1;
 open.addEventListener("click", function() {
     open.style.display = "none";
 	close.style.display = "block";
-	navi.style.transform = "translateX(40vw)";
-	navi.style.transition = "transform 0.5s";
+	navfilter.style.transform = "translateX(40vw)";
+	navfilter.style.transition = "transform 0.5s";
 })
 
 close.addEventListener("click", function() {
     open.style.display = "block";
 	close.style.display = "none";
-	navi.style.transform = "translateX(0)";
-	navi.style.transition = "transform 0.5s";
+	navfilter.style.transform = "translateX(0)";
+	navfilter.style.transition = "transform 0.5s";
 	check = -1;
     filter_wrap.style.transform = "translateX(-40vw)";
 })
@@ -24,8 +24,8 @@ close.addEventListener("click", function() {
 mapContainer.addEventListener("click", function() {
     open.style.display = "block";
 	close.style.display = "none";
-	navi.style.transform = "translateX(0)";
-	navi.style.transition = "transform 0.5s";
+	navfilter.style.transform = "translateX(0)";
+	navfilter.style.transition = "transform 0.5s";
 })
 
 filter.addEventListener("click",function(){

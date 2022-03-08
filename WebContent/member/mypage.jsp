@@ -22,12 +22,18 @@
 <body class="is-preload">
 	<article id="main">
 
+	<div id="mypageheader">
 		<div class="inner">
 			<div class="inner_ab">
 				<span class="my_span01">(지구인)</span>님의 마이페이지 입니다.
 			</div>
 		</div>
-		<div id="box">			
+		</div>
+		
+		
+		
+	<div class ="mypage">	
+		<div id="box">
 			<div id="navigation_wraper">
 				<div class="navigation">
 					<a href="mypage.jsp">
@@ -38,7 +44,6 @@
 				</div>
 			</div>
 
-			<!-- 	<div class="box"> -->
 			<div class="wrapper">
 				<div class="container">
 					<div id="change_info">
@@ -91,10 +96,17 @@
 									</div>
 
 									<div class="column-wrapper password">
-										<label class="col04">새로운 비밀번호</label>
+										<label class="col04">새비밀번호</label>
 										<div class="user_newpw">
 											<input type="password" id="user_password"
 												name="user[password]">
+										</div>
+									</div>
+									
+									<div class="column-wrapper nickname">
+										<label class="col06">닉네임</label>
+										<div class="user_nickname">
+											<input type="text" id="user_nickname" name="user[nickname]">
 										</div>
 									</div>
 
@@ -132,12 +144,12 @@
 									<ul class="notice-list">
 										<li class="notice">* 정보 수정 시 기존 비밀번호를 입력하셔야 합니다.</li>
 									</ul>
-									<div style="margin-top: -1rem;">
-										<div class="a" style="margin-bottom: 0.2rem;">
+									<div class="mypagebt">
+										<div id="bt1">
 											<input type="submit" class="update-btn" name="commit"
 												value="내 정보 수정 완료">
 										</div>
-										<div class="b">
+										<div id="bt2">
 											<input id="leave-button" type="button" class="update-btn"
 												value="탈퇴하기">
 										</div>
@@ -166,16 +178,13 @@ $('#leave-button').click(function(e) {
 
 </script> -->
 
-
-
-
-							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<!-- </div> -->
+</div>
+
 	</article>
 
 	<!-- 	</div> -->

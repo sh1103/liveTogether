@@ -48,13 +48,13 @@
 
       	article.notice-first-wrap p.first-ptag{
     	font-size: 2rem;
-    	font-weight: 540;
+    	font-weight: 600;
     	position: relative
       }
 			
 	  	article.notice-first-wrap div.gradation-div{
 			background: linear-gradient(90deg, #1187cfa1 0%, #bceaff4d 100%);
-    		width: 13.5%;
+    		width: 260px;
     		position: absolute;
     		top: 27px;
     		left: 284px;
@@ -152,4 +152,34 @@
 
       article.notice-first-wrap tbody.table-tbody tr th{
         border-bottom : 2px solid #f7f7f6;
+      }
+      
+      @media (max-width: 414px){
+      	article.notice-first-wrap div.gradation-div{
+      		left: 78px;
+      	}
+      	
+      	article.notice-first-wrap div.second-wrap{
+      		width: 100%;
+      	}
+      	
+      	article.notice-first-wrap p.first-ptag{
+      		display:block;
+      	}
+      	
+      	article.notice-first-wrap div.gradation-div-wrap{
+      		margin-left: 79px;
+      	}
+      	
+      	article.notice-first-wrap input.first-input{
+      		margin-top: -8px;
+      	}
+      	
+      	article.notice-first-wrap form#search{
+      		width: 86%;
+      	}
+      	
+      	article.notice-first-wrap button.img1{
+      		top: 0px;
+      	}
       }

@@ -109,4 +109,8 @@
 	#footer{
 	height: 374px;
 	}
+	
+	#footer .lower-footer .wrapper {
+    padding: 0 0rem;
+}
 }

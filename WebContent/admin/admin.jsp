@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
 <link rel="stylesheet" href="../assets/css/admin.css" />
 <title>가치살자 관리자 페이지</title>
@@ -85,7 +86,7 @@
 		</div>
 		<div id="first-wrapper">
 			<div id="second-wrapper">
-				<div class="two-wrapper" id="two-wrapper-first">
+				<div class="two-wrapper1" id="two-wrapper-first">
 					<div id="firstBox">
 						<p class="header-p">방관리</p>
 						<div id="hr-tag"></div>
@@ -282,7 +283,7 @@
 
 				</div>
 
-				<div class="two-wrapper">
+				<div class="two-wrapper2">
 					<div id="thirdBox">
 						<p class="header-p">리뷰 관리</p>
 						<div id="hr-tag"></div>
@@ -357,7 +358,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="two-wrapper">
+				<div class="two-wrapper3">
 					<div id="fifthBox">
 						<p class="header-p">누적 통계</p>
 						<div id="hr-tag"></div>
@@ -444,7 +445,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="two-wrapper" id="two-wrapper-final">
+				<div id="two-wrapper-final">
 					<div id="seventhBox">
 						<div id="smartStore-wrapper">
 							<div class="smartStore-dummy"></div>
