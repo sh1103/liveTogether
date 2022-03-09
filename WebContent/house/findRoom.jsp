@@ -145,7 +145,7 @@
 					</div>
 				</div>
 			</div>
-			<div>
+			<div id="table-wrap">
 				<div id="table">
 					<div class="table-row">
 						<div class="table-cell">

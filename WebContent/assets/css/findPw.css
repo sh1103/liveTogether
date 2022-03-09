@@ -240,6 +240,10 @@ section#finePw-wrap #login_banner {
 	position: absolute;
 	bottom: -9px;
 }
+
+section#finePw-wrap li.choice a{
+	display: block;
+}
 @media (max-width: 414px){
 	section#finePw-wrap #box{
 	width: 414px;

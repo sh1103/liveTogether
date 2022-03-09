@@ -74,23 +74,27 @@
 							<div class="login_kakaomail">
 								<div id="loginEmailField">
 									<input placeholder="이메일(아이디)" class="tf_g tf_email"
-										name="email" id="id_email_2" autocomplete="off">
+										name="memberId" id="id_email_2" autocomplete="off">
 									<p id="result">가치살다에서 사용하실 이메일을 입력해주세요.</p>
 								</div>
 							</div>
 							<div class="item_tf item_inp">
 								<input placeholder="비밀번호" data-type="password" class="tf_g "
-									name="password" type="password" id="id_password_3"> <input
+									name="memberPw" type="password" id="id_password_3"> <input
 									placeholder="비밀번호 확인" data-type="password" class="tf_g checkPw"
-									name="password" type="password" id="id_password_3">
+									name="memberPwOk" type="password" id="pwCheck">
 							</div>
 							<div class="nickname_wrap">
-								<input placeholder="닉네임" class="nickname" name="nickname"
+								<input placeholder="이름" class="nickname" name="memberName"
+									type="text" id="memberName" autocomplete="off">
+							</div>
+							<div class="nickname_wrap">
+								<input placeholder="닉네임" class="nickname" name="memberNickname"
 									type="text" id="nickname" autocomplete="off">
 							</div>
 							<div class="nickname_wrap">
 								<input placeholder="전화번호" class="nickname" name="phoneNum"
-									type="text" id="phoneNum" autocomplete="off">
+									type="text" id="memberPhone" autocomplete="off">
 							</div>
 							<div id="genderChoice">
 								<input class="member-input" type="radio" value="nomal"
@@ -101,7 +105,8 @@
 									class="member-btn" for="memberGenderF">여자</label>
 							</div>
 							<div class="nickname_wrap profile">
-								<textarea name="memberProfile" id="memberProfile" placeholder="본인을 간략히 소개해주세요."></textarea>
+								<textarea name="memberProfile" id="memberProfile"
+									placeholder="본인을 간략히 소개해주세요."></textarea>
 							</div>
 
 							<div id="term-wrap">
@@ -365,10 +370,8 @@
 				return;
 			}
 
-			$
-					.ajax({
-						url : contextPath + "/member/MemberCheckIdOk.me?email="
-								+ email,
+			$.ajax({
+						url : contextPath + "/member/MemberCheckIdOk.me?email="	+ email,
 						type : "get",
 						dataType : "json",
 						success : function(result) {

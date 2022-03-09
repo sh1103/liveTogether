@@ -283,6 +283,11 @@ section#login-wrap input[type="checkbox"]:focus+label:before, input[type="radio"
 	box-shadow: 0 0 0 1px #ffffff;
 }
 
+section#login-wrap li.choice a{
+	display: block;
+}
+
+
 
 
 @media (max-width: 414px){
