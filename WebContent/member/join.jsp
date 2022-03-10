@@ -74,7 +74,7 @@
 							<div class="login_kakaomail">
 								<div id="loginEmailField">
 									<input placeholder="이메일(아이디)" class="tf_g tf_email"
-										name="memberId" id="id_email_2" autocomplete="off">
+										name="memberId" id="memberId" autocomplete="off">
 									<p id="result">가치살다에서 사용하실 이메일을 입력해주세요.</p>
 								</div>
 							</div>
@@ -364,14 +364,14 @@
 	<script>
 		// 아이디 중복검사
 		function checkId(memberId) {
-			if (!email) {
+			if (!memberId) {
 				$("#result").text("아이디를 입력해주세요.");
 				$("#result").css("color", "red");
 				return;
 			}
 
 			$.ajax({
-						url : contextPath + "/member/MemberCheckIdOk.me?email="	+ email,
+						url : contextPath + "/member/MemberCheckIdOk.me?email="	+ memberId,
 						type : "get",
 						dataType : "json",
 						success : function(result) {
@@ -382,7 +382,7 @@
 							} else {
 								$("#result").text("중복된 아이디입니다.");
 								$("#result").css("color", "red");
-								$("input#email").focus();
+								$("input#memberId").focus();
 							}
 						},
 						error : function() {

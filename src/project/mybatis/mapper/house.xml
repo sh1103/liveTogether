@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http//mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="House">
+
+	<!-- 호스팅하기 -->
+	<insert id="hosting" parameterType="HouseVO">
+		insert into tbl_house
+		(houseContent, houseAddress,houseMessage, houseAddressDetail,
+		houseLocation,
+		memberId, houseDeposit, houseMonth, houseType,
+		houseGender,
+		houseManagement, houseTotalFloor, houseFloor, houseWay,
+		houseLoan,
+		houseParking, housePet, houseElevator, houseDate,
+		maPowerRates, maGas,
+		maWater, maInternet, maTv, opAircon,
+		opRefrigerator, opWasher,
+		opGasrange, opInduction, opMicrowave, opDesk,
+		opDoorlock, opBed,
+		opCloset, opShoes, opSink)
+		values(#{houseContent},
+		#{houseAddress},#{houseMessage},
+		#{houseAddressDetail},
+		#{houseLocation},
+		#{memberId}, #{houseDeposit},
+		#{houseMonth},
+		#{houseType},
+		#{houseGender}, #{houseManagement},
+		#{houseTotalFloor},
+		#{houseFloor},
+		#{houseWay}, #{houseLoan},
+		#{houseParking}, #{housePet},
+		#{houseElevator}, #{houseDate}, #{maGas},
+		#{maWater}, #{maInternet},
+		#{maTv}, #{opAircon},
+		#{opRefrigerator},#{opGasrange}, #{opWasher},
+		#{opInduction},
+		#{opMicrowave}, #{opDesk}, #{opDoorlock}, #{opBed},
+		#{opCloset},
+		#{opShoes}, #{opSink}, #{maPowerRates})
+	</insert>
+
+	<!-- 정보검색 -->
+	<select id="getInfo" parameterType="_int" result="HouseVO">
+		select
+		houseNumber, houseContent, houseAddress,houseMessage, houseAddressDetail,
+		houseLocation, memberId, houseDeposit, houseMonth, houseType,
+		houseGender, houseManagement, houseTotalFloor, houseFloor, houseWay,
+		houseLoan, houseParking, housePet, houseElevator, houseDate,
+		maPowerRates, maGas, maWater, maInternet, maTv, opAircon,
+		opRefrigerator, opWasher, opGasrange, opInduction, opMicrowave,
+		opDesk, opDoorlock, opBed, opCloset, opShoes, opSink
+		from tbl_house
+		where houseNumber=#{houseNumber}
+	</select>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

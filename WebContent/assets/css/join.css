@@ -190,7 +190,7 @@ section#join-wrap .btn_g {
 	background-color: #e7e7e7;
 } */
 
-section#join-wrap input#id_email_2, input#id_password_3, input#pwCheck, input#nickname, input#tel, input#memberPhone, input#memberProfile, input#memberName{
+section#join-wrap input#memberId, input#id_password_3, input#pwCheck, input#nickname, input#tel, input#memberPhone, input#memberProfile, input#memberName{
 	border: none;
 	border-bottom: 1px solid #e5e5e5;
 	border-radius: 0;
