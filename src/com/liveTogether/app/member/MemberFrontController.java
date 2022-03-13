@@ -29,12 +29,16 @@ public class MemberFrontController extends HttpServlet {
 		ActionForward af = null;
 		
 		if(command.equals("/member/MemberCheckIdOk.me")) {
-			af = new MemberCheckIdOk().execute(req, resp);
+			new MemberCheckIdOk().execute(req, resp);
 			
 		}else if(command.equals("/member/MemberLoginOk.me")) {
-			af = new MemberCheckIdOk().execute(req, resp);
+			af = new MemberLoginOk().execute(req, resp);
 		}else if(command.equals("/member/MemberJoinOk.me")) {
-			af = new MemberCheckIdOk().execute(req, resp);
+			af = new MemberJoinOk().execute(req, resp);
+		}else if(command.equals("/member/MemberFindIdOk.me")) {
+			af = new MemberFindIdOk().execute(req, resp);
+		}else if(command.equals("/member/MemberFindPwOk.me")) {
+			af = new MemberFindPwOk().execute(req, resp);
 		}
 		
 		if(af != null) {

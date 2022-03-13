@@ -2,42 +2,38 @@ package com.liveTogether.app.house.vo;
 
 public class HouseVO {
 	
-	public int houseNumber;
-	public String houseAddress;
-	public String houseMessage;
-	public String houseAddressDetail;
-	public String houseLocation;
-	public String memberId;
-	public int houseDeposit;
-	public int houseMonth;
-	public String houseType;
-	public String houseGender;
-	public int houseManagement;
-	public int houseTotalFloor;
-	public int houseFloor;
-	public String houseWay;
-	public String houseLoan;
-	public String houseParking;
-	public String housePet;
-	public String houseElevator;
-	public String houseDate;
-	public String maPowerRates;
-	public String maGas;
-	public String maWater;
-	public String maInternet;
-	public String maTv;
-	public String opAircon;
-	public String opRefrigerator;
-	public String opWasher;
-	public String opGasrange;
-	public String opInduction;
-	public String opMicrowave;
-	public String opDesk;
-	public String opDoorlock;
-	public String opBed;
-	public String opCloset;
-	public String opShoes;
-	public String opSink;
+	private int houseNumber;
+	private String houseAddress;
+	private String houseMessage;
+	private String houseAddressDetail;
+	private String houseLocation;
+	private String memberId;
+	private int houseDeposit;
+	private int houseMonth;
+	private String houseType;
+	private String houseGender;
+	private int houseManagement;
+	private String houseParking;
+	private String housePet;
+	private String houseElevator;
+	private String houseDate;
+	private String maPowerRates;
+	private String maGas;
+	private String maWater;
+	private String maInternet;
+	private String maTv;
+	private String opAircon;
+	private String opRefrigerator;
+	private String opWasher;
+	private String opGasrange;
+	private String opInduction;
+	private String opMicrowave;
+	private String opDesk;
+	private String opDoorlock;
+	private String opBed;
+	private String opCloset;
+	private String opShoes;
+	private String opSink;
 	
 	public HouseVO() {;}
 
@@ -127,38 +123,6 @@ public class HouseVO {
 
 	public void setHouseManagement(int houseManagement) {
 		this.houseManagement = houseManagement;
-	}
-
-	public int getHouseTotalFloor() {
-		return houseTotalFloor;
-	}
-
-	public void setHouseTotalFloor(int houseTotalFloor) {
-		this.houseTotalFloor = houseTotalFloor;
-	}
-
-	public int getHouseFloor() {
-		return houseFloor;
-	}
-
-	public void setHouseFloor(int houseFloor) {
-		this.houseFloor = houseFloor;
-	}
-
-	public String getHouseWay() {
-		return houseWay;
-	}
-
-	public void setHouseWay(String houseWay) {
-		this.houseWay = houseWay;
-	}
-
-	public String getHouseLoan() {
-		return houseLoan;
-	}
-
-	public void setHouseLoan(String houseLoan) {
-		this.houseLoan = houseLoan;
 	}
 
 	public String getHouseParking() {

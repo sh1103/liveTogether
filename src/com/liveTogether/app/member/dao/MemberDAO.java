@@ -39,6 +39,20 @@ public class MemberDAO {
 			return sqlSession.selectOne("Member.getInfo", memberId);
 		}
 		
+		//아이디 찾기
+		public String findId(Map<String, String> findIdMap) {
+			String memberId = null;
+			try {memberId = sqlSession.selectOne("Member.findId", findIdMap);} catch (Exception e) {;}
+			return memberId;
+		}
+		
+		//비밀번호 찾기
+		public String findPw(Map<String, String> findPwMap) {
+			String memberPw = null;
+			try {memberPw = sqlSession.selectOne("Member.findId", findPwMap);} catch (Exception e) {;}
+			return memberPw;
+		}
+		
 	}
 
 

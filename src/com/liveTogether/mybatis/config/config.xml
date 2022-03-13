@@ -3,9 +3,9 @@
 
 <configuration>
 	<typeAliases>
-		<typeAlias type="project.app.member.vo.MemberVO" alias="memberVO"/>
-		<typeAlias type="project.app.board.vo.BoardVO" alias="boardVO"/>
-		<typeAlias type="project.app.board.vo.FilesVO" alias="filesVO"/>
+		<typeAlias type="com.liveTogether.app.member.vo.MemberVO" alias="memberVO"/>
+		<typeAlias type="com.liveTogether.app.board.vo.BoardVO" alias="boardVO"/>
+		<typeAlias type="com.liveTogether.app.board.vo.HouseVO" alias="houseVO"/>
 	</typeAliases>
 
 	<environments default="development">
@@ -21,9 +21,9 @@
 	</environments>
 	
 	<mappers>
-		<mapper resource="project/mybatis/mapper/member.xml"/>
-		<mapper resource="project/mybatis/mapper/board.xml"/>
-		<mapper resource="project/mybatis/mapper/files.xml"/>
+		<mapper resource="com/liveTogether/mybatis/mapper/member.xml"/>
+		<mapper resource="com/liveTogether/mybatis/mapper/board.xml"/>
+		<mapper resource="com/liveTogether/mybatis/mapper/house.xml"/>
 	</mappers>
 	
 </configuration>

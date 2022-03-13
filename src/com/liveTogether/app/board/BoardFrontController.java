@@ -28,6 +28,9 @@ public class BoardFrontController extends HttpServlet {
 		ActionForward af = null;
 		
 		switch(command) {
+		case "/board/BoardListOk.bo":
+			af = new BoardListOk().execute(req, resp);
+			break;
 		}
 		
 		//분기 별 결과를 af에 담았다면 여기로 내려온다.
