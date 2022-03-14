@@ -49,7 +49,7 @@ public class MemberDAO {
 		//비밀번호 찾기
 		public String findPw(Map<String, String> findPwMap) {
 			String memberPw = null;
-			try {memberPw = sqlSession.selectOne("Member.findId", findPwMap);} catch (Exception e) {;}
+			try {memberPw = sqlSession.selectOne("Member.findPw", findPwMap);} catch (Exception e) {;}
 			return memberPw;
 		}
 		

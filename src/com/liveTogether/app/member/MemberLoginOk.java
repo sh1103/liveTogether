@@ -32,7 +32,7 @@ public class MemberLoginOk implements Action {
 		}else {//로그인 성공
 			session.setAttribute("memberId", memberId);
 			af.setRedirect(true);
-			af.setPath(req.getContextPath() + "/board/BoardListOk.bo");
+			af.setPath(req.getContextPath() + "/main/main.jsp");
 		}
 		
 		return af;
