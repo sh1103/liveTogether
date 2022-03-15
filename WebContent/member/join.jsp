@@ -62,14 +62,14 @@
 					<div id="infoMsg">
 						<span>내 월세를 아껴줄<br>쉐어하우스 <b>'가치살자'</b></span>
 					</div>
+					<form id="joinForm" name="joinForm" action="${pageContext.request.contextPath}/member/MemberJoinOk.me">
 					<div id="memberType">
-						<input class="member-input" type="radio" value="nomal"
+						<input class="member-input" type="radio" value="n"
 							name="memberType" id="nomal"> <label class="member-btn"
 							for="nomal">일반회원</label> <input class="member-input" type="radio"
-							value="host" name="memberType" id="host"> <label
+							value="h" name="memberType" id="host"> <label
 							class="member-btn" for="host">호스트</label>
 					</div>
-					<form id="joinForm" name="joinForm" action="${pageContext.request.contextPath}/member/MemberJoinOk.me">
 						<div id="trans">
 							<div class="login_kakaomail">
 								<div id="loginEmailField">
