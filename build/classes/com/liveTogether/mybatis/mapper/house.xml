@@ -15,18 +15,18 @@
 		test="three != null"> or roomQuantity = #{three} </if> <if test="three != 
 		null"> or roomQuantity = #{three} </if> </select> -->
 
-	<!-- 하우스 전체 리스트 -->
+	<!-- 방 전체 리스트 -->
 	<select id="selectAll" resultType="houseDTO">
-		select th1.houseNumber, th2.roomDeposit, th2.roomMonthly, th1.HouseGender, th1.HouseType,
-		th1.houseMax 
-		from tbl_house th1 join tbl_houseRoom th2 on th1.houseNumber = th2.houseNumber group by th1.houseNumber order by th1.houseNumber
+		select th.houseNumber, th.roomDeposit, th.roomMonthly, th.roomGender, th.roomType,
+		th2.houseMax 
+		from tbl_houseRoom th join tbl_house th2 on th.houseNumber = th2.houseMax order by roomNumber desc;
 	</select>
 
 	<!-- 방 정보조회 -->
 	<select id="info" parameterType="_int" resultType="houseVO">
 		select
 		houseNumber, houseContent, houseMessage, houseAddress,
-		houseAddressDetail, latitude, longitude, houseLocation, memberId, houseDeposit, houseMonth,
+		houseAddressDetail, houseLocation, memberId, houseDeposit, houseMonth,
 		houseType, houseGender, houseManagement, houseTotalFloor, houseFloor,
 		houseWay, houseLoan, houseParking, housePet, houseElevator, houseDate,
 		maPowerRates, maGas, maWater, maInternet, maTv, opAircon,
@@ -41,7 +41,7 @@
 	<insert id="regist" parameterType="houseVO">
 		insert into tbl_house
 		(houseMax, memberId, houseType, houseAddress, houseAddressDetail,
-		latitude, longitude, houseLocation, houseGender,
+		houseLocation,
 		opAircon, opCentralHeat, opLocalHeat, opRefrigerator,
 		opWasher,
 		opGasrange, opInduction, opMicrowave, opDesk, opDoorlock,
@@ -52,8 +52,8 @@
 		housePet,
 		houseContent, houseMessage)
 		values(#{houseMax}, #{memberId},
-		#{houseType}, #{houseAddress}, #{houseAddressDetail}, 
-		#{latitude}, #{longitude}, #{houseLocation}, #{houseGender}, #{opAircon}, #{opCentralHeat}, #{opLocalHeat},
+		#{houseType}, #{houseAddress}, #{houseAddressDetail},
+		#{houseLocation}, #{opAircon}, #{opCentralHeat}, #{opLocalHeat},
 		#{opRefrigerator}, #{opWasher}, #{opGasrange}, #{opInduction},
 		#{opMicrowave}, #{opDesk}, #{opDoorlock},
 		#{opBed}, #{opCloset},
@@ -68,7 +68,6 @@
     	</selectKey>
 	</insert>
 
-	<!-- 방 추가  -->
 	<insert id="registroom" parameterType="houseRoomVO">
 		insert into tbl_houseroom
 		(roomName, roomType, roomGender, roomDeposit, roomMonthly, roomArea,

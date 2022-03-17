@@ -97,6 +97,7 @@
 				</table>
 				<input type="hidden" name="latitude"> 
 				<input type="hidden" name="longitude">
+				<div id="map" style="width: 100%; height: 350px;"></div>
 
 				<!-- 방정보 -->
 				<div class="content-sub-title">
