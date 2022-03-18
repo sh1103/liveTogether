@@ -14,6 +14,7 @@
 
 </head>
 <body>
+
 	<!-- Header -->
 	<jsp:include page="../fix/header.jsp" />
 
@@ -66,7 +67,7 @@
 									<option value="80">80만원</option>
 									<option value="90">90만원</option>
 									<option value="100">100만원</option>
-									<option value="101">100만원이상</option>
+									<option value="100000000">100만원이상</option>
 								</select>
 							</div>
 						</div>
@@ -76,19 +77,19 @@
 						</span>
 						<div class="filter-flex">
 							<div class="check-wrap">
-								<input type="checkbox" id="check1" name="g" value="woman">
+								<input type="checkbox" id="check1" name="houseGender" value="w">
 								<label for="check1">
 									<div class="check">여성전용</div>
 								</label>
 							</div>
 							<div class="check-wrap">
-								<input type="checkbox" id="check2" name="g" value="man">
+								<input type="checkbox" id="check2" name="houseGender" value="m">
 								<label for="check2">
 									<div class="check">남성전용</div>
 								</label>
 							</div>
 							<div class="check-wrap">
-								<input type="checkbox" id="check3" name="g" value="public">
+								<input type="checkbox" id="check3" name="houseGender" value="o">
 								<label for="check3">
 									<div class="check">남녀공용</div>
 								</label>
@@ -100,25 +101,25 @@
 						</span>
 						<div class="filter-flex">
 							<div class="check-wrap">
-								<input type="checkbox" id="check4" name="h" value="apart">
+								<input type="checkbox" id="check4" name="houseType" value="a">
 								<label for="check4">
 									<div class="check">아파트</div>
 								</label>
 							</div>
 							<div class="check-wrap">
-								<input type="checkbox" id="check5" name="h" value="single">
+								<input type="checkbox" id="check5" name="houseType" value="d">
 								<label for="check5">
 									<div class="check">단독주택</div>
 								</label>
 							</div>
 							<div class="check-wrap">
-								<input type="checkbox" id="check6" name="h" value="villa">
+								<input type="checkbox" id="check6" name="houseType" value="v">
 								<label for="check6">
 									<div class="check">빌라</div>
 								</label>
 							</div>
 							<div class="check-wrap">
-								<input type="checkbox" id="check7" name="h" value="other">
+								<input type="checkbox" id="check7" name="houseType" value="o">
 								<label for="check7">
 									<div class="check">기타</div>
 								</label>
@@ -130,31 +131,36 @@
 						</span>
 						<div class="filter-flex">
 							<div class="check-wrap">
-								<input type="checkbox" id="check8" name="r" value="one">
+								<input type="checkbox" id="check8" name="roomType" value="1">
 								<label for="check8">
 									<div class="check">1인실</div>
 								</label>
 							</div>
 							<div class="check-wrap">
-								<input type="checkbox" id="check9" name="r" value="two">
+								<input type="checkbox" id="check9" name="roomType" value="2">
 								<label for="check9">
 									<div class="check">2인실</div>
 								</label>
 							</div>
 							<div class="check-wrap">
-								<input type="checkbox" id="check10" name="r" value="three">
+								<input type="checkbox" id="check10" name="roomType" value="3">
 								<label for="check10">
 									<div class="check">3인실</div>
 								</label>
 							</div>
-
+							<div class="check-wrap">
+								<input type="checkbox" id="check11" name="roomType" value="4">
+								<label for="check11">
+									<div class="check">4인이상</div>
+								</label>
+							</div>
 						</div>
 					</div>
 					<div class="filter">
 						<span> <strong>입주예정일</strong>
 						</span>
 						<div>
-							<input type="date" name="d">
+							<input type="date" name="roomDate">
 						</div>
 					</div>
 					<div class="btn">
@@ -164,7 +170,7 @@
 									onClick="window.location.reload()">
 							</div>
 							<div class="button-wrap">
-								<input type="button" value="적용하기" onclick="getList()">
+								<input type="button" value="적용하기" id="findbtn">
 							</div>
 						</div>
 					</div>
@@ -180,26 +186,7 @@
 			<div id="table-wrap">
 				<div id="table">
 					<div class="table-row">
-						<div class="table-cell">
-							<a href="roomDetail.jsp" target="_blank">
-								<div class="cell-wrap">
-									<div class="img-wrap"></div>
-									<div class="content-wrapper">
-										<div class="content">
-											<span class="name" style="">94호점</span><span class="gu"
-												style="">(보증금1000/월30)</span>
-										</div>
-										<div class="content content2">
-											<span class="gender-division">남성전용</span><span
-												class="concept"> 빌라</span><span class="opened-beds"
-												style="display: inline;">신청가능 <span
-												class="opened-beds-count ">5</span>
-											</span><span class="opened-beds" style="display: none;">예약가능</span>
-										</div>
-									</div>
-								</div>
-							</a>
-						</div>
+						
 
 
 

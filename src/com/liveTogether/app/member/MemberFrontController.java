@@ -39,6 +39,8 @@ public class MemberFrontController extends HttpServlet {
 			af = new MemberFindIdOk().execute(req, resp);
 		}else if(command.equals("/member/MemberFindPwOk.me")) {
 			af = new MemberFindPwOk().execute(req, resp);
+		}else if(command.equals("/member/MemberFindPwSMSOk.me")) {
+			af = new MemberFindPwSMSOk().execute(req, resp);
 		}else if(command.equals("/member/MemberLogoutOk.me")) {
 			af = new MemberLogoutOk().execute(req, resp);
 		}else if(command.equals("/member/MemberMypageOk.me")) {

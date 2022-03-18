@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE HTML>
 <!--
 		Tactile by Pixelarity
@@ -35,10 +36,177 @@ button.btn_tistory:hover {
 	border: none !important;
 	background-color: #e7e7e7;
 }
+p#open{
+        border-radius: 4px;
+    border: none !important;
+    background-color: #1187CF;
+    color: #fff;
+    height: 50px;
+        font-weight: 700;
+    margin:0;
+        overflow: hidden;
+            letter-spacing: 0.07em;
+    line-height: 3.35em;
+    text-align:center;
+        display: inline-block;
+    }
+    
+    p#certified{
+    border-radius: 4px;
+    border: none !important;
+    background-color: #1187CF;
+    color: #fff;
+    height: 50px;
+        font-weight: 700;
+    margin:0;
+        overflow: hidden;
+            letter-spacing: 0.07em;
+    line-height: 3.35em;
+    text-align:center;
+        display: inline-block;
+    }
 
+#modal{
+	display:none;
+    background-color: #0f0f0f99;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    left: 0;
+}
+#modal2{
+	display:none;
+    background-color: #0f0f0f99;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    left: 0;
+}
+#modal-inner{
+ width: 40%;
+    height: 100vh;
+    margin: 0 auto;
+    left: 30%;
+    top: 0;
+    position: absolute;
+
+    }
+    #modal-inner2{
+ width: 40%;
+    height: 100vh;
+    margin: 0 auto;
+    left: 30%;
+    top: 0;
+    position: absolute;
+
+    }
+ #modal-box{
+ height: 50%;
+    width: 80%;
+    margin-top: 25%;
+    margin-left: 10%;
+    background: #fff;
+    border: 1px solid;}
+     #modal-box2{
+ height: 50%;
+    width: 80%;
+    margin-top: 25%;
+    margin-left: 10%;
+    background: #fff;
+    border: 1px solid;}
+    
+    .modal-content{
+        text-align: center;
+        position: relative;
+    }
+    .modal-content2{
+        text-align: center;
+        position: relative;
+    }
+    div#m-title.modal-content{
+
+    margin-top: 10%;
+    }
+   div#m2-title.modal-content2{
+
+    margin-top: 10%;
+    }
+     div#m-pw.modal-content{
+	border-top: 2px solid #eee;
+    border-bottom: 2px solid #eee;
+    padding: 2rem;
+    margin: 3em;
+    }
+    
+     .modal-content h3{
+	margin:0 0 0.5em 0 !important;
+    }
+        
+     .modal-content2 h3{
+	margin:0 0 0.5em 0 !important;
+    }
+    
+     div#m-btn.modal-content{
+ border:1px solid;
+ cursor: pointer;
+ width: 50%;
+ margin: 0 auto;
+    }
+         div#m-btn2.modal-content{
+ border:1px solid;
+ cursor: pointer;
+ width: 50%;
+ margin: 0 auto;
+  display:none; 
+    }
+             div#m-btn3.modal-content{
+ border:1px solid;
+ cursor: pointer;
+ width: 50%;
+ margin: 0 auto;
+  display:none; 
+    }
+
+    div#m-pw.modal-content{
+   	font-weight:600;
+    }
+    .modal-content input[type="button"]{
+    border: 1px solid #eee !important;
+    background: #1187CF;
+    color: #fff;
+}
+
+    .modal-content input[type="text"]{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    border: 1px solid #eee !important;
+    background: #eee;
+    color: black;
+}
+    .modal-content input[type="password"]{
+   display:none;
+   width: 50%;
+    margin: 0 auto;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    border: 1px solid #eee !important;
+    background: #eee;
+    color: black;
+   
+}
+	span.m-span{
+	font-size:smaller;
+	}
+	
 </style>
-<body class="is-preload">
-
+<body class="is-preload"> <!--  onload="MoveFocus();" -->
+<c:set var="member" value="${member}"/>
 	<!-- Header -->
 
 	<jsp:include page="../fix/header.jsp" />
@@ -47,19 +215,64 @@ button.btn_tistory:hover {
 	<jsp:include page="../fix/aside.jsp" />
 
 
-	<!-- Menu -->
-	<nav id="menu">
-		<ul class="links">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="generic.html">Generic</a></li>
-			<li><a href="elements.html">Elements</a></li>
-		</ul>
-		<ul class="actions stacked">
-			<li><a href="#" class="button fit primary">Sign Up</a></li>
-			<li><a href="#" class="button fit">Log In</a></li>
-		</ul>
-	</nav>
+<!--
+	확인 -> 모달켜짐 -> 인증번호 입력 -> 입력하면 모달이너 none, 이너2 block -> 비밀번호 새로만드는 창
+ 	새로 입력하는 컨트롤러 (모달이너넘어갈때 인증번호 보내주는게 첫번째(핸드폰), 
+  -->
 
+<div id="modal">
+	 <div id="modal-inner">
+		<div id="modal-box">
+			<div id="modal-contents">
+				<div class="modal-content" id="m-title"><h3>비밀번호 찾기</h3>
+				<span class="m-span">인증번호를 입력해주세요.</span><br></div>
+				<div class="modal-content"id="phone-check2">
+	<!-- 			<form name="cform"> -->
+				<input type="text" id="memberCode" name="memberCode"
+				placeholder="인증번호" value="" tabindex="3"  autocomplete="off" class="memberCode">
+				<input type="password" id="changePw" name="chanePw" placeholder="변경하실 비밀번호를 입력하세요." autocomplete="off" >
+				<div id="result4"></div>
+				<!-- </form> -->
+		<!-- 		<p id="#certified">확인</p>  -->
+				<div class="modal-content" id="m-btn">확인</div>
+				<div class="modal-content" id="m-btn2">비밀번호 변경</div>
+				<div class="modal-content" id="m-btn3">변경하기</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	 
+	 <!-- 새로운 비밀번호 -->
+	<%-- <div id="modal-inner2">
+		<div id="modal-box2">
+			<div id="modal-contents2" id="m2-title">	
+				<h2>비밀번호 변경하기</h2>
+				<span class="m-span">새로운 비밀번호를 입력해주세요.</span>
+				<form action="${pageContext.request.contextPath}/member/MemberFindPwOk.me" accept-charset="UTF-8" method="post">
+				<input type="text" id="memberPw" name="memberPw"
+				placeholder="새로운 비밀번호" value="${member.getMemberPw()}" tabindex="3"  autocomplete="off" class="memberPw">
+				</form>
+			</div>
+				<div class="modal-content2" id="m-btn"><button>확인</button></div>
+		</div>
+	</div>  --%>
+	
+</div>
+
+
+<!-- <div id="modal2">
+	<div id="modal-inner2">
+		<div id="modal-box2">
+			<div id="modal-contents2" id="m2-title">	
+				<span>인증번호를 입력해 주세요.</span>
+				<input type="text" id="memberCode" name="memberCode"
+				placeholder="인증번호" value="" tabindex="3"  autocomplete="off" class="memberCode">
+			</div>
+				<div class="modal-content2" id="m-btn"><button>확인</button></div>
+		</div>
+	</div>
+</div>
+	 -->
 	<!-- Main -->
 	<section id="finePw-wrap">
 		<div id="box">
@@ -74,21 +287,21 @@ button.btn_tistory:hover {
 			</ul>
 			<div id="mArticle">
 				<div class="content_account">
-					<form id="findLoginId" method="post" action="#">
+					<form id="findLoginId" method="post">
 						<fieldset class="fld_tistory">
 							<div class="cont_data">
 
 								<div class="inp_text">
 									<label for="findUrlOrNickname" class="screen_out">아이디와
 										전화번호를 입력해주세요.</label> <input type="text" id="findUrlOrNickname"
-										name="memberId" placeholder="아이디" value="" tabindex="3"> <input
+										name="memberId" class="memberId" placeholder="아이디" value="" tabindex="3"  autocomplete="off"> <input
 										type="text" id="findUrlOrNickname" name="memberPhone"
-										placeholder="전화번호" value="" tabindex="3">
+										placeholder="전화번호" value="" tabindex="3"  autocomplete="off" class="memberPhone">
 								</div>
 							</div>
 							<div id="kakaochoice">
 								<ul class="actions fit kakaochoice">
-									<li><a href="#" class="button alt fit tstory"><span>확인</span></a></li>
+									<li><p id="open">확인</li>
 									<li><a href="login.jsp" class="button alt fit tstory find"><span>로그인</span></a></li>
 									<li><a href="join.jsp" class="button alt fit tstory find"><span>회원가입</span></a></li>
 								</ul>
@@ -108,12 +321,16 @@ button.btn_tistory:hover {
 
 
 	<!-- Scripts -->
-	<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+
+	<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script> 
 	<script src="${pageContext.request.contextPath}/assets/js/jquery.scrolly.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+<%-- 	<script src="${pageContext.request.contextPath}/assets/js/findPw.js"></script> --%>
+	<script src="${pageContext.request.contextPath}/assets/js/findPwSMS.js"></script>
+	<script>var contextPath = "${pageContext.request.contextPath }";</script>
 
 </body>
 </html>

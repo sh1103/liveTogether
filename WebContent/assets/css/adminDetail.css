@@ -34,12 +34,23 @@ body {
 	margin: 0;
 }
 
+table#paging{
+	margin: 0 auto;	
+}
+
+a{
+	text-decoration: none;
+	color: #8c8a8c; 	
+}
+
 div#first-wrapper {
 	background-color: #F9F9F9;
+	height: 637px;
 }
 
 div#first-wrapper div#second-wrapper {
 	width: 50%;
+	height: 545px;
 	padding: 30px;
 	background-color: white;
 	border: 1px solid #dddddd;
@@ -112,18 +123,14 @@ td.td7, td.ttd7 {
 }
 
 td.td8, td.ttd8 {
-	width: 49.78px;
+	width: 121.44px;
 }
 
 td.td9, td.ttd9 {
-	width: 71.66px;
-}
-
-td.ttd10 {
 	width: 115.17px;
 }
 
-td.td10 {
+td.td9 {
 	width: 115.17px;
 	text-align: center;
 	font-weight: bold;

@@ -19,7 +19,8 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/houseRegister.css" />
 </head>
-<script type="text/javascript"	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fd5a829552ba5aafe83249b169e62ba9&libraries=services"></script>
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fd5a829552ba5aafe83249b169e62ba9&libraries=services"></script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <body>
 	<!-- Header -->
@@ -41,7 +42,7 @@
 				</ul>
 			</div>
 			<form id="registForm" name="registForm" method="post"
-				action="${pageContext.request.contextPath}/house/HouseRegisterOk.ho">
+				action="${pageContext.request.contextPath}/house/HouseRegisterOk.ho" enctype="multipart/form-data">
 
 				<!-- 위치정보 -->
 				<div class="content-sub-title">
@@ -81,7 +82,7 @@
 						<tr>
 							<th>상세주소</th>
 							<td><input type="text" id="address2"
-								name="houseAddressDetail" class="address">
+								name="houseAddressDetail" class="address" autocomplete="off">
 								<div class="item-map">
 									<div id="map"></div>
 									<div class="i-list">
@@ -91,12 +92,13 @@
 						</tr>
 						<tr>
 							<th>지역</th>
-							<td><input type="text" id="address3" class="address"		name="houseLocation"></td>
+							<td><input type="text" id="address3" class="address"
+								name="houseLocation" autocomplete="off"></td>
 						</tr>
 					</tbody>
 				</table>
-				<input type="hidden" name="latitude"> 
-				<input type="hidden" name="longitude">
+				<input type="hidden" name="latitude"> <input type="hidden"
+					name="longitude">
 
 				<!-- 방정보 -->
 				<div class="content-sub-title">
@@ -109,7 +111,7 @@
 							<th>방이름</th>
 							<td>
 								<div>
-									<input type="hidden" name="roomName" value="Room1">
+									<input type="hidden" name="roomName" value="Room1" autocomplete="off">
 									<div class="input-smallsize">Room1</div>
 								</div>
 							</td>
@@ -120,7 +122,7 @@
 								<div>
 									<input type="radio" id="male" name="roomGender1" value="m">
 									<label for="male">남성전용</label> <input type="radio" id="female"
-										name="roomGender" value="w"> <label for="female">여성전용</label>
+										name="roomGender1" value="w"> <label for="female">여성전용</label>
 								</div>
 							</td>
 						</tr>
@@ -128,7 +130,7 @@
 							<th>타입</th>
 							<td>
 								<div class="flex">
-									<input type="text" class="input-xsmallsize" name="roomType">
+									<input type="text" class="input-xsmallsize" name="roomType" autocomplete="off">
 									<div>
 										<span class="span-lineheight">&nbsp;&nbsp;인실</span>
 									</div>
@@ -139,7 +141,7 @@
 							<th>보증금</th>
 							<td>
 								<div class="flex">
-									<input type="text" class="input-xsmallsize" name="roomDeposit">
+									<input type="text" class="input-xsmallsize" name="roomDeposit" autocomplete="off">
 									<div>
 										<span class="span-lineheight">&nbsp;&nbsp;만원</span>
 									</div>
@@ -150,7 +152,7 @@
 							<th>월세</th>
 							<td>
 								<div class="flex">
-									<input type="text" class="input-xsmallsize" name="roomMonthly">
+									<input type="text" class="input-xsmallsize" name="roomMonthly" autocomplete="off">
 									<div>
 										<span class="span-lineheight">&nbsp;&nbsp;만원</span>
 									</div>
@@ -163,10 +165,10 @@
 								<div>
 									<div id="roomsize-wrap">
 										<input type="text" class="input-xsmallsize" id="cal2"
-											onkeyup="calculator(2);" name="roomArea"><span
+											onkeyup="calculator(2);" name="roomArea" autocomplete="off"><span
 											class="span-lineheight">&nbsp;&nbsp;m<sup>2</sup>&nbsp;=&nbsp;&nbsp;
 										</span> <input type="text" class="input-xsmallsize" id="cal1"
-											onkeyup="calculator(1);"><span
+											onkeyup="calculator(1);" autocomplete="off"><span
 											class="span-lineheight">&nbsp;&nbsp;평</span>
 									</div>
 								</div>
@@ -185,18 +187,19 @@
 							<th>사진</th>
 							<td>
 								<div>
-									<div class="files1">
+									<div class="filesRooma1">
 										<div class="file-wrap">
 											<div id="file">
-												<label for="board_file1" style="display: inline;"> <img
-													id="board_file1Img" class="roomImg"
+												<label for="room_filea11" style="display: inline;"> <img
+													id="room_filea11Img" class="roomImg"
 													src="${pageContext.request.contextPath}/images/파일첨부.png">
 												</label>
 											</div>
-											<input id="board_file1" name="board_file1" type="file"
-												style="display: none"> <input type="button"
-												class="removeImgBtn" onclick="cancelFile('board_file1')"
-												value="첨부 삭제">
+											<input id="room_filea11" name="room_file1" type="file"
+												style="display: none" class="a1"
+												onchange="imgThumbnail(event);"> <input
+												type="button" class="removeImgBtn"
+												onclick="cancelFile('room_filea11')" value="첨부 삭제">
 										</div>
 									</div>
 								</div>
@@ -233,15 +236,15 @@
 							<td>
 								<div class="flex">
 									<div>
-										<input type="checkbox" id="fac1" name="opAircon" value="a">
+										<input type="checkbox" id="fac1" name="opAircon" value="1">
 										<label for="fac1">에어컨</label>
 									</div>
 									<div>
 										<input type="checkbox" id="fac2" name="opCentralHeat"
-											value="b"> <label for="fac2">중앙난방</label>
+											value="1"> <label for="fac2">중앙난방</label>
 									</div>
 									<div>
-										<input type="checkbox" id="fac3" name="opLocalHeat" value="c">
+										<input type="checkbox" id="fac3" name="opLocalHeat" value="1">
 										<label for="fac3">지역난방</label>
 									</div>
 								</div>
@@ -254,51 +257,51 @@
 								<div class="flex">
 									<div>
 										<input type="checkbox" id="refrigerator" name="opRefrigerator"
-											value="d"> <label for="refrigerator">냉장고</label>
+											value="1"> <label for="refrigerator">냉장고</label>
 									</div>
 									<div>
-										<input type="checkbox" id="washer" name="opWasher" value="e">
+										<input type="checkbox" id="washer" name="opWasher" value="1">
 										<label for="washer">세탁기</label>
 									</div>
 									<div>
 										<input type="checkbox" id="gasrange" name="opGasrange"
-											value="f"> <label for="gasrange">가스레인지</label>
+											value="1"> <label for="gasrange">가스레인지</label>
 									</div>
 									<div>
 										<input type="checkbox" id="induction" name="opInduction"
-											value="g"> <label for="induction">인덕션</label>
+											value="1"> <label for="induction">인덕션</label>
 									</div>
 								</div>
 								<div class="flex">
 									<div>
 										<input type="checkbox" id="microwave" name="opMicrowave"
-											value="h"> <label for="microwave">전자레인지</label>
+											value="1"> <label for="microwave">전자레인지</label>
 									</div>
 
 									<div>
-										<input type="checkbox" id="desk" name="opDesk" value="i">
+										<input type="checkbox" id="desk" name="opDesk" value="1">
 										<label for="desk">책상</label>
 									</div>
 									<div>
 										<input type="checkbox" id="doorlock" name="opDoorlock"
-											value="j"> <label for="doorlock">도어락</label>
+											value="1"> <label for="doorlock">도어락</label>
 									</div>
 									<div>
-										<input type="checkbox" id="bed" name="opBed" value="k">
+										<input type="checkbox" id="bed" name="opBed" value="1">
 										<label for="bed">침대</label>
 									</div>
 								</div>
 								<div class="flex">
 									<div>
-										<input type="checkbox" id="closet" name="opCloset" value="l">
+										<input type="checkbox" id="closet" name="opCloset" value="1">
 										<label for="closet">옷장</label>
 									</div>
 									<div>
-										<input type="checkbox" id="shoes" name="opShoes" value="m">
+										<input type="checkbox" id="shoes" name="opShoes" value="1">
 										<label for="shoes">신발장</label>
 									</div>
 									<div>
-										<input type="checkbox" id="sink" name="opSink" value="n">
+										<input type="checkbox" id="sink" name="opSink" value="1">
 										<label for="sink">싱크대</label>
 									</div>
 								</div>
@@ -310,14 +313,14 @@
 								<div class="flex">
 									<div>
 										<input type="checkbox" id="interphone" name="opInterphone"
-											value="o"> <label for="interphone">인터폰</label>
+											value="1"> <label for="interphone">인터폰</label>
 									</div>
 									<div>
 										<input type="checkbox" id="windowguard" name="opWindow"
-											value="p"> <label for="windowguard">방범창</label>
+											value="1"> <label for="windowguard">방범창</label>
 									</div>
 									<div>
-										<input type="checkbox" id="cctv" name="opCctv" value="q">
+										<input type="checkbox" id="cctv" name="opCctv" value="1">
 										<label for="cctv">CCTV</label>
 									</div>
 								</div>
@@ -328,16 +331,16 @@
 							<td>
 								<div class="flex">
 									<div>
-										<input type="checkbox" id="veranda" name="opVeranda" value="r">
+										<input type="checkbox" id="veranda" name="opVeranda" value="1">
 										<label for="veranda">베란다</label>
 									</div>
 									<div>
 										<input type="checkbox" id="deliverybox" name="opDelivery"
-											value="s"> <label for="deliverybox">무인택배함</label>
+											value="1"> <label for="deliverybox">무인택배함</label>
 									</div>
 									<div>
 										<input type="checkbox" id="firealarm" name="opFirealarm"
-											value="t"> <label for="firealarm">화재경보기</label>
+											value="1"> <label for="firealarm">화재경보기</label>
 									</div>
 								</div>
 							</td>
@@ -348,14 +351,14 @@
 								<div class="flex">
 									<div>
 										<input type="checkbox" id="parking" name="houseParking"
-											value="u"> <label for="parking">주차가능</label>
+											value="1"> <label for="parking">주차가능</label>
 									</div>
 									<div>
 										<input type="checkbox" id="elevator" name="houseElevator"
-											value="v"> <label for="elevator">엘리베이터</label>
+											value="1"> <label for="elevator">엘리베이터</label>
 									</div>
 									<div class="check-wrap">
-										<input type="checkbox" id="pet" name="housePet" value="w">
+										<input type="checkbox" id="pet" name="housePet" value="1">
 										<label for="pet">반려동물</label>
 									</div>
 								</div>
@@ -367,15 +370,13 @@
 
 				<!-- 사진 등록 -->
 				<div class="content-sub-title">
-					<h2>사진 등록</h2>
+					<h2>방 구조</h2>
 				</div>
 				<table>
 					<tbody>
 						<tr>
 							<td>
-								<ul class="ul">
-									<li>최소 3장 이상의 사진을 등록해야 하며 최대 15장까지 등록이 가능합니다.</li>
-									<li>첫번째 사진이 대표 이미지로 보여지며 순서를 변경 할 수 있습니다.</li>
+								<ul class="ul">									
 									<li>매물과 관련없는 이미지, 홍보성 이미지, 워터마크 이미지는 등록하실 수 없습니다.</li>
 								</ul>
 							</td>
@@ -383,17 +384,17 @@
 						<tr>
 							<td>
 								<div>
-									<div class="files">
+									<div class="filesHouse" id="1">
 										<div class="file-wrap">
 											<div id="file">
-												<label for="board_file1" style="display: inline;"> <img
-													id="board_file1Img" class="roomImg"
+												<label for="house_file" style="display: inline;"> 
+												<img	 id="house_filebImg" class="roomImg"
 													src="${pageContext.request.contextPath}/images/파일첨부.png">
 												</label>
 											</div>
-											<input id="board_file1" name="board_file1" type="file"
-												style="display: none"> <input type="button"
-												class="removeImgBtn" onclick="cancelFile('board_file1')"
+											<input id="house_file" name="house_file" type="file"
+												style="display: none" onchange="imgThumbnail2(event)"> 
+												<input type="button"	class="removeImgBtn" onclick="cancelFile2('house_file')"
 												value="첨부 삭제">
 										</div>
 									</div>
@@ -417,7 +418,7 @@
 								<div>
 									<input type="text" maxlength="40"
 										placeholder="쉐어하우스를 소개할 제목을 작성해주세요. (40글자 이내)"
-										name="houseContent">
+										name="houseContent" autocomplete="off">
 								</div>
 							</td>
 						</tr>
@@ -439,7 +440,7 @@
 				</table>
 
 				<div id="roomSubmit">
-					<button id="submit-button" type="submit" onclick="send()">방내놓기</button>
+					<button id="submit-button" type="button" onclick="send()">방내놓기</button>
 				</div>
 			</form>
 		</div>
@@ -451,48 +452,50 @@
 </body>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script> var contextPath = "${pageContext.request.contextPath}";</script>
+<script>
+	var contextPath = "${pageContext.request.contextPath}";
+</script>
 <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
-<script	src="${pageContext.request.contextPath}/assets/js/jquery.scrolly.min.js"></script>
-<script	src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
-<script	src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/assets/js/jquery.scrolly.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
+<script
+	src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
-<script	src="${pageContext.request.contextPath}/assets/js/houseRegister.js"></script>
+<script
+	src="${pageContext.request.contextPath}/assets/js/houseRegister.js"></script>
 <!-- 주소로 좌표 가져오기 -->
 <script>
+	$("input#address2").focus(function() {
+		makeCoordinate();
+	})
 
+	//주소-좌표 변환 객체를 생성합니다
 
-$("input#address2").blur(function() {
-	makeCoordinate();
-})
+	function makeCoordinate() {
+		var geocoder = new kakao.maps.services.Geocoder();
+		var address = $("#address").val();
 
-//주소-좌표 변환 객체를 생성합니다
+		//주소로 좌표를 검색합니다
+		geocoder.addressSearch(address, function(result, status) {
 
-function makeCoordinate() {
-var geocoder = new kakao.maps.services.Geocoder();
-var address = $("#address").val()+" "+$("#address2").val();
+			// 정상적으로 검색이 완료됐으면 
+			if (status === kakao.maps.services.Status.OK) {
 
+				var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
+				$("input[name='latitude']").val(result[0].y);
+				$("input[name='longitude']").val(result[0].x);
 
-//주소로 좌표를 검색합니다
-geocoder.addressSearch(address, function(result, status) {
+				console.log($("input[name='latitude']").val());
+				console.log($("input[name='longitude']").val());
 
-// 정상적으로 검색이 완료됐으면 
- if (status === kakao.maps.services.Status.OK) {
+			}
+		});
 
-    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);    
-
-    $("input[name='latitude']").val(result[0].y);
-    $("input[name='longitude']").val(result[0].x);    
-
-    console.log( $("input[name='latitude']").val());
-    console.log( $("input[name='longitude']").val());
-    
-} 
-});    
-	
-}
+	}
 </script>
 
 

@@ -34,9 +34,9 @@ public class HouseListOk implements Action {
 			room.put("houseNumber", r.getHouseNumber());
 			room.put("roomDeposit", r.getRoomDeposit());
 			room.put("roomMonthly", r.getRoomMonthly());
-			room.put("roomGender", r.getRoomGender());
-			room.put("roomType", r.getRoomType());
-			room.put("houseMax", r.getHouseMax());			
+			room.put("houseGender", r.getHouseGender());
+			room.put("houseType", r.getHouseType());
+			room.put("houseMax", r.getHouseMax());
 			rooms.add(room);
 		}
 		

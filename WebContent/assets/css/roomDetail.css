@@ -6,6 +6,32 @@ header#header {
 	padding: 2rem;
 }
 
+div.flex {
+	display : flex;
+	flex-wrap: wrap;
+}
+
+div.flex div{
+	margin-right:10px;
+}
+
+/* section-zero */
+section#zero p.first-ptag {
+	font-size: 2rem;
+    font-weight: 600;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+ section#zero div.gradation-div {
+    background: linear-gradient(90deg, #1187cfa1 0%, #bceaff4d 100%);
+    width: 260px;
+    position: absolute;
+    top: 210px;
+    left: 380px;
+    height: 10px;
+}
+
 /* section-one */
 pre {
 	overflow: auto;
@@ -16,7 +42,7 @@ pre {
 
 div#second-wrap {
 	width: 55%;
-	margin: 0 auto;
+	margin: 90px auto;
 }
 
 section#one img, section#three img {
@@ -29,8 +55,13 @@ section#three img {
 }
 
 /* section-two */
+
+section#two{
+	margin-bottom: 110px;
+}
+
 .option-wrap {
-	width: 80%;
+
 	margin: 0 auto;
 	padding-bottom: 2rem;
 }
@@ -45,7 +76,7 @@ section#three img {
 
 #option-wrap {
 	width: 90%;
-	margin: 0 auto;
+
 }
 
 .option-wrap-wrap {
@@ -110,7 +141,7 @@ div.column {
 
 div.column-title {
 	float: left;
-	width: 40%;
+	width: 32%;
 	border-width: 0 1px 1px 0;
 	border-style: solid;
 	border-color: #E9E9E9;
@@ -122,20 +153,20 @@ div.column-title {
 
 div.column-value {
 	float: left;
-	width: 60%;
+	width: 68%;
 	border-width: 0 1px 1px 0;
 	border-style: solid;
 	border-color: #E9E9E9;
 	padding: 0 1rem;
 	height: 3rem;
 	line-height: 3rem;
+	overflow : hidden;
 }
 
 .column-wrap {
 	border-width: 1px 0 0 1px;
 	border-style: solid;
 	border-color: #E9E9E9;
-	height: 150px;
 }
 
 .button.primary.click.active {
@@ -204,10 +235,28 @@ table thead tr th {
 }
 
 table th {
+	
 	padding: 0;
-	text-align: center;
-	height: 3rem;
-	line-height: 3rem;
+    text-align: center;
+    height: 3rem;
+    line-height: 3rem;
+    border-right: 1px solid rgba(144, 144, 144, 0.3);
+}
+
+table#option-table {
+	border: 1px solid rgba(144, 144, 144, 0.3);
+}
+
+table#option-table td{
+	padding-left: 50px;
+	width: 80%;
+	padding: 0 30px;
+}
+
+table#option-table th{
+	width: 20%;
+	vertical-align: middle;
+	background-color: #F5F3F1;
 }
 
 .span {

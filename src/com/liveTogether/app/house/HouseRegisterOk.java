@@ -9,82 +9,121 @@ import javax.servlet.http.HttpSession;
 import com.liveTogether.action.Action;
 import com.liveTogether.action.ActionForward;
 import com.liveTogether.app.house.dao.HouseDAO;
+import com.liveTogether.app.house.dao.HouseFileDAO;
 import com.liveTogether.app.house.vo.HouseRoomVO;
 import com.liveTogether.app.house.vo.HouseVO;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-public class HouseRegisterOk implements Action{
+public class HouseRegisterOk implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		req.setCharacterEncoding("UTF-8");
 		
+		String uploadFolder = "C:\\aigb_0900_hsh\\jsp\\workspace\\liveTogether\\WebContent\\upload";
+		int fileSize = 1024 * 1024 * 5;//5M
+		HouseFileDAO fDao = new HouseFileDAO();		
+		//요청객체, 업로드폴더 경로, 파일의 크기, 인코딩 방식, 이름변경정책
+		MultipartRequest multi = new MultipartRequest(req, uploadFolder, fileSize, "UTF-8", new DefaultFileRenamePolicy());
+		
 		ActionForward af = new ActionForward();
-		HouseVO vo = new HouseVO();	
+		HouseVO vo = new HouseVO();
 		HouseRoomVO rvo = new HouseRoomVO();
-		HouseDAO dao = new HouseDAO();
+		HouseDAO hDao = new HouseDAO();
 		HttpSession session = req.getSession();
 		int houseMax = 0;
-		
-		session.getAttribute("memberId");
-		vo.setHouseType(req.getParameter("houseType"));
-		vo.setHouseAddress(req.getParameter("houseAddress"));
-		vo.setHouseAddressDetail(req.getParameter("houseAddressDetail"));
-		vo.setHouseLocation(req.getParameter("houseLocation"));
-		vo.setOpAircon(req.getParameter("opAircon"));
-		vo.setOpCentralHeat(req.getParameter("opCentralHeat"));
-		vo.setOpLocalHeat(req.getParameter("opLocalHeat"));
-		vo.setOpRefrigerator(req.getParameter("opRefrigerator"));
-		vo.setOpWasher(req.getParameter("opWasher"));
-		vo.setOpGasrange(req.getParameter("opGasrange"));
-		vo.setOpInduction(req.getParameter("opInduction"));
-		vo.setOpMicrowave(req.getParameter("opMicrowave"));
-		vo.setOpDesk(req.getParameter("opDesk"));
-		vo.setOpDoorlock(req.getParameter("opDoorlock"));
-		vo.setOpBed(req.getParameter("opBed"));
-		vo.setOpCloset(req.getParameter("opCloset"));
-		vo.setOpShoes(req.getParameter("opShoes"));
-		vo.setOpSink(req.getParameter("opSink"));
-		vo.setOpInterphone(req.getParameter("opInterphone"));
-		vo.setOpWindow(req.getParameter("opWindow"));
-		vo.setOpCctv(req.getParameter("opCctv"));
-		vo.setOpVeranda(req.getParameter("opVeranda"));
-		vo.setOpDelivery(req.getParameter("opDelivery"));
-		vo.setOpFirealarm(req.getParameter("opFirealarm"));
-		vo.setHouseParking(req.getParameter("houseParking"));
-		vo.setHouseElevator(req.getParameter("houseElevator"));
-		vo.setHousePet(req.getParameter("housePet"));
-		vo.setHouseContent(req.getParameter("houseContent"));
-		vo.setHouseMessage(req.getParameter("houseMessage"));
-		
-		dao.regist(vo);
+		String houseGender = null;
+		boolean manCheck = false;
+		boolean womanCheck = false;
 
-		String[] roomName = req.getParameterValues("roomName");
-		String[] roomType = req.getParameterValues("roomType");
-		String[] roomGender = {req.getParameter("roomGender1"), req.getParameter("roomGender2"), req.getParameter("roomGender3"), req.getParameter("roomGender4"), req.getParameter("roomGender5"), req.getParameter("roomGender6"), req.getParameter("roomGender7"), req.getParameter("roomGender8") };
-		String[] roomDeposit = req.getParameterValues("roomDeposit");
-		String[] roomMonthly = req.getParameterValues("roomMonthly");
-		String[] roomArea = req.getParameterValues("roomArea");		
-		String[] roomDate = req.getParameterValues("roomDate");
+		session.getAttribute("memberId");
+		vo.setHouseType(multi.getParameter("houseType"));
+		vo.setHouseAddress(multi.getParameter("houseAddress"));
+		vo.setHouseAddressDetail(multi.getParameter("houseAddressDetail"));
+		vo.setLatitude(Double.parseDouble(multi.getParameter("latitude")));
+		vo.setLongitude(Double.parseDouble(multi.getParameter("longitude")));
+		vo.setHouseLocation(multi.getParameter("houseLocation"));
+		vo.setOpAircon(multi.getParameter("opAircon"));
+		vo.setOpCentralHeat(multi.getParameter("opCentralHeat"));
+		vo.setOpLocalHeat(multi.getParameter("opLocalHeat"));
+		vo.setOpRefrigerator(multi.getParameter("opRefrigerator"));
+		vo.setOpWasher(multi.getParameter("opWasher"));
+		vo.setOpGasrange(multi.getParameter("opGasrange"));
+		vo.setOpInduction(multi.getParameter("opInduction"));
+		vo.setOpMicrowave(multi.getParameter("opMicrowave"));
+		vo.setOpDesk(multi.getParameter("opDesk"));
+		vo.setOpDoorlock(multi.getParameter("opDoorlock"));
+		vo.setOpBed(multi.getParameter("opBed"));
+		vo.setOpCloset(multi.getParameter("opCloset"));
+		vo.setOpShoes(multi.getParameter("opShoes"));
+		vo.setOpSink(multi.getParameter("opSink"));
+		vo.setOpInterphone(multi.getParameter("opInterphone"));
+		vo.setOpWindow(multi.getParameter("opWindow"));
+		vo.setOpCctv(multi.getParameter("opCctv"));
+		vo.setOpVeranda(multi.getParameter("opVeranda"));
+		vo.setOpDelivery(multi.getParameter("opDelivery"));
+		vo.setOpFirealarm(multi.getParameter("opFirealarm"));
+		vo.setHouseParking(multi.getParameter("houseParking"));
+		vo.setHouseElevator(multi.getParameter("houseElevator"));
+		vo.setHousePet(multi.getParameter("housePet"));
+		vo.setHouseContent(multi.getParameter("houseContent"));
+		vo.setHouseMessage(multi.getParameter("houseMessage"));
+		String[] roomName = multi.getParameterValues("roomName");
+		String[] roomType = multi.getParameterValues("roomType");
+		String[] roomGender = { multi.getParameter("roomGender1"), multi.getParameter("roomGender2"),
+				multi.getParameter("roomGender3"), multi.getParameter("roomGender4"), multi.getParameter("roomGender5"),
+				multi.getParameter("roomGender6"), multi.getParameter("roomGender7"), multi.getParameter("roomGender8") };
+		String[] roomDeposit = multi.getParameterValues("roomDeposit");
+		String[] roomMonthly = multi.getParameterValues("roomMonthly");
+		String[] roomArea = multi.getParameterValues("roomArea");
+		String[] roomDate = multi.getParameterValues("roomDate");
+
+		for (int i = 0; i < roomName.length; i++) {
+			houseMax += Integer.parseInt(roomType[i]);
+			System.out.println(roomGender[i]);
+			if (roomGender[i].equals("m")) {
+				manCheck = true;
+			}
+			if (roomGender[i].equals("w")) {
+				womanCheck = true;
+			}
+		}
+
+		if (manCheck == true && womanCheck == true) {
+			houseGender = "o";
+		} else if (manCheck == true && womanCheck == false) {
+			houseGender = "m";
+		} else if (manCheck == false && womanCheck == true) {
+			houseGender = "w";
+		}
+
+		vo.setHouseMax(houseMax);
+		vo.setHouseGender(houseGender);
+		hDao.regist(vo);
+
 		
 		for (int i = 0; i < roomName.length; i++) {
 			rvo.setRoomName(roomName[i]);
-			rvo.setRoomType(roomType[i]);			
+			rvo.setRoomType(roomType[i]);
 			rvo.setRoomGender(roomGender[i]);
 			rvo.setRoomDeposit(Integer.parseInt(roomDeposit[i]));
 			rvo.setRoomMonthly(Integer.parseInt(roomMonthly[i]));
 			rvo.setRoomArea(roomArea[i]);
 			rvo.setRoomDate(roomDate[i]);
 			rvo.setHouseNumber(vo.getId());
-//			houseMax += Integer.parseInt(roomType[i]);
-			dao.registroom(rvo);			
+			hDao.registroom(rvo);
 		}
-		vo.setHouseMax(houseMax);	
+
+		//파일추가
+		fDao.insertHF(multi, vo.getId());
+		
 		
 		af.setRedirect(true);
-		af.setPath(req.getContextPath() + "/house/houseRegister.jsp");
-		
+		af.setPath(req.getContextPath() + "/main/main.jsp");
+
 		return af;
-	
+
 	}
-	
+
 }

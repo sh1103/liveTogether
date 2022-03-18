@@ -20,26 +20,43 @@ public class HouseFindRoom implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		req.setCharacterEncoding("UTF-8");
-		resp.setCharacterEncoding("UTF-8");
+		resp.setCharacterEncoding("UTF-8");	
 		
-		HouseDAO dao = new HouseDAO();
+		int min = Integer.parseInt(req.getParameter("min"));
+		int max = Integer.parseInt(req.getParameter("max"));
+		String[] houseGender = req.getParameterValues("houseGender"); 
+		String[] houseType = req.getParameterValues("houseType"); 
+		String[] roomType = req.getParameterValues("roomType"); 
+		String roomDate = req.getParameter("roomDate"); 
+		System.out.println(min);
+		System.out.println(max);
+		System.out.println(houseGender);
+		System.out.println(houseType);
+		System.out.println(roomType);
+		System.out.println(roomDate);
+		
+		HouseDAO hdao = new HouseDAO();
+		HouseDTO hdto = new HouseDTO();
 		PrintWriter out = resp.getWriter();
-		List<HouseDTO> replyList = dao.selectAll();
-		JSONArray rooms = new JSONArray();
-
-		for(HouseDTO r : replyList) {
-			JSONObject room = new JSONObject();
-			room.put("houseNumber", r.getHouseNumber());
-			room.put("roomDeposit", r.getRoomDeposit());
-			room.put("roomMonthly", r.getRoomMonthly());
-			room.put("roomGender", r.getRoomGender());
-			room.put("roomType", r.getRoomType());
-			rooms.add(room);
-		}
 		
 		
-		out.print(rooms.toJSONString());
-		out.close();
+//		List<HouseDTO> replyList = hdao.findroom(hdto);
+//		JSONArray rooms = new JSONArray();
+//
+//		for(HouseDTO r : replyList) {
+//			JSONObject room = new JSONObject();
+//			room.put("houseNumber", r.getHouseNumber());
+//			room.put("roomDeposit", r.getRoomDeposit());
+//			room.put("roomMonthly", r.getRoomMonthly());
+//			room.put("houseGender", r.getHouseGender());
+//			room.put("houseType", r.getHouseType());
+//			room.put("houseMax", r.getHouseMax());
+//			rooms.add(room);
+//		}
+//		
+//		
+//		out.print(rooms.toJSONString());
+//		out.close();
 		
 		return null;
 

@@ -1,22 +1,33 @@
 package com.liveTogether.app.house.vo;
 
 public class HouseFileVO {
+// 파일 번호(순서)
+	private int houseFileNumber;
 // 중복시 변경된 파일 이름
-	   private String fileName;
+	private String housefileName;
 // 방 번호
-	   private int houseNumber;
+	private int houseNumber;
 // 원본 파일 이름
-	   private String fileNameOriginal;
-// 방 번호 fk로 설정
-	   
-	   public HouseFileVO() {;}
+	private String housefileNameOriginal;
 
-	public String getFileName() {
-		return fileName;
+	public HouseFileVO() {		;	}	
+	
+
+	public int getHouseFileNumber() {
+		return houseFileNumber;
 	}
 
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
+	public void setHouseFileNumber(int houseFileNumber) {
+		this.houseFileNumber = houseFileNumber;
+	}
+
+
+	public String getHousefileName() {
+		return housefileName;
+	}
+
+	public void setHousefileName(String housefileName) {
+		this.housefileName = housefileName;
 	}
 
 	public int getHouseNumber() {
@@ -27,13 +38,12 @@ public class HouseFileVO {
 		this.houseNumber = houseNumber;
 	}
 
-	public String getFileNameOriginal() {
-		return fileNameOriginal;
+	public String getHousefileNameOriginal() {
+		return housefileNameOriginal;
 	}
 
-	public void setFileNameOriginal(String fileNameOriginal) {
-		this.fileNameOriginal = fileNameOriginal;
+	public void setHousefileNameOriginal(String housefileNameOriginal) {
+		this.housefileNameOriginal = housefileNameOriginal;
 	}
-	   
-	   
+
 }

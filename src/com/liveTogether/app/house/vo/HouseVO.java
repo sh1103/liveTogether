@@ -4,11 +4,13 @@ public class HouseVO {
 	
 	private int houseNumber;
 	private int houseMax;
+	private String houseStatus;
 	private String memberId;
 	private String houseType;
 	private String houseAddress;
 	private String houseAddressDetail;
 	private String houseLocation;
+	private String houseGender;
 	private String opAircon;
 	private String opCentralHeat;
 	private String opLocalHeat;
@@ -34,6 +36,8 @@ public class HouseVO {
 	private String housePet;
 	private String houseContent;
 	private String houseMessage;
+	private double latitude;
+	private double longitude;
 	private int id;
 	
 	public HouseVO() {;}
@@ -44,6 +48,14 @@ public class HouseVO {
 
 	public void setHouseNumber(int houseNumber) {
 		this.houseNumber = houseNumber;
+	}	
+
+	public String getHouseStatus() {
+		return houseStatus;
+	}
+
+	public void setHouseStatus(String houseStatus) {
+		this.houseStatus = houseStatus;
 	}
 
 	public int getHouseMax() {
@@ -92,6 +104,14 @@ public class HouseVO {
 
 	public void setHouseLocation(String houseLocation) {
 		this.houseLocation = houseLocation;
+	}
+
+	public String getHouseGender() {
+		return houseGender;
+	}
+
+	public void setHouseGender(String houseGender) {
+		this.houseGender = houseGender;
 	}
 
 	public String getOpAircon() {
@@ -302,8 +322,21 @@ public class HouseVO {
 		this.id = id;
 	}
 
-	
+	public double getLatitude() {
+		return latitude;
+	}
 
+	public void setLatitude(double latitude) {
+		this.latitude = latitude;
+	}
+
+	public double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(double longitude) {
+		this.longitude = longitude;
+	}
 	
 	
 

@@ -50,15 +50,20 @@ public class MemberDAO {
 		return memberId;
 	}
 
-	// 비밀번호 찾기
-	public String findPw(Map<String, String> findPwMap) {
-		String memberPw = null;
+	// 비밀번호 찾기(새로운비밀번호설정)
+	public void updatePw(MemberVO member) {
+		sqlSession.update("Member.updatePw", member);
+	}
+	
+	//비밀번호 sms
+	public String findPwSMS(Map<String, String> findPwSMSMap) {
+		String memberPwSMS = null;
 		try {
-			memberPw = sqlSession.selectOne("Member.findPw", findPwMap);
+			memberPwSMS = sqlSession.selectOne("Member.findPwSMS", findPwSMSMap);
 		} catch (Exception e) {
 			;
 		}
-		return memberPw;
+		return memberPwSMS;
 	}
 
 	// 정보수정

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +11,8 @@
 <title>가치살자 관리자 페이지</title>
 </head>
 <body>
+	<c:set var="houseCount" value="${houseCount}" />
+	<c:set var="waitCount" value="${waitCount}" />
 	<jsp:include page="../fix/header.jsp" />
 	<div id="admin-whole-wrapper">
 		<div id="navigation">
@@ -143,7 +147,7 @@
 										</div>
 										<div class="flex">
 											<div id="member-second-first-second-span">
-												<span class="data">0</span>
+												<span class="data"><a href="#">${waitCount}</a></span>
 											</div>
 											<div id="member-second-first-third-span">
 												<span>건</span><br>
@@ -157,7 +161,7 @@
 										</div>
 										<div class="flex">
 											<div id="member-second-second-second-span">
-												<span class="data">0</span>
+												<span class="data"><a href="${pageContext.request.contextPath}/house/AdminDetailOk.ho">0</a></span>
 											</div>
 											<div id="member-second-second-third-span">
 												<span>건</span><br>

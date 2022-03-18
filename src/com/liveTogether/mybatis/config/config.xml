@@ -30,6 +30,7 @@
 		<mapper resource="com/liveTogether/mybatis/mapper/board.xml"/>
 		<mapper resource="com/liveTogether/mybatis/mapper/house.xml"/>
 		<mapper resource="com/liveTogether/mybatis/mapper/files.xml"/>
+		<mapper resource="com/liveTogether/mybatis/mapper/houseFiles.xml"/>
 	</mappers>
 	
 </configuration>

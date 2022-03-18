@@ -1,6 +1,7 @@
 package com.liveTogether.app.member;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,19 +18,18 @@ public class MemberFindIdOk implements Action {
 		HashMap<String, String> findIdMap = new HashMap<>();
 		MemberDAO dao = new MemberDAO();
 		String memberId=null;
-		ActionForward af = new ActionForward();
+		PrintWriter out = resp.getWriter();
+		
 
 		findIdMap.put("memberName", req.getParameter("memberName"));
 		findIdMap.put("memberPhone", req.getParameter("memberPhone"));
 		
 		memberId=dao.findId(findIdMap);
 		
-		req.setAttribute("memberId", memberId);
-		
-		af.setRedirect(false);
-		af.setPath("/member/findId.jsp");
-		
-		return af;
+		out.print(memberId);
+		out.close();
+
+		return null;
 	}
 
 }
