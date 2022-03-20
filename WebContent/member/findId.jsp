@@ -30,6 +30,7 @@ button.btn_tistory:hover {
 	border: none !important;
 	background-color: #e7e7e7;
 }
+
 p#open{
         border-radius: 4px;
     border: none !important;
@@ -43,6 +44,7 @@ p#open{
     line-height: 3.35em;
     text-align:center;
         display: inline-block;
+        cursor: pointer;
     }
 
 #modal{
@@ -70,7 +72,9 @@ p#open{
     margin-top: 25%;
     margin-left: 10%;
     background: #fff;
-    border: 1px solid;}
+    border: 1px solid;
+    border-radius: 5px;
+    }
     
     .modal-content{
         text-align: center;
@@ -84,22 +88,30 @@ p#open{
 	border-top: 2px solid #eee;
     border-bottom: 2px solid #eee;
     padding: 2rem;
-    margin: 3em;
+    margin: 0 auto;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    width: 50%;
     }
+    
+/*      div#m-title.modal-content span{
+    width:30%;
+    height:100px;
+    background-image: url(../images/회원정보아이콘-001-2.png);
+    background-repeat: no-repeat;
+    position: absolute;
+	top: -42px;
+    left: 150px;
+} */
     
      .modal-content h3{
 	margin:0 0 0.5em 0 !important;
     }
     
-     div#m-btn.modal-content{
-    float: right;
-    margin-right: 3em;
-
-    }
-    
-    
+  
     div#m-id.modal-content{
-   	font-weight:600;
+   	font-weight: 600;
+    font-family: fangsong;
     }
     .modal-content input[type="button"]{
     border: 1px solid #eee !important;
@@ -109,9 +121,18 @@ p#open{
 	span.m-span{
 	font-size:smaller;
 	}
-/* 	.hidden{
-	display:none;
-	}  */
+	
+ 	div#m-btn.modal-content{
+	border: 1px solid #eee;
+    cursor: pointer;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 4px;
+    box-shadow: 0 1px 10px rgb(0 0 0 / 20%);
+	} 
+	
+
+
 </style>
 
 <body class="is-preload">
@@ -128,11 +149,11 @@ p#open{
 	<div id="modal-inner">
 		<div id="modal-box">
 			<div id="modal-contents">
-				<div class="modal-content" id="m-title"><h3>아이디 찾기</h3>
-				<span class="m-span">회원님의 정보와 일치하는 아이디 결과입니다.</span><br></div>
+				<div class="modal-content" id="m-title"><span></span><h3>아이디 찾기</h3></div>
+				 <div class="modal-content"><span class="m-span">회원님의 정보와 일치하는 아이디 결과입니다.</span><br></div>
 				<div class="modal-content" id="m-id">
 				</div>
-				<div class="modal-content" id="m-btn"><button>확인</button></div>
+				<div class="modal-content" id="m-btn">확인</div>
 			</div>
 		</div>
 	</div>

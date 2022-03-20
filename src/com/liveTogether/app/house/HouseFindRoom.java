@@ -14,6 +14,7 @@ import com.liveTogether.action.Action;
 import com.liveTogether.action.ActionForward;
 import com.liveTogether.app.house.dao.HouseDAO;
 import com.liveTogether.app.house.vo.HouseDTO;
+import com.liveTogether.app.house.vo.HouseFilterDTO;
 
 public class HouseFindRoom implements Action{
 
@@ -28,35 +29,60 @@ public class HouseFindRoom implements Action{
 		String[] houseType = req.getParameterValues("houseType"); 
 		String[] roomType = req.getParameterValues("roomType"); 
 		String roomDate = req.getParameter("roomDate"); 
+		String gender = "";
+		String htype = "";
+		String rtype = "";
+		
 		System.out.println(min);
 		System.out.println(max);
-		System.out.println(houseGender);
-		System.out.println(houseType);
-		System.out.println(roomType);
-		System.out.println(roomDate);
 		
 		HouseDAO hdao = new HouseDAO();
-		HouseDTO hdto = new HouseDTO();
-		PrintWriter out = resp.getWriter();
+		HouseFilterDTO fdto = new HouseFilterDTO();
+		PrintWriter out = resp.getWriter();		
+		fdto.setMin(min);
+		fdto.setMax(max);
+		if(houseGender != null) {
+			for (String gd : houseGender) {
+				if(gd != null) {
+					gender += gd;				
+				}
+			}
+			fdto.setHouseGender(gender);
+		}
+		if(houseType != null) {
+			for (String ht : houseType) {
+				if(ht != null) {
+					htype += ht;				
+				}
+			}
+			fdto.setHouseType(htype);
+		}
+		if(roomType != null) {
+			for (String rt : roomType) {
+				if(rt != null) {
+					rtype += rt;				
+				}
+			}
+			fdto.setRoomType(rtype);
+		}
+		fdto.setRoomDate(roomDate);					
+
+		List<HouseDTO> replyList = hdao.findroom(fdto);
+		JSONArray rooms = new JSONArray();
+		for(HouseDTO r : replyList) {
+			JSONObject room = new JSONObject();
+			room.put("houseNumber", r.getHouseNumber());
+			room.put("roomDeposit", r.getRoomDeposit());
+			room.put("roomMonthly", r.getRoomMonthly());
+			room.put("houseGender", r.getHouseGender());
+			room.put("houseType", r.getHouseType());
+			room.put("houseMax", r.getHouseMax());
+			rooms.add(room);
+			
+		}
 		
-		
-//		List<HouseDTO> replyList = hdao.findroom(hdto);
-//		JSONArray rooms = new JSONArray();
-//
-//		for(HouseDTO r : replyList) {
-//			JSONObject room = new JSONObject();
-//			room.put("houseNumber", r.getHouseNumber());
-//			room.put("roomDeposit", r.getRoomDeposit());
-//			room.put("roomMonthly", r.getRoomMonthly());
-//			room.put("houseGender", r.getHouseGender());
-//			room.put("houseType", r.getHouseType());
-//			room.put("houseMax", r.getHouseMax());
-//			rooms.add(room);
-//		}
-//		
-//		
-//		out.print(rooms.toJSONString());
-//		out.close();
+		out.print(rooms.toJSONString());
+		out.close();
 		
 		return null;
 

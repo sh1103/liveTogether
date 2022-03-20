@@ -17,7 +17,8 @@
 <body>
 	<c:set var="house" value="${house}" />
 	<c:set var="room" value="${room}" />
-	<c:set var="houseFileName" value="${houseFileName}" />
+	<c:set var="member" value="${member}" />
+	<c:set var="houseRoomImg" value="${houseRoomImg}" />
 	<c:set var="houseMapImg" value="${houseMapImg}"/>
 
 	<!-- Header -->
@@ -35,10 +36,33 @@
 				</div>
 			</section>
 			<section id="one">
-				<div>
-					<img
-						src="https://woozoo.s3.amazonaws.com/uploads/image/data/14623/468-1886-1644303902-1.jpg">
+			<div id="img-total">
+				<div id="main-img">
+				 <c:forEach var="house" items="${houseRoomImg}">
+					<div class="main-wrapper">
+						<img src="${pageContext.request.contextPath}/upload/${house.getHousefileName()}">
+					</div>
+				</c:forEach>		
 				</div>
+				<div id="sub-img">
+				<c:forEach var="house" items="${houseRoomImg}" varStatus="status">
+				 	<c:choose>
+						<c:when test="${status.index eq 0}">
+							<div class="sub-wrapper active">
+								<img src="${pageContext.request.contextPath}/upload/${house.getHousefileName()}">
+							</div>
+						</c:when>
+						<c:otherwise>
+							<div class="sub-wrapper">
+								<img src="${pageContext.request.contextPath}/upload/${house.getHousefileName()}">
+							</div>
+						</c:otherwise>
+					</c:choose> 				
+				</c:forEach>				
+				</div>
+			</div>
+			<div class="slider prev-btn"></div>
+			<div class="slider next-btn"></div>
 			</section>
 
 			<section id="two">
@@ -413,53 +437,6 @@
 					<legend>세부 정보</legend>
 				</fieldset>
 				<div id="map" style="width: 100%; height: 350px;"></div>
-
-				<script type="text/javascript"
-					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=50e9a68c5f5c2321311332ee213eaf6e"></script>
-				<script>
-					var latitude = $
-					{
-						house.getLatitude()
-					};
-					var longitude = $
-					{
-						house.getLongitude()
-					};
-				</script>
-				<script>
-					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-					mapOption = {
-						center : new kakao.maps.LatLng(latitude, longitude), // 지도의 중심좌표
-						level : 5
-					// 지도의 확대 레벨
-					};
-
-					var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-					/* var markerPosition = new kakao.maps.LatLng(37.530547, 126.940617);
-					
-					// 마커를 생성합니다
-					var marker = new kakao.maps.Marker({
-						position : markerPosition
-					});
-					
-					// 마커가 지도 위에 표시되도록 설정합니다
-					marker.setMap(map); */
-
-					var circle = new kakao.maps.Circle({
-						center : new kakao.maps.LatLng(latitude, longitude), // 원의 중심좌표 입니다 
-						radius : 300, // 미터 단위의 원의 반지름입니다 
-						strokeWeight : 5, // 선의 두께입니다 
-						strokeColor : '#013DC4', // 선의 색깔입니다
-						strokeOpacity : 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-						strokeStyle : 'solid', // 선의 스타일 입니다
-						fillColor : '#CFE7FF', // 채우기 색깔입니다
-						fillOpacity : 0.9
-					// 채우기 불투명도 입니다   
-					});
-
-					circle.setMap(map);
-				</script>
 			</section>
 			<section id="five" class="tab">
 				<fieldset id="five-ex" class="height-fix">
@@ -657,5 +634,48 @@
 	src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+<script>var contextPath = "${pageContext.request.contextPath}";
+                var houseNumber = "${house.getHouseNumber()}";
+                var room = "${room}";
+            </script>
 <script src="${pageContext.request.contextPath}/assets/js/roomDetail.js"></script>
+<script type="text/javascript"
+					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=50e9a68c5f5c2321311332ee213eaf6e"></script>
+				<script>
+					var latitude = "<c:out value='${house.getLatitude()}'/>";
+					var longitude = "<c:out value='${house.getLongitude()}'/>";
+
+					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+					mapOption = {
+						center : new kakao.maps.LatLng(latitude, longitude), // 지도의 중심좌표
+						level : 5
+					// 지도의 확대 레벨
+					};
+
+					var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+					/* var markerPosition = new kakao.maps.LatLng(37.530547, 126.940617);
+					
+					// 마커를 생성합니다
+					var marker = new kakao.maps.Marker({
+						position : markerPosition
+					});
+					
+					// 마커가 지도 위에 표시되도록 설정합니다
+					marker.setMap(map); */
+
+					var circle = new kakao.maps.Circle({
+						center : new kakao.maps.LatLng(latitude, longitude), // 원의 중심좌표 입니다 
+						radius : 300, // 미터 단위의 원의 반지름입니다 
+						strokeWeight : 5, // 선의 두께입니다 
+						strokeColor : '#013DC4', // 선의 색깔입니다
+						strokeOpacity : 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+						strokeStyle : 'solid', // 선의 스타일 입니다
+						fillColor : '#CFE7FF', // 채우기 색깔입니다
+						fillOpacity : 0.9
+					// 채우기 불투명도 입니다   
+					});
+
+					circle.setMap(map);
+				</script>
 </html>

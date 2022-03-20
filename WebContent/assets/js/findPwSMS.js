@@ -85,7 +85,7 @@ $("#m-btn3").on("click", function(){
    var $memberCode=$('input[name=memberCode]').val();
    if ($memberCode == codeNumber){
       $("#result4").text("인증번호가 일치합니다.");
-      $("#result4").css("color", "#03c75a");
+      $("#result4").css("color", "#1187CF");
       phoneCheck = true;
    }else{
       $("#result4").text("인증번호가 일치하지 않습니다.");

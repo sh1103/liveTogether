@@ -49,22 +49,9 @@ p#open{
     line-height: 3.35em;
     text-align:center;
         display: inline-block;
+        cursor: pointer;
     }
     
-    p#certified{
-    border-radius: 4px;
-    border: none !important;
-    background-color: #1187CF;
-    color: #fff;
-    height: 50px;
-        font-weight: 700;
-    margin:0;
-        overflow: hidden;
-            letter-spacing: 0.07em;
-    line-height: 3.35em;
-    text-align:center;
-        display: inline-block;
-    }
 
 #modal{
 	display:none;
@@ -76,16 +63,7 @@ p#open{
     z-index: 1000;
     left: 0;
 }
-#modal2{
-	display:none;
-    background-color: #0f0f0f99;
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    left: 0;
-}
+
 #modal-inner{
  width: 40%;
     height: 100vh;
@@ -110,7 +88,10 @@ p#open{
     margin-top: 25%;
     margin-left: 10%;
     background: #fff;
-    border: 1px solid;}
+    border: 1px solid;
+   	border-radius: 5px;
+    }
+    
      #modal-box2{
  height: 50%;
     width: 80%;
@@ -128,8 +109,10 @@ p#open{
         position: relative;
     }
     div#m-title.modal-content{
-
+    border-bottom: 1px solid #dddd;
+        margin: 0 auto;
     margin-top: 10%;
+    width: 50%;
     }
    div#m2-title.modal-content2{
 
@@ -151,23 +134,29 @@ p#open{
     }
     
      div#m-btn.modal-content{
- border:1px solid;
- cursor: pointer;
- width: 50%;
- margin: 0 auto;
+    border: 1px solid #eee;
+    cursor: pointer;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 4px;
+    box-shadow: 0 1px 10px rgb(0 0 0 / 20%);
     }
-         div#m-btn2.modal-content{
- border:1px solid;
- cursor: pointer;
- width: 50%;
- margin: 0 auto;
+ div#m-btn2.modal-content{
+    border: 1px solid #eee;
+    cursor: pointer;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 4px;
+    box-shadow: 0 1px 10px rgb(0 0 0 / 20%);
   display:none; 
     }
-             div#m-btn3.modal-content{
- border:1px solid;
- cursor: pointer;
- width: 50%;
- margin: 0 auto;
+    div#m-btn3.modal-content{
+    border: 1px solid #eee;
+    cursor: pointer;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 4px;
+    box-shadow: 0 1px 10px rgb(0 0 0 / 20%);
   display:none; 
     }
 
@@ -183,8 +172,8 @@ p#open{
     .modal-content input[type="text"]{
     width: 50%;
     margin: 0 auto;
-    margin-top: 3em;
-    margin-bottom: 3em;
+    margin-top: 2em;
+    margin-bottom: 2em;
     border: 1px solid #eee !important;
     background: #eee;
     color: black;
@@ -193,8 +182,8 @@ p#open{
    display:none;
    width: 50%;
     margin: 0 auto;
-    margin-top: 3em;
-    margin-bottom: 3em;
+    margin-top: 2em;
+    margin-bottom: 2em;
     border: 1px solid #eee !important;
     background: #eee;
     color: black;
@@ -202,6 +191,10 @@ p#open{
 }
 	span.m-span{
 	font-size:smaller;
+	}
+	
+	#result4{
+	color:#1187CF;
 	}
 	
 </style>
@@ -224,16 +217,16 @@ p#open{
 	 <div id="modal-inner">
 		<div id="modal-box">
 			<div id="modal-contents">
-				<div class="modal-content" id="m-title"><h3>비밀번호 찾기</h3>
+			<!-- <div class="modal-content" id="m-header"></div> -->
+				<div class="modal-content" id="m-title"><h3>비밀번호 찾기</h3></div>
+				<div class="modal-content" style="margin-top: 1em;">
 				<span class="m-span">인증번호를 입력해주세요.</span><br></div>
 				<div class="modal-content"id="phone-check2">
-	<!-- 			<form name="cform"> -->
+
 				<input type="text" id="memberCode" name="memberCode"
 				placeholder="인증번호" value="" tabindex="3"  autocomplete="off" class="memberCode">
 				<input type="password" id="changePw" name="chanePw" placeholder="변경하실 비밀번호를 입력하세요." autocomplete="off" >
 				<div id="result4"></div>
-				<!-- </form> -->
-		<!-- 		<p id="#certified">확인</p>  -->
 				<div class="modal-content" id="m-btn">확인</div>
 				<div class="modal-content" id="m-btn2">비밀번호 변경</div>
 				<div class="modal-content" id="m-btn3">변경하기</div>

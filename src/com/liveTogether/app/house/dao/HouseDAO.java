@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.liveTogether.app.house.vo.HouseDTO;
+import com.liveTogether.app.house.vo.HouseFilterDTO;
 import com.liveTogether.app.house.vo.HouseRoomVO;
 import com.liveTogether.app.house.vo.HouseVO;
 import com.liveTogether.mybatis.config.MybatisConfig;
@@ -20,8 +21,8 @@ public class HouseDAO {
 	}
 
 //	하우스 찾기
-	public int findroom(HouseDTO house) {
-		return sqlSession.selectOne("House.findroom", house);
+	public List<HouseDTO> findroom(HouseFilterDTO house) {
+		return sqlSession.selectList("House.findroom", house);
 	}
 
 //	하우스 전체 리스트
@@ -79,5 +80,13 @@ public class HouseDAO {
 		return sqlSession.selectList("House.roomInfo", houseNumber);
 	}
 	
+	public List<HouseVO> getPosition () {
+		return sqlSession.selectList("House.getPosition");
+	}
+	
+	//가장 최근에 등록된 하우스 번호
+	public int getSeq () {
+		return sqlSession.selectOne("House.getSeq");
+	}
 
 }
