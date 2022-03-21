@@ -51,7 +51,7 @@ function showList(houses) {
 							+ '/house/HouseDetailOk.ho?houseNumber='
 							+ house.houseNumber + ' target="_blank">'
 					text += '<div class="cell-wrap">'
-					text += '<div class="img-wrap"></div>'
+					text += '<div class="img-wrap" style="background:	url(\''+contextPath+'/upload/'+house.housefileName+'\')"></div>'
 					text += '<div class="content-wrapper">'
 					text += '<div class="content">'
 					text += '<span class="name">' + house.houseNumber

@@ -87,13 +87,15 @@
 
 	<!-- 하우스 전체 리스트 -->
 	<select id="selectAll" resultType="houseDTO">
-		select th1.houseNumber,
-		th2.roomDeposit, th2.roomMonthly, th1.houseGender, th1.houseType,
-		th1.houseMax
+		select hm1.houseNumber, hm1.roomdeposit, hm1.roomMonthly, hm1.houseGender, hm1.houseType, hm1.houseMax, hm2.housefileName 
+		from (select th1.houseNumber,th2.roomDeposit, th2.roomMonthly, th1.houseGender, th1.houseType, th1.houseMax
 		from tbl_house th1 join tbl_houseRoom th2 
 		on th1.houseNumber = th2.houseNumber and houseStatus=1
-		group by th1.houseNumber order by
-		th1.houseNumber
+		group by th1.houseNumber order by th1.houseNumber) hm1 join 
+		(select housefileName, houseNumber from (SELECT housefileName, houseFileNumber, houseNumber
+		from tbl_houseFile order by 2 desc limit 18446744073709551615) m
+		group by 2) hm2
+		on hm1.houseNumber = hm2.houseNumber;
 	</select>
 
 	<!-- 방 정보조회 -->

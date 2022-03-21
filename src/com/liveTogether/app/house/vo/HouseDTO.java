@@ -12,13 +12,13 @@ public class HouseDTO {
 //  건물형태
 	private String houseType; 
 //	총 인원
-	private int houseMax;
-	
-	
+	private int houseMax;	
 //	몇 인실인지
 	private int roomType;
 //	입주 예정일
 	private String roomDate;
+//	대표 사진
+	private String housefileName;
 
 	
 	public HouseDTO() {;}
@@ -105,6 +105,21 @@ public class HouseDTO {
 	public void setRoomDate(String roomDate) {
 		this.roomDate = roomDate;
 	}
+
+
+	public String getHousefileName() {
+		return housefileName;
+	}
+
+
+	public void setHousefileName(String housefileName) {
+		this.housefileName = housefileName;
+	}
+
+	
+
+	
+	
 	
 
 }
