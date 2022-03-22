@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.liveTogether.app.member.vo.MemberVO;
+import com.liveTogether.app.member.vo.MyRoomGuestDTO;
 import com.liveTogether.app.member.vo.RoomGuestDTO;
 import com.liveTogether.mybatis.config.MybatisConfig;
 public class MemberDAO {
@@ -198,6 +199,16 @@ public class MemberDAO {
 		//투어 개수세기
 		public int countTour(String memberId) {
 			return sqlSession.selectOne("Member.countTour", memberId);
+		}
+		
+		//마이페이지 투어신청 목록 (하우스정보)가져오기
+		public MyRoomGuestDTO myTourHouse(String memberId) {
+			return sqlSession.selectOne("Member.myTourHouse", memberId);
+		}
+		
+		//마이페이지 투어신청 목록 (룸 정보)가져오기
+		public MyRoomGuestDTO myTourHouseRoom(String memberId) {
+			return sqlSession.selectOne("Member.myTourHouseRoom", memberId);
 		}
 		
 		

@@ -44,6 +44,11 @@ public class HouseDAO {
 	public void registroom(HouseRoomVO house) {
 		sqlSession.insert("House.registroom", house);
 	}
+	
+//	 방에 몇명이 살고있는지
+	public int roomGuestCount(int houseNumber) {
+		return sqlSession.selectOne("House.roomGuestCount", houseNumber);
+	}
 
 	// admin페이지에 필요한 방 전체 리스트
 	public List<HouseRoomVO> selectRealAll(Map<String, Integer> houseMap) {
@@ -80,7 +85,17 @@ public class HouseDAO {
 		return sqlSession.selectList("House.roomInfo", houseNumber);
 	}
 	
-	public List<HouseVO> getPosition () {
+	//하우스 정보 수정
+	public void updateInfo(HouseVO house) {
+		sqlSession.update("House.updateInfo", house);
+	}
+	
+	//방 정보 수정
+	public void updateRoomInfo(HouseRoomVO room) {
+		sqlSession.update("House.updateRoomInfo", room);
+	}
+	
+	public List<HouseDTO> getPosition () {
 		return sqlSession.selectList("House.getPosition");
 	}
 	
@@ -88,5 +103,32 @@ public class HouseDAO {
 	public int getSeq () {
 		return sqlSession.selectOne("House.getSeq");
 	}
+	
+	// admin페이지에 필요한 방 전체 리스트
+	   public List<HouseRoomVO> adminSelectAll(Map<String, Integer> houseMap) {
+	      return sqlSession.selectList("House.adminSelectAll", houseMap);
+	   }
+	   
+	   // admin페이지에 필요한 방 전체 리스트2
+	   public List<HouseRoomVO> adminSelectAllTwo(Map<String, Integer> houseMap) {
+	      return sqlSession.selectList("House.adminSelectAllTwo", houseMap);
+	   }
+	   
+	   // 페이징 처리에 필요한 목록 개수 가져오기
+	      public int getTotalTwo() {
+	         return sqlSession.selectOne("House.getTotalTwo");
+	      }
+	      
+	      public void updateStatus(int houseNumber) {
+	         sqlSession.update("House.updateStatus", houseNumber);
+	      }
+	      
+	      public void guestDelete(int houseNumber) {
+	         sqlSession.delete("House.guestDelete", houseNumber);
+	      }
+	      
+	      public void fileDelete(int houseNumber) {
+	         sqlSession.delete("House.fileDelete", houseNumber);
+	      }
 
 }

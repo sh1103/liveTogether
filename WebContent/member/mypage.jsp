@@ -9,8 +9,8 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, user-scalable=1" />
-<link rel="stylesheet" href="../assets/css/main.css" />
-<link rel="stylesheet" href="../assets/css/mypage.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypage.css" />
 </head>
 
 <!-- Header -->
@@ -44,7 +44,7 @@
 								<a href="${pageContext.request.contextPath}/member/MemberMypageUpdate.me">내 정보수정</a>
 							</li>
 							<li class="num3">
-								<a href="${pageContext.request.contextPath}/member/mypagetour.jsp">진행사항</a>
+								<a href="${pageContext.request.contextPath}/member/MemberMypageTour.me">진행사항</a>
 							</li>
 							<li class="num4">
 								<a href="${pageContext.request.contextPath}/member/mypagecontract.jsp">계약서 출력</a>

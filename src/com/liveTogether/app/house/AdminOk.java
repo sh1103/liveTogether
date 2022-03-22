@@ -15,8 +15,6 @@ public class AdminOk implements Action{
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		ActionForward af = new ActionForward();
 		HouseDAO dao = new HouseDAO();
-		System.out.println(dao.houseCount());
-		System.out.println(dao.waitCount());
 		req.setAttribute("houseCount", dao.houseCount());
 		req.setAttribute("waitCount", dao.waitCount());
 		

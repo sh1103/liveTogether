@@ -122,9 +122,6 @@
 														<td>${room.getMemberName()}</td>
 														<td>${room.getMemberGender()}</td>
 														<td>${room.getMemberPhone()}</td>
-														<td><button
-																onclick="location.href='${pageContext.request.contextPath}/member/HostStatusSecondOk.me?houseNumber=${room.getHouseNumber()}'">수락</button>
-															<button onclick="location.href='${pageContext.request.contextPath}/member/HostDeleteSecondOk.me?houseNumber=${room.getHouseNumber()}'">거절</button></td>
 													</tr>
 												</c:forEach>
 											</c:when>

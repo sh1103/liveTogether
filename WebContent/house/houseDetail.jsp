@@ -20,7 +20,42 @@
 	<c:set var="member" value="${member}" />
 	<c:set var="houseRoomImg" value="${houseRoomImg}" />
 	<c:set var="houseMapImg" value="${houseMapImg}"/>
-
+	<%-- <c:forEach var="room" items="#{room}">
+		<input type="hidden" value="${room.roomName}" class="">
+	</c:forEach> --%>
+									<!-- <tr class="tr-wrap1">
+											 <td colspan="9"><div id="profile">
+													<div class="profile-wrap">
+														<div class="profile">
+															<div class="profile-name">
+																<b>홍만두</b>
+																<p>(남자)</p>
+															</div>
+															<div class="profile-intro">
+																<span>"안녕하세요 저는 착한만두 홍만두입니다. 만찐두빵먹자 친추부탁드립니다."</span>
+															</div>
+														</div>
+														<div class="profile">
+															<div class="profile-name">
+																<b>상냥이</b>
+																<p>(남자)</p>
+															</div>
+															<div class="profile-intro">
+																<span>"안녕하세요 안상냥이 상냥이입니다. 3팀 팀장 배상혁 잘부탁드립니다."</span>
+															</div>
+														</div>
+														<div class="profile">
+															<div class="profile-name">
+																<b>다크준형</b>
+																<p>(남자)</p>
+															</div>
+															<div class="profile-intro">
+																<span>"여러분 코로나 조심하세요. 목이 너무 아파요ㅠㅠ 아프지 마세요 여러분"</span>
+															</div>
+														</div>
+													</div>
+												</div></td>
+										</tr> -->
 	<!-- Header -->
 	<jsp:include page="../fix/header.jsp" />
 
@@ -36,25 +71,29 @@
 				</div>
 			</section>
 			<section id="one">
+				<div class="roomName">
+					Room 1
+				</div>		
 			<div id="img-total">
 				<div id="main-img">
 				 <c:forEach var="house" items="${houseRoomImg}">
 					<div class="main-wrapper">
-						<img src="${pageContext.request.contextPath}/upload/${house.getHousefileName()}">
+						<div class="main-image" style='background-image:url("${pageContext.request.contextPath}/upload/${house.getHousefileName()}")'>
+						</div>
 					</div>
-				</c:forEach>		
+				</c:forEach>
 				</div>
 				<div id="sub-img">
 				<c:forEach var="house" items="${houseRoomImg}" varStatus="status">
 				 	<c:choose>
 						<c:when test="${status.index eq 0}">
-							<div class="sub-wrapper active">
-								<img src="${pageContext.request.contextPath}/upload/${house.getHousefileName()}">
+							<div class="sub-wrapper active" >
+								<div class="sub-image" style='background-image:url("${pageContext.request.contextPath}/upload/${house.getHousefileName()}")'></div>
 							</div>
 						</c:when>
 						<c:otherwise>
 							<div class="sub-wrapper">
-								<img src="${pageContext.request.contextPath}/upload/${house.getHousefileName()}">
+								<div class="sub-image" style='background-image:url("${pageContext.request.contextPath}/upload/${house.getHousefileName()}")'></div>
 							</div>
 						</c:otherwise>
 					</c:choose> 				
@@ -62,7 +101,7 @@
 				</div>
 			</div>
 			<div class="slider prev-btn"></div>
-			<div class="slider next-btn"></div>
+			<div class="slider next-btn"></div>			
 			</section>
 
 			<section id="two">
@@ -293,7 +332,7 @@
 					<legend>방 정보</legend>
 				</fieldset>
 				<div>
-					<div>
+					<div class="roomImg">
 						<img
 							src="${pageContext.request.contextPath}/upload/${houseMapImg}">
 					</div>
@@ -310,8 +349,6 @@
 								<th>월세</th>
 								<th>입주가능일</th>
 								<th>투어신청</th>
-								<th>입주자 프로필</th>
-
 							</tr>
 						</thead>
 						<tbody>
@@ -321,7 +358,7 @@
 										<tr>
 											<td>${room.getRoomName()}</td>
 											<td><c:choose>
-													<c:when test="${room.getRoomGender() eq 'm' }">남성전용	</c:when>
+													<c:when test="${room.getRoomGender() eq 'm'}">남성전용</c:when>
 													<c:when test="${room.getRoomGender() eq 'w'}">여성전용</c:when>
 												</c:choose></td>
 											<td>${room.getRoomType()}인실</td>
@@ -330,41 +367,8 @@
 											<td>${room.getRoomMonthly()}만원</td>
 											<td>${room.getRoomDate()}</td>
 											<td><button class="button-tour">투어신청</button></td>
-											<td><button class="button-profile">펼쳐보기</button></td>
 										</tr>
-										<tr class="tr-wrap1">
-											<td colspan="9"><div id="profile">
-													<div class="profile-wrap">
-														<div class="profile">
-															<div class="profile-name">
-																<b>홍만두</b>
-																<p>(남자)</p>
-															</div>
-															<div class="profile-intro">
-																<span>"안녕하세요 저는 착한만두 홍만두입니다. 만찐두빵먹자 친추부탁드립니다."</span>
-															</div>
-														</div>
-														<div class="profile">
-															<div class="profile-name">
-																<b>상냥이</b>
-																<p>(남자)</p>
-															</div>
-															<div class="profile-intro">
-																<span>"안녕하세요 안상냥이 상냥이입니다. 3팀 팀장 배상혁 잘부탁드립니다."</span>
-															</div>
-														</div>
-														<div class="profile">
-															<div class="profile-name">
-																<b>다크준형</b>
-																<p>(남자)</p>
-															</div>
-															<div class="profile-intro">
-																<span>"여러분 코로나 조심하세요. 목이 너무 아파요ㅠㅠ 아프지 마세요 여러분"</span>
-															</div>
-														</div>
-													</div>
-												</div></td>
-										</tr>
+										
 									</c:forEach>
 								</c:when>
 							</c:choose>
@@ -637,6 +641,7 @@
 <script>var contextPath = "${pageContext.request.contextPath}";
                 var houseNumber = "${house.getHouseNumber()}";
                 var room = "${room}";
+                var memberId = "${memberId}";
             </script>
 <script src="${pageContext.request.contextPath}/assets/js/roomDetail.js"></script>
 <script type="text/javascript"

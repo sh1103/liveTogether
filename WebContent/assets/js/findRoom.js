@@ -25,6 +25,7 @@ function getList() {
 
 // 하우스 목록 써주기
 function showList(houses) {
+	console.log(houses);
 	var text = "";
 	if (houses != null && houses.length != 0) {
 		$.each(houses,function(index, house) {
@@ -51,7 +52,7 @@ function showList(houses) {
 							+ '/house/HouseDetailOk.ho?houseNumber='
 							+ house.houseNumber + ' target="_blank">'
 					text += '<div class="cell-wrap">'
-					text += '<div class="img-wrap" style="background:	url(\''+contextPath+'/upload/'+house.housefileName+'\')"></div>'
+					text += '<div class="img-wrap" style="background:url(\''+contextPath+'/upload/'+house.housefileName+'\'); background-size:cover"></div>'
 					text += '<div class="content-wrapper">'
 					text += '<div class="content">'
 					text += '<span class="name">' + house.houseNumber
@@ -253,7 +254,6 @@ $("#findbtn").on("click", function findList() {
 // 조건검색한 후 방들 써주기
 function showRoomList(rooms) {
 	var text = "";
-	console.log(rooms);
 	if (rooms != null && rooms.length != 0) {
 		$
 				.each(
@@ -282,7 +282,7 @@ function showRoomList(rooms) {
 										+ '/house/HouseDetailOk.ho?houseNumber='
 										+ room.houseNumber + ' target="_blank">'
 								text += '<div class="cell-wrap">'
-								text += '<div class="img-wrap"></div>'
+								text += '<div class="img-wrap" style="background:url(\''+contextPath+'/upload/'+room.housefileName+'\'); background-size:cover"></div>'
 								text += '<div class="content-wrapper">'
 								text += '<div class="content">'
 								text += '<span class="name">' + room.houseNumber

@@ -37,7 +37,7 @@ section#zero p.first-ptag {
 }
 
 /* section-one */
-.active {
+.sub-wrapper.active {
 	background-color: #1187cf;
 	opacity:0.7;
 }
@@ -59,6 +59,9 @@ div#second-wrap {
 }
 div#img-total{
 	overflow:hidden;
+    height: fit-content;
+   	display: flex;
+    flex-direction: column;
 }
 
 div#main-img{
@@ -67,12 +70,16 @@ div#main-img{
 }
 
 div.main-wrapper{
-	width:952px;
-	float:left;
+	width: 952px;
+    float: left;
+    height: 635px; 
 }
 
-div.main-wrapper img{
-	width:100%;
+div.main-wrapper .main-image{
+	padding-top: 66%;
+	background: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 div#sub-img{
@@ -87,8 +94,15 @@ div.sub-wrapper{
     cursor: pointer;
 }
 
-div.sub-wrapper img{
-	width: 100%;
+div.sub-wrapper .sub-image{
+	padding-top: 62.5%;
+	background: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.roomImg{
+	max-width:100%;
 }
 
 section#three img {
@@ -257,6 +271,13 @@ div.column-value {
     font-weight: normal;
     font-style: normal;
     padding: 0 0.75em;
+    background-color: #1187CF;
+    color: #ffffff;
+    margin-top: 5px;
+}
+
+button:hover {
+	color:#ffffff;
 }
 
 tr[class*=tr-wrap] {

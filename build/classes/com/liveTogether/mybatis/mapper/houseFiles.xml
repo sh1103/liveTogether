@@ -22,6 +22,10 @@
 		FROM tbl_houseFile
 		WHERE houseNumber = #{houseNumber} limit 1, #{limit}
 	</select>
-
+	
+	<!-- 파일 삭제 -->
+	<delete id="delete" parameterType="_int">
+		delete from tbl_houseFile where houseNumber = #{houseNumber}
+	</delete>
 
 </mapper>

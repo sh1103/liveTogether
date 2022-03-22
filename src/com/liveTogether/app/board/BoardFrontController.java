@@ -52,6 +52,11 @@ public class BoardFrontController extends HttpServlet {
 		case "/board/BoardSearchOk.bo":
 			af = new BoardSearchOk().execute(req, resp);
 			break;
+		case "/board/Info.bo":
+			af = new ActionForward();
+			af.setRedirect(false);
+			af.setPath("/board/info.jsp");
+			break;
 		}
 		
 		//분기 별 결과를 af에 담았다면 여기로 내려온다.

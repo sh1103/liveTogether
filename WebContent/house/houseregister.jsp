@@ -33,8 +33,8 @@
 	<article id="houseRegister">
 		<div class="register-container">
 			<div id="register">
-				<!-- <h1>방내놓기</h1> -->
-				<img src="${pageContext.request.contextPath}/images/roombanner.png">
+				<h1>하우스 등록하기</h1>
+				<div class="gradation-div"></div>
 				<ul id="register-info">
 					<li>방 등록 시 방 정보와 계정정보(가입된 ID, 이름, 연락처 등)가 노출됩니다.</li>
 					<li>허위(계약 완료, 중복 등록, 허위 정보 기재) 등록 및 중개매물, 원룸텔, 쉐어하우스 등록 시 서비스
@@ -179,7 +179,7 @@
 						<tr>
 							<th>입주가능일</th>
 							<td><input type="date" id="startDate" name="roomDate">
-								<input type="checkbox" id="rightnow"> <label
+								<input type="checkbox" id="rightnow" name="roomDate"> <label
 								for="rightnow">즉시 입주</label></td>
 						</tr>
 						<tr>

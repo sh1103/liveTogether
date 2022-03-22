@@ -129,9 +129,19 @@ div.table-cell {
 	width: 33.333%;
 	padding: 2%;
 }
+div.table-cell2 {
+	width: 100%;
+}
 
 .img-wrap {
 	width: 100%;
+	height: 200px;
+	border-top-right-radius: 1rem;
+	background-size: cover;
+	border-top-left-radius: 1rem;
+}
+.img-wrap1 {
+	width: 97%;
 	height: 200px;
 	border-top-right-radius: 1rem;
 	background-size: cover;
@@ -146,6 +156,13 @@ div.cell-wrap {
 div.content-wrapper {
 	border-top: 1px solid;
 	padding: 1px;
+}
+div.content-wrapper1 {
+border-top: 1px solid;
+    padding-left: 0;
+    font-size: 1rem;
+    width: 182px;
+
 }
 
 span.name, span.gu {
@@ -162,8 +179,13 @@ span.gu {
 }
 
 div.content {
-	margin-left: 8px;
+	margin-left: 6px;
 }
+div.content1 {
+	    margin-left: 5px;
+}
+
+
 
 div.content2 {
 	margin: 0;

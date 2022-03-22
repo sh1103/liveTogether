@@ -20,9 +20,10 @@ public class HouseRegisterOk implements Action {
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		req.setCharacterEncoding("UTF-8");
-		
-		String uploadFolder = "C:\\aigb_0900_hsh\\jsp\\workspace\\liveTogether\\WebContent\\upload";
-		int fileSize = 1024 * 1024 * 1024 * 5;
+
+		String uploadFolder = "C:\\aigb_0900_bsh\\jsp\\workspace\\liveTogether\\WebContent\\upload";
+
+		int fileSize = 1024 * 1024 * 5;//5M
 		HouseFileDAO fDao = new HouseFileDAO();		
 		//요청객체, 업로드폴더 경로, 파일의 크기, 인코딩 방식, 이름변경정책
 		MultipartRequest multi = new MultipartRequest(req, uploadFolder, fileSize, "UTF-8", new DefaultFileRenamePolicy());

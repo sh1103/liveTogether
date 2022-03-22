@@ -1,3 +1,23 @@
+#register h1 {
+	font-size: 30px;
+}
+
+#register {
+	position: relative;
+}
+
+div.gradation-div {
+	background: linear-gradient(90deg, #1187cfa1 0%, #bceaff4d 100%);
+	width: 309px;
+	position: absolute;
+	top: 34px;
+	left: 0px;
+	height: 10px;
+}
+
+
+
+
 .register-container table th {
     width: 135px;
 }
@@ -32,7 +52,7 @@ ul#register-info{
 
 .register-container{
     width:800px;
-    margin: 120px auto;
+    margin: 181px auto;
 }
 
 #register img{

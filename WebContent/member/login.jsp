@@ -36,10 +36,10 @@
 				<span></span>
 			</div>
 			<ul id="choices">
-				<li class="choice one"><a id="loginTab" href="login.jsp">로그인</a></li>
+				<li class="choice one"><a id="loginTab" href="${pageContext.request.contextPath}/member/Login.me">로그인</a></li>
 				<li class="choice two"
 					style="background-color: rgba(221, 221, 221, 0.521);"><a
-					id="joinTab" href="join.jsp">회원가입</a></li>
+					id="joinTab" href="${pageContext.request.contextPath}/member/Join.me">회원가입</a></li>
 			</ul>
 			<div id="mArticle">
 				<form id="findLoginId" method="post" action="${pageContext.request.contextPath}/member/MemberLoginOk.me" name="loginForm"

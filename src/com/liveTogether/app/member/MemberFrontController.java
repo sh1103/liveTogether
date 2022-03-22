@@ -77,10 +77,24 @@ public class MemberFrontController extends HttpServlet {
 		} else if (command.equals("/member/HostRestorationOk.me")) {
 			af = new HostRestorationOk().execute(req, resp);
 		} else if (command.equals("/member/HostRealDeleteOk.me")) {
-		af = new HostRealDeleteOk().execute(req, resp);
-	} else if (command.equals("/member/MemberMypageTourOk.me")) {
-		af = new MemberMypageTourOk().execute(req, resp);
-	}
+			af = new HostRealDeleteOk().execute(req, resp);
+		} else if (command.equals("/member/MemberMypageTourOk.me")) {
+			af = new MemberMypageTourOk().execute(req, resp);
+		} else if (command.equals("/member/MemberMypageStatusDeleteOk.me")) {
+			af = new MemberMypageStatusDeleteOk().execute(req, resp);
+		} else if (command.equals("/member/MemberMypageStatusSecondOk.me")) {
+			af = new MemberMypageStatusSecondOk().execute(req, resp);
+		} else if (command.equals("/member/MemberMypageTour.me")) {
+			af = new MemberMypageTour().execute(req, resp);
+		} else if (command.equals("/member/Login.me")) {
+			af = new ActionForward();
+			af.setRedirect(false);
+			af.setPath("/member/login.jsp");
+		} else if (command.equals("/member/Join.me")) {
+			af = new ActionForward();
+			af.setRedirect(false);
+			af.setPath("/member/join.jsp");
+		}
 
 		if (af != null) {
 			if (af.isRedirect()) {

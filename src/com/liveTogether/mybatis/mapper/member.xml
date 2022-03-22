@@ -299,4 +299,26 @@
 	where memberId=#{memberId}
 	</select>
 	
+	<!-- 마이페이지 투어신청 하우스정보 가져오기 -->
+ 	<select id="myTourHouse"  parameterType="string" resultType="myRoomGuestDTO">
+	select h.houseNumber, houseMax, houseType, houseAddress, r.status
+	from tbl_house h join tbl_roomguest r 
+	on r.memberId = #{memberId} and r.houseNumber = h.houseNumber;
+	</select> 
+	
+	<!-- 마이페이지 투어신청 하우스룸정보 가져오기 -->
+	<select id="myTourHouseRoom"  parameterType="string" resultType="myRoomGuestDTO">
+		select h.roomName, h.roomType, h.roomGender, h.roomDeposit, h.roomMonthly, 
+		h.roomArea, h.roomDate, h.houseNumber
+		from tbl_houseroom h join tbl_roomguest r 
+		on r.memberId = #{memberId} and r.roomName = h.roomName;
+	</select> 
+	
+<!-- 	
+	마이페이지 스테이터스 0 목록
+	<select id="selectTourZero"  >
+	SELECT memberId, houseNumber, roomName, status
+	FROM house.tbl_roomguest;
+	</select> -->
+	
 </mapper>

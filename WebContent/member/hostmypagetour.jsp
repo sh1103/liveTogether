@@ -40,7 +40,6 @@
 
 
 		<div class="mypage">
-
 			<div class="mypagetool">
 				<ul class="mypagebar">
 					<li class="num1"><a

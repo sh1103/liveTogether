@@ -4,20 +4,31 @@ const tour = document.getElementsByClassName("button-tour");
 Array.from(tour).forEach((t) => {
     // 현재 .test에 click 이벤트를 건다.
     t.addEventListener('click', function () {
-        // 현재의 .test가 콘솔에 출력된다.
-        $.ajax({
-            url : contextPath + "/member/MemberMypageTourOk.me",
-            type : "get",
-            data : {"houseNumber": houseNumber,"roomName":t.parentElement.parentElement.firstElementChild.innerHTML},
-            success : alert("투어신청이 완료되었습니다."),
-            error : function(a, b, c) {
-                console.log("오류" + c);
-            }
-        });
-
-
+    	if(memberId != ""){
+    		if(confirm("투어신청 하시겠습니까?")){
+    			$.ajax({
+    				url : contextPath + "/member/MemberMypageTourOk.me",
+    				type : "get",
+    				data : {"houseNumber": houseNumber,"roomName":t.parentElement.parentElement.firstElementChild.innerHTML},
+    				success : alert("투어신청이 완료되었습니다."),
+    				error : function(a, b, c) {
+    					console.log("오류" + c);
+    				}
+    			});
+    		}else{
+    			return false;
+    		}
+    	}else{
+    		alert("로그인 후 이용할 수 있습니다.");
+    		return; 				
+    	}
+        	
     })
 });
+
+
+
+
 
 
 var btn = document.getElementsByClassName("click"); // 앵커 후 스타일 주기위한 버튼
@@ -117,49 +128,21 @@ $contract.on("click", function(){
 
 // 프로필 펼쳐보기
 
-$(".button-profile").on("click", function(){
-	if($(this).parent().parent().next().css("display") == "none"){
-	$(this).parent().parent().next().css("display", "table-row");
-	$(this).text("닫기");
-	}else{
-		$(this).parent().parent().next().css("display", "none");
-		$(this).text("펼쳐보기");
-	}
-});
-
-// section#one 이미지에 active 효과주기
-/*
- * $(".sub-wrapper").on("click", function(){
- * $(".sub-wrapper").removeClass("active"); $(this).addClass("active"); })
- */
+//룸 사진클릭하면 active를 주기 위한 변수
 const btns = document.querySelectorAll("div.sub-wrapper");
+//< > 클릭시 방 사진 이동하는 배너를 위한 변수
 const arrows = document.querySelectorAll("div.slider");
+// 이미지 변경 하기 위한 변수
 const banner = document.querySelector("div#main-img");
-const sub = document.querySelector("div#sub-img");
 var count = 0;
-var subCount = 0;
-var check = false;
+
 
 btns.forEach(function(value, index, ar){
         ar[index].addEventListener("click", function(){
         	$(".sub-wrapper").removeClass("active");
-        	$(this).addClass("active");
-        	if(count < index){
-        		check = true;
-        	}       	
+        	$(this).addClass("active");     	
         	count = index;
         	banner.style.transform = "translate(-" + count * 952 + "px)";
-        	if(count > 2 && check == true && count < btns.length - 3){
-        		subCount += 2;
-        		sub.style.transform = "translate(-" + subCount * 158.5 + "px)";
-        		if(count > btns.length - 4){
-        			return;
-        		}
-        		subCount++;
-        	}else if(count == btns.length - 3){
-        		subCount--;
-        		sub.style.transform = "translate(-" + subCount * 158.5 + "px)";
-        	}
         })
     });
 
@@ -189,22 +172,4 @@ arrows.forEach((arrow) => {
 });
 });
 
-/*
- * if( !$(this).data('video') ){ $('.main-photo').attr('src',
- * $(this).data('href')); var eq = $(this).closest('.slick-slide').index();
- * $('.add_slide').slick('slickGoTo',eq); }else{ $('#goods_video').append(
- * $(this).data('video') ); }
- * 
- * function imgChange(num){ var src = $('.main-photo').attr('src'); var obj =
- * $('.slick-slide img[src="'+src+'"]'); var eq =
- * obj.closest('.slick-slide').index(); var maxLength = $('.add_slide
- * .slick-slide').length-1;
- * 
- * eq += num; if(eq < 0 ){ eq = maxLength; }else if( eq > maxLength ){ eq = 0; }
- * $('.add_slide
- * .slick-slide').eq(eq).addClass('on').siblings().removeClass('on'); src =
- * $('.add_slide .slick-slide').eq(eq).find('img').attr('src');
- * $('.main-photo').attr('src',src); console.log(eq);
- * $('.add_slide').slick('slickGoTo',eq); }
- */
 

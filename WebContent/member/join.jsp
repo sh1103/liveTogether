@@ -54,8 +54,8 @@
 			<ul id="choices">
 				<li class="choice one"
 					style="background-color: rgba(221, 221, 221, 0.521);"><a
-					id="loginTab" href="login.jsp">로그인</a></li>
-				<li class="choice two"><a id="joinTab" href="join.jsp">회원가입</a></li>
+					id="loginTab" href="${pageContext.request.contextPath}/member/Login.me">로그인</a></li>
+				<li class="choice two"><a id="joinTab" href="${pageContext.request.contextPath}/member/Join.me">회원가입</a></li>
 			</ul>
 			<div id="mArticle">
 				<div class="wrap_form">

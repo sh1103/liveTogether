@@ -52,6 +52,7 @@ public class HouseFileDAO {
 			insertHF(file);
 		}
 	}
+	
 	//방 사진만
 		public List<HouseFileVO> getRoomImg(Map<String, Integer> house){
 			return sqlSession.selectList("houseFiles.getRoomImg", house);
@@ -59,21 +60,21 @@ public class HouseFileDAO {
 		
 
 
-	//첨부파일 가져오기
+	//하우스 전체 사진 가져오기
 	public List<HouseFileVO> getHouseImg(int houseNumber){
 		return sqlSession.selectList("houseFiles.getHouseImg", houseNumber);
 	}
 	
 	
+	//하우스 사진 삭제
+	public void delete(int houseNumber) {
+		sqlSession.delete("houseFiles.delete", houseNumber);
+	}
+	
 
 	
 	
 	
-//	//첨부파일 삭제
-//	public void delete(int houseNumber) {
-//		sqlSession.delete("Files.delete", houseNumber);
-//	}
-//	
 	
 	
 }

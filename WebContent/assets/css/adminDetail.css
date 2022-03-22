@@ -71,6 +71,7 @@ button.button {
 	height: 40px;
 	font-size: 12px;
 	line-height: 10px;
+	border-color: #e9e9e9;
 }
 
 div#first-wrapper div.button-wrapper {
@@ -156,4 +157,10 @@ div.ltgt {
 	height: 30px;
 	text-align: center;
 	line-height: 35px;
+}
+
+button.button-list{
+	background-color: #1187CF;
+	color: white;
+	border-color: #e9e9e9;
 }

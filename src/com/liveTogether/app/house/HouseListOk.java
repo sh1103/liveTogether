@@ -30,8 +30,7 @@ public class HouseListOk implements Action {
 		List<HouseDTO> houseList = hdao.selectAll();
 		JSONArray houses = new JSONArray();
 		HouseFileDAO fdao = new HouseFileDAO();		
-		
-		
+		int roomGuestCount = 0;
 		
 		
 
@@ -42,7 +41,8 @@ public class HouseListOk implements Action {
 			house.put("roomMonthly", h.getRoomMonthly());
 			house.put("houseGender", h.getHouseGender());
 			house.put("houseType", h.getHouseType());
-			house.put("houseMax", h.getHouseMax());
+			roomGuestCount = hdao.roomGuestCount(h.getHouseNumber());
+			house.put("houseMax", h.getHouseMax() - roomGuestCount);
 			house.put("housefileName", h.getHousefileName());
 			houses.add(house);
 		}
