@@ -59,6 +59,7 @@
 		update tbl_member set
 		memberPw=#{memberPw} where memberPhone= #{memberPhone}
 	</update>
+	
 
 	<!-- 정보수정 -->
 	<update id="updateInfo" parameterType="memberVO">
@@ -83,8 +84,8 @@
 		select h.houseNumber, h.roomName, h.roomType, h.roomGender,
 		r.status
 		from tbl_roomguest r join tbl_houseroom h
-		on r.roomNumber =
-		h.roomNumber and r.status = 0
+		on r.roomName =
+		h.roomName and r.status = 0
 		order by 1 desc limit #{startRow},
 		#{rowCount}
 	</select>
@@ -145,8 +146,8 @@
 		select h.houseNumber, h.roomName, h.roomType, h.roomGender,
 		r.status
 		from tbl_roomguest r join tbl_houseroom h
-		on r.roomNumber =
-		h.roomNumber and r.status = 1
+		on r.roomName =
+		h.roomName and r.status = 1
 		order by 1 desc limit #{startRow},
 		#{rowCount}
 	</select>
@@ -168,8 +169,8 @@
 		select h.houseNumber, h.roomName, h.roomType, h.roomGender,
 		r.status
 		from tbl_roomguest r join tbl_houseroom h
-		on r.roomNumber =
-		h.roomNumber and r.status = 2
+		on r.roomName =
+		h.roomName and r.status = 2
 		order by 1 desc limit #{startRow},
 		#{rowCount}
 	</select>
@@ -191,8 +192,8 @@
 		select h.houseNumber, h.roomName, h.roomType, h.roomGender,
 		r.status
 		from tbl_roomguest r join tbl_houseroom h
-		on r.roomNumber =
-		h.roomNumber and r.status = 3
+		on r.roomName =
+		h.roomName and r.status = 3
 		order by 1 desc limit #{startRow},
 		#{rowCount}
 	</select>
@@ -214,8 +215,8 @@
 		select h.houseNumber, h.roomName, h.roomType, h.roomGender,
 		r.status
 		from tbl_roomguest r join tbl_houseroom h
-		on r.roomNumber =
-		h.roomNumber and r.status = 4
+		on r.roomName =
+		h.roomName and r.status = 4
 		order by 1 desc limit #{startRow},
 		#{rowCount}
 	</select>
@@ -309,10 +310,39 @@
 	<!-- 마이페이지 투어신청 하우스룸정보 가져오기 -->
 	<select id="myTourHouseRoom"  parameterType="string" resultType="myRoomGuestDTO">
 		select h.roomName, h.roomType, h.roomGender, h.roomDeposit, h.roomMonthly, 
-		h.roomArea, h.roomDate, h.houseNumber
+		h.roomArea, h.roomDate, h.houseNumber, r.star, r.review
 		from tbl_houseroom h join tbl_roomguest r 
 		on r.memberId = #{memberId} and r.roomName = h.roomName;
 	</select> 
+	
+	<!-- 리뷰  -->
+	<update id="reviewUpdate" parameterType="roomGuestVO">
+	UPDATE tbl_roomguest
+	SET star=#{star}, review=#{review}
+	where memberId=#{memberId}
+	</update>
+	
+	
+	
+	
+	
+	<!-- 일반 회원 가입자수 -->
+	<select id="nMemberCount" resultType="_int">
+	select count(memberId) from tbl_member
+	where memberType = 'n';
+	</select>
+	
+	<!-- 호스트 회원 가입자수 -->
+	<select id="hMemberCount" resultType="_int">
+	select count(memberId) from tbl_member
+	where memberType = 'h';
+	</select>
+
+
+	
+	
+	
+
 	
 <!-- 	
 	마이페이지 스테이터스 0 목록

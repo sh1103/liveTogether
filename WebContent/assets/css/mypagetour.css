@@ -214,7 +214,7 @@ a {
 }
 
 .myconheader2 {
-	margin-top: 5em;
+	margin-top: 1em;
 }
 
 .house-info-wrapper {
@@ -259,6 +259,42 @@ div.column-value {
 }
 
 .myconheader3 {
-	margin-top: 5em;
+	margin-top: 2em;
 	width: 100%;
+}
+.myconheader4{
+width: 100%;
+    margin-bottom: 8em;
+}
+#review-form{
+	width: 100%;
+    display: flex;
+    float: left;
+}
+/* #star{
+	width: 20%;
+    text-align: center;
+    line-height: 3;
+    font-size: larger;
+} */
+#review{
+	width: 50%;
+}
+input#reviewText{
+	width: 100%;
+	background-color: #fff;
+    border: 1px solid #edeff0;
+    border-radius: 2px;
+    box-shadow: 0px 0px 5px #0000001a;
+}
+#reviewbtn{
+	margin-left: 2em;
+    height: 54px;
+    width: 10%;
+    background-color: #fff;
+    border: 1px solid #edeff0;
+    border-radius: 2px;
+    color: #555;
+    font-family: inherit;
+    box-shadow: 0px 0px 5px #0000001a;
 }

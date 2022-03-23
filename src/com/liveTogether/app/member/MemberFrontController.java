@@ -86,6 +86,8 @@ public class MemberFrontController extends HttpServlet {
 			af = new MemberMypageStatusSecondOk().execute(req, resp);
 		} else if (command.equals("/member/MemberMypageTour.me")) {
 			af = new MemberMypageTour().execute(req, resp);
+		} else if (command.equals("/member/MemberMypageReviewOk.me")) {
+			af = new MemberMypageReviewOk().execute(req, resp);	
 		} else if (command.equals("/member/Login.me")) {
 			af = new ActionForward();
 			af.setRedirect(false);
@@ -94,7 +96,7 @@ public class MemberFrontController extends HttpServlet {
 			af = new ActionForward();
 			af.setRedirect(false);
 			af.setPath("/member/join.jsp");
-		}
+		} 
 
 		if (af != null) {
 			if (af.isRedirect()) {

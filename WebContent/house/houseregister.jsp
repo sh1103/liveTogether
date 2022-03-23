@@ -111,7 +111,7 @@
 							<td>
 								<div>
 									<input type="hidden" name="roomName" value="Room${houseNumber}-1" autocomplete="off">
-									<div class="input-smallsize">Room1</div>
+									<div class="input-smallsize">Room${houseNumber}-1</div>
 								</div>
 							</td>
 						</tr>
@@ -119,9 +119,9 @@
 							<th>성별</th>
 							<td>
 								<div>
-									<input type="radio" id="male" name="roomGender1" value="m">
+									<input type="radio" id="male" name="roomGender1" value="m" class='b'>
 									<label for="male">남성전용</label> <input type="radio" id="female"
-										name="roomGender1" value="w"> <label for="female">여성전용</label>
+										name="roomGender1" value="w" class='b'> <label for="female">여성전용</label>
 								</div>
 							</td>
 						</tr>
@@ -178,7 +178,7 @@
 						</tr>
 						<tr>
 							<th>입주가능일</th>
-							<td><input type="date" id="startDate" name="roomDate">
+							<td><input type="date" id="startDate" name="roomDate" class="c">
 								<input type="checkbox" id="rightnow" name="roomDate"> <label
 								for="rightnow">즉시 입주</label></td>
 						</tr>
@@ -195,7 +195,7 @@
 												</label>
 											</div>
 											<input id="room_filea11" name="room_file1" type="file"
-												style="display: none" class="a1"
+												style="display: none" class="a"
 												onchange="imgThumbnail(event);"> <input
 												type="button" class="removeImgBtn"
 												onclick="cancelFile('room_filea11')" value="첨부 삭제">

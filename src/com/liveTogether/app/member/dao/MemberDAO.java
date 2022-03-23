@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.liveTogether.app.member.vo.MemberVO;
 import com.liveTogether.app.member.vo.MyRoomGuestDTO;
 import com.liveTogether.app.member.vo.RoomGuestDTO;
+import com.liveTogether.app.member.vo.RoomGuestVO;
 import com.liveTogether.mybatis.config.MybatisConfig;
 public class MemberDAO {
 	SqlSessionFactory sqlSessionFactory = MybatisConfig.getSqlsessionFactory();
@@ -211,6 +212,25 @@ public class MemberDAO {
 			return sqlSession.selectOne("Member.myTourHouseRoom", memberId);
 		}
 		
+		//마이페이지 리뷰
+		public void reviewUpdate(RoomGuestVO room) {
+			sqlSession.update("Member.reviewUpdate", room);
+		}
+		
+		
+		
+		
+		//일반 회원 가입자수
+		public int nMemberCount() {
+			return sqlSession.selectOne("nMemberCount");
+		}
+		
+		//호스트 회원 가입자수
+		public int hMemberCount() {
+			return sqlSession.selectOne("hMemberCount");
+		}
+
+	
 		
 		
 }

@@ -55,6 +55,9 @@
 					<li class="num4"><a
 						href="${pageContext.request.contextPath}/member/HostMemberListOk.me">입주자목록</a>
 					</li>
+					<li class="num4"><a
+						href="${pageContext.request.contextPath}/member/HostMemberListOk.me">하우스 관리</a>
+					</li>
 				</ul>
 			</div>
 

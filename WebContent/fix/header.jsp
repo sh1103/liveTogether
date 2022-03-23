@@ -24,13 +24,21 @@
 								</ul>
 							</div></li>
 				<li class="btn p_menu"><a href="${pageContext.request.contextPath}/house/HouseRegister.ho">호스팅
-						하기</a></li>
-				<li class="btn p_menu"><a href="#">서비스 안내</a>
+						하기</a>
+						<div>
+						<ul class="mouseover">
+							<li><a
+								href="${pageContext.request.contextPath}/house/HouseRegisterUpdate.bo">방 수정하기</a></li>
+						</ul>
+					</div>
+						</li>
+				<li class="btn p_menu"><a href="${pageContext.request.contextPath}/board/Info.bo">가치살자 소개</a>
 					<div>
 						<ul class="mouseover">
-							<li><a href="${pageContext.request.contextPath}/board/Info.bo">가치살자 소개</a></li>
 							<li><a
 								href="${pageContext.request.contextPath}/board/BoardListOk.bo">공지사항</a></li>
+							<li><a
+								href="${pageContext.request.contextPath}/member/HostMyPageReadyOk.me">호스트페이지</a></li>
 						</ul>
 					</div></li>
 				<c:choose>

@@ -15,29 +15,26 @@ import com.liveTogether.app.member.dao.MemberDAO;
 import com.liveTogether.app.member.vo.MemberVO;
 import com.liveTogether.app.member.vo.MyRoomGuestDTO;
 import com.liveTogether.app.member.vo.RoomGuestDTO;
+import com.liveTogether.app.member.vo.RoomGuestVO;
 
-public class MemberMypageTour implements Action {
+public class MemberMypageReviewOk implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		ActionForward af =  new ActionForward();
 		MemberDAO dao = new MemberDAO();		
 		HttpSession session = req.getSession();
+		RoomGuestVO room  = new RoomGuestVO();
 		String memberId= ((String)session.getAttribute("memberId"));
-	/*	MyRoomGuestDTO dto = dao.myTourHouse(memberId);*/
 		
+		room.setMemberId(memberId);
+		room.setStar(Integer.parseInt(req.getParameter("star")));
+		room.setReview(req.getParameter("review"));
+	
+		dao.reviewUpdate(room);
 		
-		req.setAttribute("myTourHouse", dao.myTourHouse(memberId));
-		req.setAttribute("myTourHouseRoom", dao.myTourHouseRoom(memberId));
-		
-		
-		af.setRedirect(false);
-		//redirect로 전송할 때 contextPath가 사라지기 때문에
-		//미리 붙여놓고 전송한다.
-		af.setPath("/member/mypagetour.jsp");
-		
-		
-		return af;
+
+		return null;
 	}
 
 

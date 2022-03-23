@@ -242,7 +242,7 @@ function roomAdd() {
 	text += "<td>"
 	text += "<div class='roomPlusMark'>"
 	text += "<input type='hidden' name='roomName' value='Room" +houseNumber+"-" +index + "'>"
-	text += "<div class='input-smallsize'>Room" + index + "</div>"
+	text += "<div class='input-smallsize'>Room" +houseNumber+"-" +index + "</div>"
 	text += "<img src='" + contextPath
 			+ "/images/xMark.png' id='xMark' onclick='removeRoom()'>"
 	text += "</div>"
@@ -254,10 +254,10 @@ function roomAdd() {
 	text += "<td>"
 	text += "<div>"
 	text += "<input type='radio' id='male" + index + "' name='roomGender"
-			+ index + "' value='m'>"
+			+ index + "' value='m' class='b'>"
 	text += "<label for='male" + index + "'>남성전용</label>"
 	text += "<input type='radio' id='female" + index + "' name='roomGender"
-			+ index + "' value='w'>"
+			+ index + "' value='w' class='b'>"
 	text += "<label for='female" + index + "'>여성전용</label>"
 	text += "</div>"
 	text += "</td>"
@@ -308,7 +308,7 @@ function roomAdd() {
 	text += "</tr>"
 	text += "<tr>"
 	text += "<th>입주가능일</th>"
-	text += "<td><input type='date' name='roomDate'> <input type='checkbox' id='rightnow'> <label for='rightnow'>즉시 입주</label></td>"
+	text += "<td><input type='date' name='roomDate' class='c'> <input type='checkbox' id='rightnow'> <label for='rightnow'>즉시 입주</label></td>"
 	text += "</tr>"
 	text += "<tr>"
 
@@ -326,7 +326,6 @@ function roomAdd() {
 	text += "<input id='room_file"
 			+ index
 			+ "' onchange='imgThumbnail(event)' class='a"
-			+ index
 			+ "' name='room_file"
 			+ index
 			+ "' type='file'	style='display: none' > <input type='button' class='removeImgBtn' onclick='cancelFile(\"room_file"
@@ -348,41 +347,83 @@ function roomAdd() {
 	}
 }
 
+var today = new Date();
+var year = today.getFullYear();
+var month = ('0' + (today.getMonth() + 1)).slice(-2);
+var day = ('0' + today.getDate()).slice(-2);
+var dateString = year + '-' + month  + '-' + day;
+
+
+$("#rightnow").val(dateString);
 
 //하우스 등록하기
 function send() {
+	var checkName = document.getElementsByClassName("input-smallsize");
+	var roomLength = $("input[name='roomName']").length
+	var checkType = document.getElementsByName("roomType");
+	var checkDeposit = document.getElementsByName("roomDeposit");
+	var checkMonthly = document.getElementsByName("roomMonthly");
+	var checkArea = document.getElementsByName("roomArea");
+	var checkDate = document.getElementsByClassName("c");
+	var checkGender = document.getElementsByClassName("b");
+	var checkfile = document.getElementsByClassName("a");
+	var genderCount = 0;
+	console.log(checkDate);
+
+	if(!registForm.houseAddressDetail.value){
+		alert("상세주소를 입력해주세요");
+		return;
+	}
+	if(!registForm.houseLocation.value){
+		alert("주소를 정확히 검색해주세요");
+		return;
+	}
+	for (var j=0; j < checkGender.length; j++){
+		if(checkGender[j].checked){
+			genderCount++;
+		}
+	}	
+	if(genderCount != (checkGender.length)/2){
+		alert("방의 성별을 선택해주세요");
+		return;
+	}	
+
+	for (var i = 0; i < roomLength; i++) {		
+		if(!checkType[i].value){
+			alert("몇인실인지 입력해주세요");
+			return;
+		}
+		if(Number(checkType[i].value) > 9){
+			alert("방의 최대인원을 9명까지만 적어주시기 바랍니다")
+			return;
+		}
+		if(!checkDeposit[i].value){
+			alert("보증금을 입력해주세요");
+			return;
+		}
+		if(!checkMonthly[i].value){
+			alert("월세를 입력해주세요");
+			return;
+		}
+		if(!checkArea[i].value){
+			alert("면적을 입력해주세요");
+			return;
+		}
+		if(checkDate[i].value == ""){
+			alert("입주가능한 날짜를 입력해주세요");
+			return;
+		}
+		if(checkfile[i].value == ""){
+			alert(checkName[i].innerText + "방 사진을 추가해주세요");
+			return;
+		}
+	}
+	
 	if(!registForm.house_file.value){
 		alert("방 구조 사진을 첨부해주세요");
 		return;
-	}else if(!registForm.houseAddressDetail.value){
-		alert("상세주소를 입력해주세요");
-		return;
-	}else if(!registForm.houseLocation.value){
-		alert("주소를 정확히 검색해주세요");
-		return;
-	}else if(!registForm.roomGender1.value){
-		alert("방의 성별을 선택해주세요");
-		return;
 	}
-	else if(!registForm.roomType.value){
-		alert("몇인실인지 입력해주세요");
-		return;
-	}
-	else if(!registForm.roomDeposit.value){
-		alert("보증금을 입력해주세요");
-		return;
-	}
-	else if(!registForm.roomMonthly.value){
-		alert("월세를 입력해주세요");
-		return;
-	}else if(!registForm.roomArea.value){
-		alert("면적을 입력해주세요");
-		return;
-	}
-	else if(!registForm.room_file1.value){
-		alert("방 사진을 추가해주세요");
-		return;
-	}else if(!registForm.houseMessage.value){
+	if(!registForm.houseMessage.value){
 		alert("하우스소개를 입력해주세요");
 		return;
 	}
@@ -392,11 +433,3 @@ function send() {
 }
 
 //오늘 날짜 가져오기
-var today = new Date();
-var year = today.getFullYear();
-var month = ('0' + (today.getMonth() + 1)).slice(-2);
-var day = ('0' + today.getDate()).slice(-2);
-var dateString = year + '-' + month  + '-' + day;
-
-
-$("#rightnow").val(dateString);

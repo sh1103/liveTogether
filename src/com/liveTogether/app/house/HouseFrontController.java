@@ -85,6 +85,15 @@ public class HouseFrontController extends HttpServlet {
 		case "/house/HouseRegisterUpdateOk.ho":
 			af = new HouseRegisterUpdateOk().execute(req, resp);
 			break;
+		case "/house/AdminCheckDeleteOk.ho":
+			af = new AdminCheckDeleteOk().execute(req, resp);
+			break;
+		case "/house/AdminCheckStandByDeleteOk.ho":
+			af = new AdminCheckStandByDeleteOk().execute(req, resp);
+			break;
+		case "/house/HostForSaleListOk.ho":
+			af = new HostForSaleListOk().execute(req, resp);
+			break;
 //		case "/house/HouseRegistUpdate.ho":
 //			af = new ActionForward();
 //			af.setRedirect(false);

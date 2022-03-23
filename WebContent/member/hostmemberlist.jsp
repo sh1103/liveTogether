@@ -56,6 +56,9 @@
 					<li class="num4"><a
 						href="${pageContext.request.contextPath}/member/HostMemberListOk.me">입주자목록</a>
 					</li>
+					<li class="num5"><a
+						href="${pageContext.request.contextPath}/house/HostForSaleListOk.ho">하우스
+							관리</a></li>
 				</ul>
 			</div>
 
@@ -99,7 +102,11 @@
 													</tr>
 												</c:forEach>
 											</c:when>
-											<c:otherwise><tr><td>목록이 없습니다.</td></tr></c:otherwise>
+											<c:otherwise>
+												<tr>
+													<td>목록이 없습니다.</td>
+												</tr>
+											</c:otherwise>
 										</c:choose>
 									</tbody>
 								</table>

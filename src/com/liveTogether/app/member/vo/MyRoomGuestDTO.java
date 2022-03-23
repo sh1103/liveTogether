@@ -34,8 +34,26 @@ public class MyRoomGuestDTO {
 	private String roomType;
 	private String roomGender;
 	private String memberName;
+	private int star;
+	private String review;
 	
 	
+	public int getStar() {
+		return star;
+	}
+
+	public void setStar(int star) {
+		this.star = star;
+	}
+
+	public String getReview() {
+		return review;
+	}
+
+	public void setReview(String review) {
+		this.review = review;
+	}
+
 	public int getHouseMax() {
 		return houseMax;
 	}

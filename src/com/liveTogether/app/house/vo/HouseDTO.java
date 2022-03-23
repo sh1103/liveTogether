@@ -23,8 +23,43 @@ public class HouseDTO {
 	private String latitude;
 //	대표 사진
 	private String longitude;
-
+// 페이징처리 위한 startRow
+	private int startRow;
+// 페이징처리 위한 rowCount
+	private int rowCount;
+// 멤버아이디
+	private String memberId;
 	
+	public String getMemberId() {
+		return memberId;
+	}
+
+
+	public void setMemberId(String memberId) {
+		this.memberId = memberId;
+	}
+
+
+	public int getStartRow() {
+		return startRow;
+	}
+
+
+	public void setStartRow(int startRow) {
+		this.startRow = startRow;
+	}
+
+
+	public int getRowCount() {
+		return rowCount;
+	}
+
+
+	public void setRowCount(int rowCount) {
+		this.rowCount = rowCount;
+	}
+
+
 	public String getLatitude() {
 		return latitude;
 	}

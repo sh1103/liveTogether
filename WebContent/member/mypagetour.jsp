@@ -15,6 +15,66 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/mypagetour.css" />
 </head>
+<style>
+input::-webkit-input-placeholder {
+	text-align: center;
+	font-size: medium;
+	color: #555 !important;
+}
+
+#review-1{
+    height: 64px;
+    line-height: 64px;}
+.star-rating {
+	display: flex;
+	flex-direction: row-reverse;
+	font-size: 2.25rem !important;
+	justify-content: space-around;
+	padding: 0 0.2em;
+	text-align: center;
+	width: 5em;
+	margin-right: 1em;
+}
+ .star-rating label#getstar{
+	-webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #555;
+   -webkit-text-fill-color: yellow;
+}
+
+.star-rating input {
+	display: none;
+}
+
+.star-rating label {
+	-webkit-text-fill-color: transparent;
+	/* Will override color (regardless of order) */
+	-webkit-text-stroke-width: 2.3px;
+	/* stroke-color -> 별 모양 테두리 컬러 */
+	-webkit-text-stroke-color: #555;
+	cursor: pointer;
+}
+
+.star-rating :checked ~ label {
+	-webkit-text-fill-color: yellow;
+}
+
+.star-rating label:hover, .star-rating label:hover ~ label {
+	-webkit-text-fill-color: yellow;
+}
+
+input[type="radio"]+label {
+	text-decoration: none;
+	cursor: pointer;
+	display: inline-block;
+	content: none !important;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+input[type="radio"]+label:before {
+	content: none !important;
+}
+</style>
 
 <!-- Header -->
 
@@ -62,7 +122,8 @@
 
 
 		<c:choose>
-			<c:when test="${myTourHouse.getStatus() eq ('0' or '1' or '2' or '3')}">
+			<c:when
+				test="${myTourHouse.getStatus() eq ('0' or '1' or '2' or '3')}">
 
 				<div class="mypage">
 
@@ -79,14 +140,14 @@
 									<span class="myhousename">가치하우스${myTourHouse.getHouseNumber()}호점</span>
 									<span class="myhousecode">${myTourHouseRoom.getRoomName()}</span>
 									<c:choose>
-									<c:when test="${myTourHouse.getStatus() eq '0' or '1'}">
-									<a class="mybtn" id="tourCancel">투어신청 취소</a>
-									</c:when>
-									<c:when test="${myTourHouse.getStatus() eq '2'}">
-									<a class="mybtn" id="checkIn">입주 신청</a>
-									</c:when>
-									<c:when test="${myTourHouse.getStatus() eq '3'}">
-									</c:when>
+										<c:when test="${myTourHouse.getStatus() eq '0' or '1'}">
+											<a class="mybtn" id="tourCancel">투어신청 취소</a>
+										</c:when>
+										<c:when test="${myTourHouse.getStatus() eq '2'}">
+											<a class="mybtn" id="checkIn">입주 신청</a>
+										</c:when>
+										<c:when test="${myTourHouse.getStatus() eq '3'}">
+										</c:when>
 									</c:choose>
 								</div>
 								<div class="mypagebook">
@@ -101,13 +162,13 @@
 										<div class="process tourWait">
 											<div class="process-title ">방문예정</div>
 										</div>
-										<div >
+										<div>
 											<div class="gt tourWait">&gt;</div>
 										</div>
 										<div class="process checkInWait">
 											<div class="process-title ">입주신청완료</div>
 										</div>
-										<div >
+										<div>
 											<div class="gt checkInWait">&gt;</div>
 										</div>
 										<div class="process checkInOk">
@@ -119,18 +180,24 @@
 								<div class="mypagebook1">
 									<div class="before">안내</div>
 									<c:choose>
-									<c:when test="${myTourHouse.getStatus() eq '0'}">
-									<div class="notice-content">투어 신청을 완료했습니다.</div>
-									</c:when>
-									<c:when test="${myTourHouse.getStatus() eq '1'}">
-									<div class="notice-content">투어 대기중입니다.</div>
-									</c:when>
-									<c:when test="${myTourHouse.getStatus() eq '2'}">
-									<div class="notice-content">입주 신청을 완료했습니다.</div>
-									</c:when>
-									<c:when test="${myTourHouse.getStatus() eq '3'}">
-									<div class="notice-content">입주 완료했습니다.</div>
-									</c:when>
+										<c:when test="${myTourHouse.getStatus() eq '0'}">
+											<div class="notice-content">투어 신청을 완료했습니다.</div>
+										</c:when>
+										<c:when test="${myTourHouse.getStatus() eq '1'}">
+											<div class="notice-content">투어 대기중입니다.</div>
+										</c:when>
+										<c:when test="${myTourHouse.getStatus() eq '2'}">
+											<div class="notice-content">입주 신청을 완료했습니다.</div>
+										</c:when>
+										<c:when test="${myTourHouse.getStatus() eq '3'}">
+											<div class="notice-content">
+												<!-- style="display:flex;" -->
+												<div id="1" style="line-height: 2;">입주 완료했습니다.</div>
+												<div id="2"
+													style="color: red; font-size: small; margin-top: -1rem;">후기는
+													최대 30일 이내 작성해주세요.</div>
+											</div>
+										</c:when>
 									</c:choose>
 								</div>
 
@@ -213,7 +280,53 @@
 
 										</div>
 									</div>
+
+								<c:choose>
+									<c:when test="${myTourHouseRoom.getStar() eq '0'}">
+									<div class="myconheader4">
+										<div class="info-title">후기 작성하기</div>
+										<div id="review-form">
+											<div class="star-rating auto">
+												<input type="radio" id="5-stars" name="rating" value="5" />
+												<label for="5-stars" class="star pr-4">★</label> <input
+													type="radio" id="4-stars" name="rating" value="4" /> <label
+													for="4-stars" class="star">★</label> <input type="radio"
+													id="3-stars" name="rating" value="3" /> <label
+													for="3-stars" class="star">★</label> <input type="radio"
+													id="2-stars" name="rating" value="2" /> <label
+													for="2-stars" class="star">★</label> <input type="radio"
+													id="1-star" name="rating" value="1" /> <label for="1-star"
+													class="star">★</label>
+
+											</div>
+											<div id="review">
+												<input type="text" id="reviewText" name="reviewText"
+													placeholder="후기를 등록해주세요.(최대 30자이내)" maxlength='30' value="">
+											</div>
+											<button id="reviewbtn">완료</button>
+										</div>
+									</div>
+									</c:when>
+										<c:otherwise>
+										<div class="myconheader4">
+										<div class="info-title">후기</div>
+										<div id="review-form">
+											<div class="star-rating auto">
+												<label id="getstar"><c:forEach begin="1" end="${myTourHouseRoom.getStar()}">★</c:forEach></label>
+											</div>
+											<div id="review">
+												<div id="review-1">${myTourHouseRoom.getReview()}</div>
+											</div>
+											<button id="reviewbtn1">수정</button>
+											<button id="reviewbtn2">삭제</button>
+										</div>
+									</div>
+									</c:otherwise>
+								</c:choose>
+								
 								</div>
+								
+								
 
 
 							</div>
@@ -225,14 +338,14 @@
 			<c:otherwise>
 				<!-- 정보가 없을때 기본값 -->
 				<div id=no>
-				<div id="none">
-				<div id="nonebox">
-					<div id="nonehtag">
-					<h4>현재 진행중인 투어가 없습니다.</h4>
-						<h6>상단의 방 찾기를 통해 투어신청을 진행해주세요.</h6>
+					<div id="none">
+						<div id="nonebox">
+							<div id="nonehtag">
+								<h4>현재 진행중인 투어가 없습니다.</h4>
+								<h6>상단의 방 찾기를 통해 투어신청을 진행해주세요.</h6>
+							</div>
 						</div>
-				</div>
-				</div>
+					</div>
 				</div>
 			</c:otherwise>
 		</c:choose>
@@ -245,8 +358,10 @@
 
 	<!-- Scripts -->
 	<script>
-		var status = ${myTourHouse.getStatus()};
+		var status = "${myTourHouse.getStatus()}";
+		var contextPath = "${pageContext.request.contextPath}";
 	</script>
+
 	<script
 		src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 	<script

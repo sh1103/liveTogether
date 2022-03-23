@@ -9,21 +9,59 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/footer.css" />
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/adminStandBy.css" />
+	href="${pageContext.request.contextPath}/assets/css/hostforsalelist.css" />
 <title>관리자페이지</title>
 </head>
-<body>
-	<c:set var="houseList" value="${houseList}" />
-	<jsp:include page="../fix/header.jsp" />
+<!-- Header -->
+
+<jsp:include page="../fix/header.jsp" />
+
+<!-- Aside -->
+<jsp:include page="../fix/aside.jsp" />
+
+<body class="is-preload">
+	<article id="main">
+
+		<div id="mypageheader">
+			<div class="inner">
+				<div class="inner_ab">
+					<span class="my_span01">${member.getMemberName()}</span>님의 마이페이지
+					입니다.
+				</div>
+			</div>
+		</div>
+
+
+
+		<div class="mypage">
+
+			<div class="mypagetool">
+				<ul class="mypagebar">
+					<li class="num1"><a
+						href="${pageContext.request.contextPath}/member/MemberMypageOk.me">내
+							정보조회</a></li>
+					<li class="num2"><a
+						href="${pageContext.request.contextPath}/member/MemberMypageUpdate.me">내
+							정보수정</a></li>
+					<li class="num3"><a
+						href="${pageContext.request.contextPath}/member/HostMyPageTourOk.me">진행사항</a>
+					</li>
+					<li class="num4"><a
+						href="${pageContext.request.contextPath}/member/HostMemberListOk.me">입주자목록</a>
+					</li>
+					<li class="num5"><a
+						href="${pageContext.request.contextPath}/house/HostForSaleListOk.ho">하우스 관리</a>
+					</li>
+				</ul>
+			</div>
+			</div>
+			</article>
+			
 	<div id="first-wrapper">
 		<div id="second-wrapper">
-			<p class="first-p">가치살자의 좋은방 구하기 매물관리</p>
-			<div class="button-wrapper">
-				<button class="button button-approve">등록대기</button>
-				<button class="button button-list" onclick="location.href='${pageContext.request.contextPath}/house/AdminDetailOk.ho'">등록매물</button>
-			</div>
+			<p class="first-p">나의 하우스 관리</p>
 			<div class="table-wrapper">
-			<form action="${pageContext.request.contextPath}/house/AdminCheckStandByDeleteOk.ho">
+			<form action="${pageContext.request.contextPath}/house/HostForSaleListOk.ho">
 				<table class="table">
 					<tr>
 						<td class="td td1"><input type="checkbox"  id="term" name="term"></td>
@@ -42,8 +80,18 @@
 								<tr>
 									<td class="ttd ttd1"><input type="checkbox" id="term1" name="term1" class="terms" value="${house.getHouseNumber()}"></td>
 									<td class="ttd ttd2">${house.getHouseNumber()} 호점</td>
-									<td class="ttd ttd3">${house.getHouseGender()}</td>
-									<td class="ttd ttd4">${house.getHouseType()}</td>
+									<td class="ttd ttd3"><c:choose>
+																<c:when
+																	test="${house.getHouseGender() eq 'm' }">남성전용</c:when>
+																<c:when test="${house.getHouseGender() eq 'w'}">여성전용</c:when>
+																<c:when test="${house.getHouseGender() eq 'o'}">남녀공용</c:when>
+															</c:choose></td>
+									<td class="ttd ttd4">													<c:choose>
+												<c:when test="${house.getHouseType() eq 'a' }">아파트</c:when>
+												<c:when test="${house.getHouseType() eq 'v'}">빌라</c:when>
+														<c:when test="${house.getHouseType() eq 'd'}">단독 주택</c:when>
+														<c:when test="${house.getHouseType() eq 'o'}">기타</c:when>
+													</c:choose></td>
 									<td class="ttd ttd5">${house.getHouseMax()}명</td>
 									<td class="ttd ttd6">${house.getRoomDeposit()}만원</td>
 									<td class="ttd ttd7">${house.getRoomMonthly()}만원</td>
