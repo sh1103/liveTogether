@@ -10,10 +10,10 @@
 <body>
 	<aside id="aside">
 		<div id="room">
-		<a href="#"></a>
+		<a href="${pageContext.request.contextPath}/house/FindRoom.ho"></a>
 		</div>
-		<div id="room">
-		<a href="#"></a>
+		<div id="hosting">
+		<a href="${pageContext.request.contextPath}/house/HouseRegister.ho"></a>
 		</div>
 		<div id="room">
 		<a href="#"></a>

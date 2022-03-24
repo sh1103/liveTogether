@@ -14,6 +14,23 @@
 	margin: 0 auto;
 }
 
+#aside #hosting a {
+	width: 80px;
+	height: 80px;
+	background-image: url("../../images/hosting.png");
+	background-size: cover;
+	display: inline-block;
+	border-radius: 1rem;
+	border:solid white;
+}
+
+#aside #hosting {
+	width: 90px;
+	height: 90px;
+	margin: 0 auto;
+}
+
+
 #aside #top a {
 	width: 86px;
 	height: 45px;

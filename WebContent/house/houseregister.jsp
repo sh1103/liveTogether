@@ -195,7 +195,7 @@
 												</label>
 											</div>
 											<input id="room_filea11" name="room_file1" type="file"
-												style="display: none" class="a"
+												style="display: none" class="a1"
 												onchange="imgThumbnail(event);"> <input
 												type="button" class="removeImgBtn"
 												onclick="cancelFile('room_filea11')" value="첨부 삭제">

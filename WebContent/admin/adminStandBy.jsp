@@ -49,8 +49,8 @@
 									<td class="ttd ttd7">${house.getRoomMonthly()}만원</td>
 									<td class="ttd ttd8">${house.getRoomDate()}</td>
 									<td class="ttd ttd9"><div class="button2-wrapper">
-											<button class="button2" onclick="location.href='${pageContext.request.contextPath}/house/AdminUpdateStatusOk.ho?houseNumber=${house.getHouseNumber()}'">승인</button>
-											<button class="button2" onclick="location.href='${pageContext.request.contextPath}/house/AdminDeleteStandByOk.ho?houseNumber=${house.getHouseNumber()}'">거절</button>
+											<button type="button" class="button2" onclick="location.href='${pageContext.request.contextPath}/house/AdminUpdateStatusOk.ho?houseNumber=${house.getHouseNumber()}'">승인</button>
+											<button type="button" class="button2" onclick="location.href='${pageContext.request.contextPath}/house/AdminDeleteStandByOk.ho?houseNumber=${house.getHouseNumber()}'">거절</button>
 										</div></td>
 								</tr>
 							</c:forEach>

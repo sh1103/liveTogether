@@ -516,7 +516,7 @@
 					
 					<div id="sixthBox">
 						<div id="banner-img">
-							<img src="../images/slogun.png" alt="">
+							<img src="../images/adminBanner.png" alt="">
 						</div>
 					</div>
 				</div>

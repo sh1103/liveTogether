@@ -180,3 +180,41 @@ button.blue{
 	background-color: #1187CF;
 	color: white;
 }
+
+
+
+
+
+
+@media ( max-width :414px) {
+	div#first-wrapper div#second-wrapper {
+		width: 372px;
+		height: 545px;
+		padding: 19px 20px;
+		background-color: white;
+		border: 1px solid #dddddd;
+		margin-top: 100px !important;
+	}
+	div#first-wrapper p.first-p {
+		font-size: 10px;
+		font-weight: bold;
+	}
+	button.button {
+		border: 1px solid black;
+		width: 53px;
+		height: 20px;
+		font-size: 1px;
+		line-height: 10px;
+	}
+	div#first-wrapper div.table-wrapper {
+		width: 342px;
+		font-size: xx-small;
+		margin-top: 20px;
+	}
+	button.blue {
+		display: inline-block;
+		background-color: #1187CF;
+		color: white;
+		font-size: inherit;
+	}
+}

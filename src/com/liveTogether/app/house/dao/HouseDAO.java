@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.liveTogether.app.house.vo.HouseDTO;
 import com.liveTogether.app.house.vo.HouseFilterDTO;
+import com.liveTogether.app.house.vo.HouseMemberDTO;
 import com.liveTogether.app.house.vo.HouseRoomVO;
 import com.liveTogether.app.house.vo.HouseVO;
 import com.liveTogether.app.member.vo.RoomGuestDTO;
@@ -59,6 +60,10 @@ public class HouseDAO {
 	// 페이징 처리에 필요한 목록 개수 가져오기
 	public int getTotal() {
 		return sqlSession.selectOne("House.getTotal");
+	}
+	
+	public List<HouseMemberDTO> getProfile(int houseNumber){
+		return sqlSession.selectList("House.getProfile", houseNumber);
 	}
 
 	// 하우스 넘버로 방 목록에서 방 지우기

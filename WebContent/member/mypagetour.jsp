@@ -74,6 +74,36 @@ input[type="radio"]+label {
 input[type="radio"]+label:before {
 	content: none !important;
 }
+
+.mybtn:hover{
+background-color: #1187cfbf;
+}
+a#reviewbtn1 {
+  transition: background-color .5s;
+  border-bottom: 1px solid #dddd !important; margin-right: 1rem; height: 40px;
+  cursor: pointer;
+      width: 7%;
+    text-align: center;
+    border-radius: 2rem;
+}
+ #reviewbtn1:hover{
+     background-color: #1187cf;
+    color: #fff;
+    border: 1px solid #e9e9e9;
+}
+ #reviewbtn2:hover{
+     background-color: #1187cf;
+    color: #fff;
+    border: 1px solid #e9e9e9;
+}
+a#reviewbtn2{
+  transition: background-color .5s;
+  border-bottom: 1px solid #dddd !important; margin-right: 1rem; height: 40px;
+  cursor: pointer;
+      width: 7%;
+    text-align: center;
+     border-radius: 2rem;
+}
 </style>
 
 <!-- Header -->
@@ -140,11 +170,14 @@ input[type="radio"]+label:before {
 									<span class="myhousename">가치하우스${myTourHouse.getHouseNumber()}호점</span>
 									<span class="myhousecode">${myTourHouseRoom.getRoomName()}</span>
 									<c:choose>
-										<c:when test="${myTourHouse.getStatus() eq '0' or '1'}">
-											<a class="mybtn" id="tourCancel">투어신청 취소</a>
+										<c:when test="${myTourHouse.getStatus() eq '0'}">
+											<a class="mybtn" id="tourCancel" href="${pageContext.request.contextPath}/member/MemberTourCancelOk.me">투어신청 취소</a>
+										</c:when>
+										<c:when test="${myTourHouse.getStatus() eq  '1'}">
+											<a class="mybtn" id="checkIn" href="${pageContext.request.contextPath}/member/MemberCheckinOk.me">입주 신청</a>
 										</c:when>
 										<c:when test="${myTourHouse.getStatus() eq '2'}">
-											<a class="mybtn" id="checkIn">입주 신청</a>
+											<a class="mybtn" id="tourCancel" href="${pageContext.request.contextPath}/member/MemberTourCancelOk.me">입주신청 취소</a>
 										</c:when>
 										<c:when test="${myTourHouse.getStatus() eq '3'}">
 										</c:when>
@@ -288,13 +321,19 @@ input[type="radio"]+label:before {
 										<div id="review-form">
 											<div class="star-rating auto">
 												<input type="radio" id="5-stars" name="rating" value="5" />
-												<label for="5-stars" class="star pr-4">★</label> <input
-													type="radio" id="4-stars" name="rating" value="4" /> <label
-													for="4-stars" class="star">★</label> <input type="radio"
-													id="3-stars" name="rating" value="3" /> <label
-													for="3-stars" class="star">★</label> <input type="radio"
-													id="2-stars" name="rating" value="2" /> <label
-													for="2-stars" class="star">★</label> <input type="radio"
+												<label for="5-stars" class="star pr-4">★</label> 
+												<input type="radio" id="4-stars" name="rating" value="4" /> 
+													<label
+													for="4-stars" class="star">★</label> 
+													<input type="radio"
+													id="3-stars" name="rating" value="3" /> 
+													<label
+													for="3-stars" class="star">★</label> 
+													<input type="radio"
+													id="2-stars" name="rating" value="2" /> 
+													<label
+													for="2-stars" class="star">★</label> 
+													<input type="radio"
 													id="1-star" name="rating" value="1" /> <label for="1-star"
 													class="star">★</label>
 
@@ -308,7 +347,7 @@ input[type="radio"]+label:before {
 									</div>
 									</c:when>
 										<c:otherwise>
-										<div class="myconheader4">
+					<div class="myconheader4">
 										<div class="info-title">후기</div>
 										<div id="review-form">
 											<div class="star-rating auto">
@@ -317,8 +356,8 @@ input[type="radio"]+label:before {
 											<div id="review">
 												<div id="review-1">${myTourHouseRoom.getReview()}</div>
 											</div>
-											<button id="reviewbtn1">수정</button>
-											<button id="reviewbtn2">삭제</button>
+											<a id="reviewbtn1">수정</a>
+											<a id="reviewbtn2">삭제</a>
 										</div>
 									</div>
 									</c:otherwise>
@@ -355,11 +394,13 @@ input[type="radio"]+label:before {
 
 	<jsp:include page="../fix/footer.jsp" />
 
+ 		<%-- var reviewfrm ="${myTourHouseRoom.getReview()}";  --%>
 
 	<!-- Scripts -->
 	<script>
 		var status = "${myTourHouse.getStatus()}";
 		var contextPath = "${pageContext.request.contextPath}";
+		var reviewfrm ="${myTourHouseRoom.getStar()}";
 	</script>
 
 	<script

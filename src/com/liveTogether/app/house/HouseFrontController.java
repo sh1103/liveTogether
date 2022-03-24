@@ -94,10 +94,8 @@ public class HouseFrontController extends HttpServlet {
 		case "/house/HostForSaleListOk.ho":
 			af = new HostForSaleListOk().execute(req, resp);
 			break;
-//		case "/house/HouseRegistUpdate.ho":
-//			af = new ActionForward();
-//			af.setRedirect(false);
-//			af.setPath("/house/houseRegisterUpdate.jsp");
+//		case "/house/HouseRegisterUpdate.ho":
+//			af = new HouseRegisterUpdate().execute(req, resp);
 //			break;
 		}
 

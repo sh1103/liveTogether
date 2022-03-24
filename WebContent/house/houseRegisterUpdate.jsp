@@ -57,9 +57,20 @@
 					<tbody>
 						<tr>
 							<th>건물형태</th>
-							<td>
-								<div>${house.getHouseType()}</div>
-							</td>
+							<td><c:choose>
+									<c:when test="${house.getHouseType() eq 'a'}">
+										<div>아파트</div>
+									</c:when>
+									<c:when test="${house.getHouseType() eq 'v'}">
+										<div>빌라</div>
+									</c:when>
+									<c:when test="${house.getHouseType() eq 'd'}">
+										<div>단독주택</div>
+									</c:when>
+									<c:otherwise>
+										<div>기타</div>
+									</c:otherwise>
+								</c:choose></td>
 						</tr>
 						<tr>
 							<th>주소</th>
@@ -77,8 +88,12 @@
 						</tr>
 					</tbody>
 				</table>
-				<input type="hidden" name="latitude"> <input type="hidden"
-					name="longitude">
+					<input type="hidden" name="houseType" value="${house.getHouseType()}">
+					<input type="hidden" id="address" name="houseAddress" value="${house.getHouseAddress()}">
+					<input type="hidden" id="address2" name="houseAddressDetail" value="${house.getHouseAddressDetail()}">
+					<input type="hidden" name="houseLocation" value="${house.getHouseLocation()}">
+					<input type="hidden" name="latitude" value="${house.getLatitude()}">
+					<input type="hidden"name="longitude" value="${house.getLongitude()}">
 
 				<!-- 방정보 -->
 				<div class="content-sub-title">
@@ -86,7 +101,7 @@
 				</div>
 
 
-				<c:forEach var="room" items="${room}">
+				<c:forEach var="room" items="${room}" varStatus="status">
 					<table>
 						<tbody>
 							<tr>
@@ -94,6 +109,7 @@
 								<td>
 									<div>
 										<div class="input-smallsize">${room.getRoomName()}</div>
+										<input type="hidden" name="roomName" value="${room.getRoomName()}" autocomplete="off">
 									</div>
 								</td>
 							</tr>
@@ -103,18 +119,18 @@
 									<div>
 										<c:choose>
 											<c:when test="${room.getRoomGender() eq 'm'}">
-												<input type="radio" id="male" name="roomGender1" value="m"
+												<input type="radio" id="male${status.count}" class='b' name="roomGender${status.count}" value="m"
 													checked>
-												<label for="male">남성전용</label>
-												<input type="radio" id="female" name="roomGender1" value="w">
-												<label for="female">여성전용</label>
+												<label for="male${status.count}">남성전용</label>
+												<input type="radio" id="female${status.count}" class='b' name="roomGender${status.count}" value="w">
+												<label for="female${status.count}">여성전용</label>
 											</c:when>
 											<c:when test="${room.getRoomGender() eq 'w'}">
-												<input type="radio" id="male" name="roomGender1" value="m">
-												<label for="male">남성전용</label>
-												<input type="radio" id="female" name="roomGender1" value="w"
+												<input type="radio" id="male${status.count}" class='b' name="roomGender${status.count}" value="m">
+												<label for="male${status.count}">남성전용</label>
+												<input type="radio" id="female${status.count}" class='b' name="roomGender${status.count}" value="w"
 													checked>
-												<label for="female">여성전용</label>
+												<label for="female${status.count}">여성전용</label>
 											</c:when>
 										</c:choose>
 									</div>
@@ -161,13 +177,10 @@
 								<td>
 									<div>
 										<div id="roomsize-wrap">
-											<input type="text" class="input-xsmallsize" id="cal2"
+										<div>${room.getRoomArea()}&nbsp;&nbsp;m<sup>2</div>
+											<input type="hidden" class="input-xsmallsize" id="cal2"
 												onkeyup="calculator(2);" name="roomArea" autocomplete="off"
-												value="${room.getRoomArea()}"><span
-												class="span-lineheight">&nbsp;&nbsp;m<sup>2</sup>&nbsp;=&nbsp;&nbsp;
-											</span> <input type="text" class="input-xsmallsize" id="cal1"
-												onkeyup="calculator(1);" autocomplete="off"><span
-												class="span-lineheight">&nbsp;&nbsp;평</span>
+												value="${room.getRoomArea()}">
 										</div>
 									</div>
 								</td>
@@ -176,10 +189,12 @@
 							</tr>
 							<tr>
 								<th>입주가능일</th>
-								<td>								
-								<div>${room.getRoomDate()}2022-03-22</div><input type="date" id="startDate" name="roomDate">
-									<input type="checkbox" id="rightnow" name="roomDate"> <label
-									for="rightnow">즉시 입주</label></td>
+								<td>
+									<div>${room.getRoomDate()}</div>
+									<input type="date" id="startDate" class="c" name="roomDate" value="${room.getRoomDate()}"> 
+									<input	type="checkbox" id="rightnow" name="roomDate"> <label
+									for="rightnow">즉시 입주</label>
+								</td>
 							</tr>
 							<tr>
 								<th>사진</th>
@@ -188,19 +203,19 @@
 										<div class="filesRooma1">
 											<div class="file-wrap">
 												<div id="file">
-													<label for="room_filea11" style="display: inline;">
+													<label for="room_filea1${status.count}" style="display: inline;">
 														<img id="room_filea11Img" class="roomImg"
 														src="${pageContext.request.contextPath}/images/파일첨부.png">
 													</label>
 												</div>
-												<input id="room_filea11" name="room_file1" type="file"
-													style="display: none" class="a1"
+												<input id="room_filea1${status.count}" name="room_file${status.count}" type="file"
+													style="display: none" class="a"
 													onchange="imgThumbnail(event);"> <input
 													type="button" class="removeImgBtn"
-													onclick="cancelFile('room_filea11')" value="첨부 삭제">
+													onclick="cancelFile('room_filea1${status.count}')" value="첨부 삭제">
 
 											</div>
-											<div>※ 방 사진을 반드시 재첨부 해주셔야 합니다.</div>
+											<div class="redFont">※ 방 사진을 반드시 재첨부 해주셔야 합니다.</div>
 										</div>
 									</div>
 								</td>
@@ -339,7 +354,7 @@
 											</c:when>
 											<c:otherwise>
 												<input type="checkbox" id="microwave" name="opMicrowave"
-													value="1" >
+													value="1">
 												<label for="microwave">전자레인지</label>
 											</c:otherwise>
 										</c:choose>
@@ -642,8 +657,7 @@
 방 정보, 가격협의내용, 교통 등 자세한 내용을 작성하시면 거래가 성사될 가능성이 높아집니다. 
 한글, 영어, 숫자, m2을 제외한 특수문자(괄호포함)등은 임의로 삭제될 수 있습니다.
 (950글자 이내)"
-										maxlength="950" name="houseMessage"
-										value="${house.getHouseMessage()}"></textarea>
+										maxlength="950" name="houseMessage">${house.getHouseMessage()}</textarea>
 								</div>
 							</td>
 						</tr>
@@ -654,6 +668,7 @@
 				<div id="roomSubmit">
 					<button id="submit-button" type="button" onclick="send()">수정하기</button>
 				</div>
+				<input type="hidden" name="houseNumber" value="${house.getHouseNumber()}">
 			</form>
 		</div>
 	</article>
@@ -678,7 +693,7 @@
 <script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 <script
-	src="${pageContext.request.contextPath}/assets/js/houseRegister.js"></script>
+	src="${pageContext.request.contextPath}/assets/js/houseRegisterUpdate.js"></script>
 <!-- 주소로 좌표 가져오기 -->
 <script>
 	$("input#address2").focus(function() {
@@ -702,9 +717,6 @@
 				$("input[name='latitude']").val(result[0].y);
 				$("input[name='longitude']").val(result[0].x);
 
-				console.log($("input[name='latitude']").val());
-				console.log($("input[name='longitude']").val());
-
 			}
 		});
 
@@ -715,7 +727,7 @@
 
 
 <!-- 주소찾기 -->
-<script
+<!-- <script
 	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 	function DaumPostcode() {
@@ -766,7 +778,7 @@
 			}
 		}).open();
 	}
-</script>
+</script> -->
 
 
 

@@ -181,12 +181,7 @@
 					</div>
 				</div>
 			</form>
-			<div>
-				<button id="btnh1" class="btn" onclick="toggle()">
-					<i class="fa-solid fa-heart"></i>
-					<div>찜 목록</div>
-				</button>
-			</div>
+
 			<div id="table-wrap">
 				<div id="table">
 					<div class="table-row"></div>
@@ -217,8 +212,8 @@
 	var map = new kakao.maps.Map(mapContainer, mapOption);
 </script>
 <script>
-
-
+	
+	
 	$.ajax({
 		url : contextPath + "/house/HousePositionOk.ho",
 		type : "get",
@@ -228,7 +223,6 @@
 		},
 		async : false
 	});
-
 	function jsons(positions) {
 
 		var clusterer = new kakao.maps.MarkerClusterer({
@@ -237,81 +231,105 @@
 			minLevel : 10
 		// 클러스터 할 최소 지도 레벨 
 		});
+		var infos = [];
 		var markers = [];
-		for (var i = 0; i < JSON.parse(positions).length; i++) {
+		for (var j = 0; j < JSON.parse(positions).length; j++) {
 			var marker = new kakao.maps.Marker({
-				position : new kakao.maps.LatLng(JSON.parse(positions)[i].lat,
-						JSON.parse(positions)[i].lng)
+				position : new kakao.maps.LatLng(JSON.parse(positions)[j].lat,
+						JSON.parse(positions)[j].lng)
 			});
 
 			// 클러스터러에 마커들을 추가합니다
-			markers[i] = marker;
-			var text= "";
+			markers[j] = marker;
+			var text = "";
 			var houseGender;
 			var houseType;
-			if (JSON.parse(positions)[i].houseGender == "m") {
+			if (JSON.parse(positions)[j].houseGender == "m") {
 				houseGender = "남성전용";
-					} else if (JSON.parse(positions)[i].houseGender == "w") {
-						houseGender = "여성전용";
-					} else if (JSON.parse(positions)[i].houseGender == "o") {
-						houseGender = "남녀공용";
-					}
-					if (JSON.parse(positions)[i].houseType == "a") {
-						houseType = "아파트";
-					} else if (JSON.parse(positions)[i].houseType == "v") {
-						houseType = "빌라";
-					} else if (JSON.parse(positions)[i].houseType == "d") {
-						houseType = "단독주택";
-					} else if (JSON.parse(positions)[i].houseType == "o") {
-						houseType = "기타";
-					}
-			text += '<div class="table-cell2">'
-				text += '<a href=' + contextPath
-						+ '/house/HouseDetailOk.ho?houseNumber='
-						+ JSON.parse(positions)[i].houseNumber + ' target="_blank">'
-				text += '<div class="cell-wrap2">'
-				text += '<div class="img-wrap1" style="background:url(\''+contextPath+'/upload/'+JSON.parse(positions)[i].housefileName+'\'); background-size:cover"></div>'
-				text += '<div class="content-wrapper1">'
-				text += '<div class="content1">'
-				text += '<span class="name">' + JSON.parse(positions)[i].houseNumber
-						+ '호점</span><span class="gu">(보증금'
-						+ JSON.parse(positions)[i].roomDeposit + '/월'
-						+ JSON.parse(positions)[i].roomMonthly + ')</span>'
-				text += '</div>'
-				text += '<div class="content content2">'
-				text += '<span class="gender-division">'
-						+ houseGender + '</span>'
-				text += '<span class="concept">'
-						+ houseType
-						+ '</span><span class="opened-beds" style="display: inline;">신청가능 '
-				text += '<span class="opened-beds-count ">'
-						+ JSON.parse(positions)[i].houseMax + '</span>'
-				text += '</span><span class="opened-beds" style="display: none;">예약가능</span>'
-				text += '</div></div></div></a></div>'
-	    var infowindow = new kakao.maps.InfoWindow({
-			  content: text // 인포윈도우에 표시할 내용 
+			} else if (JSON.parse(positions)[j].houseGender == "w") {
+				houseGender = "여성전용";
+			} else if (JSON.parse(positions)[j].houseGender == "o") {
+				houseGender = "남녀공용";
+			}
+			if (JSON.parse(positions)[j].houseType == "a") {
+				houseType = "아파트";
+			} else if (JSON.parse(positions)[j].houseType == "v") {
+				houseType = "빌라";
+			} else if (JSON.parse(positions)[j].houseType == "d") {
+				houseType = "단독주택";
+			} else if (JSON.parse(positions)[j].houseType == "o") {
+				houseType = "기타";
+			}
+			text += '<div class="table-cells">'
+			text += '<a href=' + contextPath
+					+ '/house/HouseDetailOk.ho?houseNumber='
+					+ JSON.parse(positions)[j].houseNumber
+					+ ' target="_blank">'
+			text += '<div class="cell-wrap2">'
+			text += '<div class="img-wrap1" style="background:url(\''
+					+ contextPath + '/upload/'
+					+ JSON.parse(positions)[j].housefileName
+					+ '\'); background-size:cover"></div>'
+			text += '<div class="content-wrapper1">'
+			text += '<div class="content1">'
+			text += '<span class="name">'
+					+ JSON.parse(positions)[j].houseNumber
+					+ '호점</span><span class="gu">(보증금'
+					+ JSON.parse(positions)[j].roomDeposit + '/월'
+					+ JSON.parse(positions)[j].roomMonthly + ')</span>'
+			text += '</div>'
+			text += '<div class="content content2">'
+			text += '<span class="gender-division">' + houseGender + '</span>'
+			text += '<span class="concept">'
+					+ houseType
+					+ '</span><span class="opened-beds" style="display: inline;">신청가능 '
+			text += '<span class="opened-beds-count ">'
+					+ JSON.parse(positions)[j].houseMax + '</span>'
+			text += '</span><span class="opened-beds" style="display: none;">예약가능</span>'
+			text += '</div></div></div></a></div>'
+			var infowindow = new kakao.maps.InfoWindow({
+				content : text
+			// 인포윈도우에 표시할 내용 
+			});
+			infos.push(infowindow);
+			clusterer.addMarkers(markers);
+		}
+		var checks = new Array();
+		$.each(markers, function(index, item) {
+			kakao.maps.event.addListener(item, "click", function() {
+				infos.forEach(function(each) {
+					each.close();
+				}); // 생성한 인포윈도우를 모두 닫아줍니다.
+				if (checks[index]) {
+					infos[index].close(map, item);
+					checks[index] = false;
+					return;
+				}
+				infos[index].open(map, item); // 마커에 맞는 인포윈도우를 열어줍니다.
+				checks[index] = true;
+			});
+
+			
+		$(".cell-wrap"+index).on(item,"click", function() {
+			infos.forEach(function(each) {
+				each.close();
+			}); // 생성한 인포윈도우를 모두 닫아줍니다.
+			if (checks[index]) {
+				infos[index].close(map, item);
+				checks[index] = false;
+				return;
+			}
+			infos[index].open(map, item); // 마커에 맞는 인포윈도우를 열어줍니다.
+			checks[index] = true;
 		});
-	    kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map, marker, infowindow));
-	    kakao.maps.event.addListener(marker, 'mouseout', makeOutListener(infowindow));
-		clusterer.addMarkers(markers);
+		});
 
-	}}
-	function makeOverListener(map, marker, infowindow) {
-	    return function() {
-	        infowindow.open(map, marker);
-	    };
-	}
+			
 
-	// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
-	function makeOutListener(infowindow) {
-	    return function() {
-	        infowindow.close();
-	    };
 	}
-	
-	$("table-cell2").parent().css('width','100%');
 </script>
-
 <script src="${pageContext.request.contextPath}/assets/js/findRoom.js"></script>
+
+
 
 </html>

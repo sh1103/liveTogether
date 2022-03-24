@@ -409,3 +409,8 @@ a {
 div.active div.process-title a{
 	color: white;	
 }
+
+ul{
+   list-style:none;
+   }
+

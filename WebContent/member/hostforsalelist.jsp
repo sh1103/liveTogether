@@ -38,10 +38,10 @@
 			<div class="mypagetool">
 				<ul class="mypagebar">
 					<li class="num1"><a
-						href="${pageContext.request.contextPath}/member/MemberMypageOk.me">내
+						href="${pageContext.request.contextPath}/member/HostMyPageLookOk.me">내
 							정보조회</a></li>
 					<li class="num2"><a
-						href="${pageContext.request.contextPath}/member/MemberMypageUpdate.me">내
+						href="${pageContext.request.contextPath}/member/HostMyPageOk.me">내
 							정보수정</a></li>
 					<li class="num3"><a
 						href="${pageContext.request.contextPath}/member/HostMyPageTourOk.me">진행사항</a>
@@ -97,8 +97,8 @@
 									<td class="ttd ttd7">${house.getRoomMonthly()}만원</td>
 									<td class="ttd ttd8">${house.getRoomDate()}</td>
 									<td class="ttd ttd9"><div class="button2-wrapper">
-											<button class="button2" onclick="location.href='${pageContext.request.contextPath}/house/AdminUpdateStatusOk.ho?houseNumber=${house.getHouseNumber()}'">승인</button>
-											<button class="button2" onclick="location.href='${pageContext.request.contextPath}/house/AdminDeleteStandByOk.ho?houseNumber=${house.getHouseNumber()}'">거절</button>
+											<button type="button" class="button2" onclick="location.href='${pageContext.request.contextPath}/house/HouseRegisterUpdate.ho?houseNumber=${house.getHouseNumber()}'">수정</button>
+											<button type="button" class="button2" onclick="location.href='${pageContext.request.contextPath}/house/AdminDeleteStandByOk.ho?houseNumber=${house.getHouseNumber()}'">삭제</button>
 										</div></td>
 								</tr>
 							</c:forEach>

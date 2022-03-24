@@ -275,14 +275,14 @@
 	
 		
 	<!-- 마이페이지 테이블 스테이터스 1 -> 2 변경 -->
-	<update id="updateMypageSecond" parameterType="_int">
+	<update id="updateMypageSecond" parameterType="string">
 		update tbl_roomguest
 		set status='2'
 		where memberId = #{memberId}
 	</update>
 	
 	<!-- 마이페이지 테이블 스테이터스 삭제  -->
-	<delete id="tourMypageDelete" parameterType="_int">
+	<delete id="tourMypageDelete" parameterType="string">
 		delete from tbl_roomguest
 		where memberId= #{memberId}
 	</delete>

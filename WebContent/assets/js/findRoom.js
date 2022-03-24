@@ -29,6 +29,7 @@ function showList(houses) {
 	var text = "";
 	if (houses != null && houses.length != 0) {
 		$.each(houses,function(index, house) {
+			
 			var houseGender;
 			var houseType;
 			if (house.houseGender == "m") {
@@ -48,10 +49,7 @@ function showList(houses) {
 						houseType = "기타";
 					}
 					text += '<div class="table-cell">'
-					text += '<a href=' + contextPath
-							+ '/house/HouseDetailOk.ho?houseNumber='
-							+ house.houseNumber + ' target="_blank">'
-					text += '<div class="cell-wrap">'
+					text += '<div class="cell-wrap cell-wrap'+index+'">'
 					text += '<div class="img-wrap" style="background:url(\''+contextPath+'/upload/'+house.housefileName+'\'); background-size:cover"></div>'
 					text += '<div class="content-wrapper">'
 					text += '<div class="content">'
@@ -75,8 +73,11 @@ function showList(houses) {
 		// 댓글 없음
 		text = "<p>게시글이 없습니다.</p>";
 	}
-
+	
 	$(".table-row").html(text);
+	
+
+	
 	
 }
 

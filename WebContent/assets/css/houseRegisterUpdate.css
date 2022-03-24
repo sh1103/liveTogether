@@ -220,6 +220,15 @@ label {
 	margin: 0;
 }
 
-li.redFont {
+li.redFont, div.redFont {
 	color: red;
+}
+
+@media ( max-width : 414px) {
+	.register-container {
+		padding: 0 100px;
+	}
+	.register-container button {
+		padding: 0 10px;
+	}
 }

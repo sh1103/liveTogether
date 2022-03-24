@@ -48,7 +48,7 @@
 						href="${pageContext.request.contextPath}/member/MemberMypageOk.me">내
 							정보조회</a></li>
 					<li class="num2"><a
-						href="${pageContext.request.contextPath}/member/MemberMypageUpdate.me">내
+						href="${pageContext.request.contextPath}/member/HostMyPageOk.me">내
 							정보수정</a></li>
 					<li class="num3"><a
 						href="${pageContext.request.contextPath}/member/HostMyPageTourOk.me">진행사항</a>

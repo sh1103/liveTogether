@@ -20,6 +20,11 @@
 	rel="stylesheet">
 </head>
 <body class="is-preload">
+	<c:if test="${not empty param.code}">
+		<script>
+			alert("아이디 또는 비밀번호를 다시 확인해주세요.");
+		</script>
+	</c:if>
 
 	<!-- Header -->
 
@@ -27,8 +32,6 @@
 
 	<!-- Aside -->
 	<jsp:include page="../fix/aside.jsp" />
-
-
 	<!-- Main -->
 	<section id="login-wrap">
 		<div id="box">
