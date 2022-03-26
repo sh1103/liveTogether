@@ -1,5 +1,6 @@
-html{
-   scroll-behavior:smooth;
+html, body {
+    width: 100%;
+    height: 100%;
 }
 
 header#header {
@@ -9,6 +10,44 @@ header#header {
 .tab {
    padding: 2rem;
 }
+
+img.tour-img{
+	width: 35px;
+    position: absolute;
+    top: 10px;
+    left: 391px;
+}
+
+div.tour-guide{
+	display:none;
+	width: 180px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #555;
+    position: absolute;
+    top: -18px;
+    left: 426px;
+    font-size: 12px;
+}
+div.star-wrap{
+	display:flex;
+	padding-right: 18px;
+}
+
+div.star-wrap label.star{
+	-webkit-text-fill-color: transparent;
+   	-webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #555;
+    font-weight: 100;
+    font-size: 20px;
+    padding: 0;
+    line-height: 30px;
+}
+div.star-wrap label.star.active{	
+    -webkit-text-fill-color: #ffd400;
+
+}
+
 
 body {
    overflow-x: hidden;

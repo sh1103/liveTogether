@@ -8,6 +8,22 @@
 	border:solid white;
 }
 
+#aside #inquiry {
+	width: 100%;
+	height: 90px;
+	margin: 0 auto;
+}
+
+#aside #inquiry a {
+	width: 80px;
+	height: 80px;
+	background-image: url("../../images/inquiry.png");
+	background-size: cover;
+	display: inline-block;
+	border-radius: 1rem;
+	border:solid white;
+}
+
 #aside #room {
 	width: 100%;
 	height: 90px;

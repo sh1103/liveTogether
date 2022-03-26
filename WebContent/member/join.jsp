@@ -74,7 +74,7 @@
 							<div class="login_kakaomail">
 								<div id="loginEmailField">
 									<input placeholder="이메일(아이디)" class="tf_g tf_email"
-										name="memberId" id="memberId" > <!-- autocomplete="off" -->
+										name="memberId" id="memberId"> <!-- autocomplete="off" -->
 									<p id="result">가치살다에서 사용하실 이메일을 입력해주세요.</p>
 								</div>
 							</div>
@@ -83,6 +83,7 @@
 									name="memberPw" type="password" id="id_password_3"> <input
 									placeholder="비밀번호 확인" data-type="password" class="tf_g checkPw"
 									name="memberPwOk" type="password" id="pwCheck">
+									<p id="pwResult"></p>
 							</div>
 							<div class="nickname_wrap">
 								<input placeholder="이름" class="nickname" name="memberName"
@@ -100,7 +101,7 @@
 								<input class="member-input" type="radio" value="m"
 									name="memberGender" id="memberGenderM"> <label
 									class="member-btn" for="memberGenderM">남자</label> <input
-									class="member-input" type="radio" value="f"
+									class="member-input" type="radio" value="w"
 									name="memberGender" id="memberGenderF"> <label
 									class="member-btn" for="memberGenderF">여자</label>
 							</div>
@@ -354,6 +355,7 @@
 	<jsp:include page="../fix/footer.jsp" />
 
 	<!-- Scripts -->
+	<script>var contextPath = "${pageContext.request.contextPath}"</script>
 	<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/jquery.scrolly.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>

@@ -116,7 +116,7 @@ public class HouseDAO {
 	}
 
 	// admin페이지에 필요한 방 전체 리스트2
-	public List<HouseRoomVO> adminSelectAllTwo(Map<String, Integer> houseMap) {
+	public List<HouseDTO> adminSelectAllTwo(Map<String, Integer> houseMap) {
 		return sqlSession.selectList("House.adminSelectAllTwo", houseMap);
 	}
 
@@ -198,6 +198,11 @@ public class HouseDAO {
 	//총 리뷰 수
 	public int reviewCount() {
 		return sqlSession.selectOne("House.reviewCount");
+	}
+	
+	//총 문의 수
+	public int inquiryTotalCount() {
+		return sqlSession.selectOne("House.inquiryTotalCount");
 	}
 
 }

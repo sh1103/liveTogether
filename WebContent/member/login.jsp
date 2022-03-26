@@ -73,7 +73,7 @@
 						<div id="kakaochoice">
 							<ul class="actions fit kakaochoice">
 								<li><a href="#" class="button alt fit tstory" onclick="loginForm.submit()" id="login"><span>로그인</span></a></li>
-								<li onclick="kakaoLogin();"><a id="kakao_btn" href="#"
+								<li><a id="kakao_btn" href="#"
 									class="button alt fit kakao"><img src="../images/카카오톡.jpg"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;카카오계정
 											로그인</span></a></li>
 								<li><a href="findId.jsp" class="button alt fit tstory find"><span>아이디
@@ -99,6 +99,44 @@
 	<!-- Scripts -->
 	<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/jquery.scrolly.min.js"></script>
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	<script>
+		Kakao.init("3df76abdd7389be0cf0063fa01b6ffb4");
+		
+		$("#kakao_btn").on("click", function(){
+		    //1. 로그인 시도
+		    Kakao.Auth.login({
+				scope : 'profile_nickname, account_email, gender',
+		        success: function(authObj) {
+		         	console.log(authObj);
+		          //2. 로그인 성공시, API 호출
+		         Kakao.API.request({
+		            url: '/v2/user/me',
+		            success: function(res) {
+		            	
+		            	/* $.each({
+		            		
+		            	)}; */
+		            	const kakao_account = res.kakao_account;
+		            	console.log(kakao_account);
+		              var id = res.id;
+		              console.log(id);
+		              console.log(res.profile_nickname);
+		              alert("로그인 성공");
+		              location.href="${pageContext.request.contextPath}/main/main.jsp?code=" + id;
+						         
+		        }
+		          })
+		          console.log(authObj);
+		          var token = authObj.access_token;
+		        },
+		        fail: function(err) {
+		          alert(JSON.stringify(err));
+		        }
+		      });
+		        
+		}) //
+	</script>
 	<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/util.js"></script>

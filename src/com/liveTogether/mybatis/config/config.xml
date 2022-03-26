@@ -16,6 +16,7 @@
 		<typeAlias type="com.liveTogether.app.member.vo.MyRoomGuestDTO" alias="myRoomGuestDTO"/>
 		<typeAlias type="com.liveTogether.app.member.vo.RoomGuestVO" alias="roomGuestVO"/>
 		<typeAlias type="com.liveTogether.app.house.vo.HouseMemberDTO" alias="houseMemberDTO"/>
+		<typeAlias type="com.liveTogether.app.board.vo.InquiryVO" alias="inquiryVO"/>
 		
 	</typeAliases>
 

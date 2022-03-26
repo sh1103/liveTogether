@@ -42,11 +42,12 @@
 				</ul>
 			</div>
 			<form id="registForm" name="registForm" method="post"
-				action="${pageContext.request.contextPath}/house/HouseRegisterOk.ho" enctype="multipart/form-data">
+				action="${pageContext.request.contextPath}/house/HouseRegisterOk.ho"
+				enctype="multipart/form-data">
 
 				<!-- 위치정보 -->
 				<div class="content-sub-title">
-					<h2>위치 정보 </h2>
+					<h2>위치 정보</h2>
 				</div>
 				<table>
 					<tbody>
@@ -110,7 +111,8 @@
 							<th>방이름</th>
 							<td>
 								<div>
-									<input type="hidden" name="roomName" value="Room${houseNumber}-1" autocomplete="off">
+									<input type="hidden" name="roomName"
+										value="Room${houseNumber}-1" autocomplete="off">
 									<div class="input-smallsize">Room${houseNumber}-1</div>
 								</div>
 							</td>
@@ -119,9 +121,10 @@
 							<th>성별</th>
 							<td>
 								<div>
-									<input type="radio" id="male" name="roomGender1" value="m" class='b'>
-									<label for="male">남성전용</label> <input type="radio" id="female"
-										name="roomGender1" value="w" class='b'> <label for="female">여성전용</label>
+									<input type="radio" id="male" name="roomGender1" value="m"
+										class='b'> <label for="male">남성전용</label> <input
+										type="radio" id="female" name="roomGender1" value="w"
+										class='b'> <label for="female">여성전용</label>
 								</div>
 							</td>
 						</tr>
@@ -129,7 +132,8 @@
 							<th>타입</th>
 							<td>
 								<div class="flex">
-									<input type="text" class="input-xsmallsize" name="roomType" autocomplete="off">
+									<input type="text" class="input-xsmallsize" name="roomType"
+										autocomplete="off">
 									<div>
 										<span class="span-lineheight">&nbsp;&nbsp;인실</span>
 									</div>
@@ -140,7 +144,8 @@
 							<th>보증금</th>
 							<td>
 								<div class="flex">
-									<input type="text" class="input-xsmallsize" name="roomDeposit" autocomplete="off">
+									<input type="text" class="input-xsmallsize" name="roomDeposit"
+										autocomplete="off">
 									<div>
 										<span class="span-lineheight">&nbsp;&nbsp;만원</span>
 									</div>
@@ -151,7 +156,8 @@
 							<th>월세</th>
 							<td>
 								<div class="flex">
-									<input type="text" class="input-xsmallsize" name="roomMonthly" autocomplete="off">
+									<input type="text" class="input-xsmallsize" name="roomMonthly"
+										autocomplete="off">
 									<div>
 										<span class="span-lineheight">&nbsp;&nbsp;만원</span>
 									</div>
@@ -178,9 +184,9 @@
 						</tr>
 						<tr>
 							<th>입주가능일</th>
-							<td><input type="date" id="startDate" name="roomDate" class="c">
-								<input type="checkbox" id="rightnow" name="roomDate"> <label
-								for="rightnow">즉시 입주</label></td>
+							<td><input type="date" id="startDate" name="roomDate"
+								class="c"> <input type="checkbox" id="rightnow"
+								name="roomDate"> <label for="rightnow">즉시 입주</label></td>
 						</tr>
 						<tr>
 							<th>사진</th>
@@ -189,8 +195,8 @@
 									<div class="filesRooma1">
 										<div class="file-wrap">
 											<div id="file">
-												<label for="room_filea11" style="display: inline;"> <img
-													id="room_filea11Img" class="roomImg"
+												<label for="room_filea11" style="display: inline;">
+													<img id="room_filea11Img" class="roomImg"
 													src="${pageContext.request.contextPath}/images/파일첨부.png">
 												</label>
 											</div>
@@ -375,7 +381,7 @@
 					<tbody>
 						<tr>
 							<td>
-								<ul class="ul">									
+								<ul class="ul">
 									<li>방 구조 사진을 등록해주세요.</li>
 									<li>매물과 관련없는 이미지, 홍보성 이미지, 워터마크 이미지는 등록하실 수 없습니다.</li>
 								</ul>
@@ -387,15 +393,15 @@
 									<div class="filesHouse" id="1">
 										<div class="file-wrap">
 											<div id="file">
-												<label for="house_file" style="display: inline;"> 
-												<img	 id="house_filebImg" class="roomImg"
+												<label for="house_file" style="display: inline;"> <img
+													id="house_filebImg" class="roomImg"
 													src="${pageContext.request.contextPath}/images/파일첨부.png">
 												</label>
 											</div>
 											<input id="house_file" name="house_file" type="file"
-												style="display: none" onchange="imgThumbnail2(event)"> 
-												<input type="button"	class="removeImgBtn" onclick="cancelFile2('house_file')"
-												value="첨부 삭제">
+												style="display: none" onchange="imgThumbnail2(event)">
+											<input type="button" class="removeImgBtn"
+												onclick="cancelFile2('house_file')" value="첨부 삭제">
 										</div>
 									</div>
 								</div>
@@ -445,6 +451,20 @@
 			</form>
 		</div>
 	</article>
+
+
+
+
+
+
+
+	<!-- 미디어쿼리용 페이지 -->
+	<div id="media">
+		<ul id="media-wrap">
+			<li>PC버전으로만 이용하실 수 있습니다.</li>
+			<li><a href="${pageContext.request.contextPath}/main/main.jsp">메인으로 이동</a></li>
+		</ul>
+	</div>
 
 	<!-- Footer -->
 	<jsp:include page="../fix/footer.jsp" />

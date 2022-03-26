@@ -24,7 +24,7 @@ public class HouseRegisterUpdateOk implements Action {
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		req.setCharacterEncoding("UTF-8");
 
-		String uploadFolder = "C:\\aigb_0900_hsh\\jsp\\workspace\\liveTogether\\WebContent\\upload";
+		String uploadFolder = "C:\\aigb_0900_bsh\\jsp\\workspace\\liveTogether\\WebContent\\upload";
 
 		int fileSize = 1024 * 1024 * 50;// 50M
 		HouseFileDAO fDao = new HouseFileDAO();
@@ -59,9 +59,9 @@ public class HouseRegisterUpdateOk implements Action {
 		vo.setHouseType(multi.getParameter("houseType"));
 		vo.setHouseAddress(multi.getParameter("houseAddress"));
 		vo.setHouseAddressDetail(multi.getParameter("houseAddressDetail"));
-		vo.setHouseLocation(multi.getParameter("houseLocation"));
 		vo.setLatitude(Double.parseDouble(multi.getParameter("latitude")));
 		vo.setLongitude(Double.parseDouble(multi.getParameter("longitude")));
+		vo.setHouseLocation(multi.getParameter("houseLocation"));
 		vo.setOpAircon(multi.getParameter("opAircon"));
 		vo.setOpCentralHeat(multi.getParameter("opCentralHeat"));
 		vo.setOpLocalHeat(multi.getParameter("opLocalHeat"));
@@ -97,7 +97,6 @@ public class HouseRegisterUpdateOk implements Action {
 		String[] roomMonthly = multi.getParameterValues("roomMonthly");
 		String[] roomArea = multi.getParameterValues("roomArea");
 		String[] roomDate = multi.getParameterValues("roomDate");
-		
 
 		for (int i = 0; i < roomName.length; i++) {
 			houseMax += Integer.parseInt(roomType[i]);

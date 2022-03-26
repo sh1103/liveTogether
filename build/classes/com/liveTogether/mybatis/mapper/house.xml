@@ -24,14 +24,14 @@
 		<if test="max != 100000001">
 			<trim prefix="and">
                <![CDATA[
-               r.roomMonthly <= #{max}
+               r.roomMonthly <= #{max} 
                 ]]>
 			</trim>
 		</if>
 		<if test="houseGender!=null">
-			<trim prefix="and (" suffix=")" prefixOverrides="OR">
+			<trim prefix="and (" suffix=")" prefixOverrides="OR"> 
 				<foreach item="gender" collection="genderArr">
-					<trim prefix="OR">
+					<trim prefix="OR"> 
 						<choose>
 							<when test="gender=='w'.toString()">
 								h.houseGender = 'w'
@@ -455,6 +455,12 @@
 	<!-- 총 리뷰 수 -->
 	<select id="reviewCount" resultType="_int">
 		select count(review) from tbl_roomguest;
+	</select>
+	
+	<!-- 관리자페이지 문의 수 가져오기 -->
+	<select id="inquiryTotalCount" resultType="_int">
+		select count(inquiryContent)
+		from tbl_inquiry;
 	</select>
 
 </mapper>

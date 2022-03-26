@@ -37,21 +37,24 @@
 		<div class="mypage">		
 				
 					<div class="mypagetool">
-						<ul class="mypagebar">
-							<li class="num1">
-								<a href="${pageContext.request.contextPath}/member/MemberMypageOk.me">내 정보조회</a>
-							</li>
-							<li class="num2">
-								<a href="${pageContext.request.contextPath}/member/MemberMypageUpdate.me">내 정보수정</a>
-							</li>
-							<li class="num3">
-								<a href="${pageContext.request.contextPath}/member/MemberMypageTour.me">진행사항</a>
-							</li>
-							<li class="num4">
-								<a href="${pageContext.request.contextPath}/member/mypagecontract.jsp">계약서 출력</a>
-							</li>
-						</ul>
-							</div>
+			<ul class="mypagebar">
+				<li class="num1"><a
+					href="${pageContext.request.contextPath}/member/MemberMypageOk.me">내
+						정보조회</a></li>
+				<li class="num2"><a
+					href="${pageContext.request.contextPath}/member/MemberMypageUpdate.me">내
+						정보수정</a></li>
+				<li class="num3"><a
+					href="${pageContext.request.contextPath}/member/MemberMypageTour.me">진행사항</a>
+				</li>
+				<li class="num4"><a
+					href="${pageContext.request.contextPath}/member/mypagecontract.jsp">계약서
+						출력 </a></li>
+				<li class="num5"><a
+					href="${pageContext.request.contextPath}/member/MemberQuestionListOk.me">문의사항
+						 </a></li>
+			</ul>
+		</div>
 							
 							
 					<div class="my" id="target">		
@@ -132,12 +135,13 @@
                     			</tbody>
                     		</table>
                     		
+                    		<!-- 다운로드 -->
                     		<div class="contract-download-btn">
-                    			<a href="#" download="cotract.docx" target="_blank">
+                    			<a href="${pageContext.request.contextPath}/upload/trading.doc" target="_blank">
                     				<img src="${pageContext.request.contextPath}/images/wordDownload.png">                    			
                     			</a>
                     			
-                    			<a href="#" download="cotract.docx" target="_blank">
+                    			<a href="${pageContext.request.contextPath}/upload/trading.hwp" target="_blank">
                     				<img src="${pageContext.request.contextPath}/images/hngDownload.png">                    			
                     			</a>
                     		</div>

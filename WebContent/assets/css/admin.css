@@ -46,6 +46,19 @@ div#admin-whole-wrapper div#second-wrapper {
 	height: 91.6vh;
 }
 
+a {
+	text-decoration: none;
+	color:#606060;
+}
+
+a:hover{
+	text-decoration: underline;
+}
+
+a:visited{
+	color:#606060;
+}
+
 div#admin-whole-wrapper div.two-wrapper1, div#admin-whole-wrapper div.two-wrapper2,
 	div#admin-whole-wrapper div.two-wrapper3 {
 	display: flex;

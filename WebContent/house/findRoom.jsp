@@ -13,8 +13,7 @@
 	href="${pageContext.request.contextPath}/assets/css/main.css" />
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=75a25b651aa07a1facbfaf92c4d784fa&libraries=services,clusterer,drawing"></script>
-<script src="https://kit.fontawesome.com/cc88e53013.js"
-	crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/cc88e53013.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -190,6 +189,7 @@
 		</div>
 
 		<div id="map"></div>
+	</div>
 </body>
 
 
@@ -211,6 +211,7 @@
 	// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
 	var map = new kakao.maps.Map(mapContainer, mapOption);
 </script>
+<script src="${pageContext.request.contextPath}/assets/js/findRoom.js"></script>
 <script>
 	
 	
@@ -297,6 +298,7 @@
 		var checks = new Array();
 		$.each(markers, function(index, item) {
 			kakao.maps.event.addListener(item, "click", function() {
+				
 				infos.forEach(function(each) {
 					each.close();
 				}); // 생성한 인포윈도우를 모두 닫아줍니다.
@@ -307,28 +309,37 @@
 				}
 				infos[index].open(map, item); // 마커에 맞는 인포윈도우를 열어줍니다.
 				checks[index] = true;
+				map.panTo(new kakao.maps.LatLng(JSON.parse(positions)[index].lat,
+						JSON.parse(positions)[index].lng));
 			});
-
-			
-		$(".cell-wrap"+index).on(item,"click", function() {
-			infos.forEach(function(each) {
+		});
+		
+		/* $(".table-cell").each(function(index, item){
+			$(".table-row").click(".table-cell", function(){
+				console.log($(".table-cell").data("index"));
+			});
+		}); */
+		$(".table-row").click(".table-cell", function(e){
+			var index = $(e.target).data("index");
+			 infos.forEach(function(each) {
 				each.close();
 			}); // 생성한 인포윈도우를 모두 닫아줍니다.
 			if (checks[index]) {
-				infos[index].close(map, item);
+				console.log("들어옴if")
+				infos[index].close(map, markers[index]);
 				checks[index] = false;
 				return;
 			}
-			infos[index].open(map, item); // 마커에 맞는 인포윈도우를 열어줍니다.
-			checks[index] = true;
-		});
-		});
-
+			infos[index].open(map, markers[index]); // 마커에 맞는 인포윈도우를 열어줍니다.
+			map.panTo(new kakao.maps.LatLng(JSON.parse(positions)[index].lat,
+					JSON.parse(positions)[index].lng));
 			
-
+			checks[index] = true; 
+		});
+		
 	}
 </script>
-<script src="${pageContext.request.contextPath}/assets/js/findRoom.js"></script>
+
 
 
 

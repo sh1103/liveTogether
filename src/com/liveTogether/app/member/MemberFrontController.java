@@ -102,14 +102,24 @@ public class MemberFrontController extends HttpServlet {
 			af.setPath("/member/join.jsp");
 		} else if (command.equals("/member/HostMyPageOk.me")) {
 			af = new HostMyPageOk().execute(req, resp);
+		} else if (command.equals("/member/MemberReviewListOk.me")) {
+			af = new MemberReviewListOk().execute(req, resp);
 		} else if (command.equals("/member/HostMyPageLookOk.me")) {
 			af = new HostMyPageLookOk().execute(req, resp);
 		} else if (command.equals("/member/HostMyPageUpdateOk.me")) {
 			af = new HostMyPageUpdateOk().execute(req, resp);
+		} else if (command.equals("/member/MemberQuestionListOk.me")) {
+            af = new MemberQuestionListOk().execute(req, resp);
+		} else if (command.equals("/member/MemberReviewDeleteOk.me")) {
+			af = new MemberReviewDeleteOk().execute(req, resp);
 		}else if(command.equals("/member/MemberLogin.me")) {
 			af = new ActionForward();
 			af.setRedirect(false);
 			af.setPath("/member/login.jsp");
+		}else if(command.equals("/member/Main.me")) {
+		af = new ActionForward();
+		af.setRedirect(false);
+		af.setPath("/main/main.jsp");
 		}
 		
 		if (af != null) {

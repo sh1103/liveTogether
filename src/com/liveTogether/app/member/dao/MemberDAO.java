@@ -6,6 +6,8 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
+import com.liveTogether.app.board.vo.BoardVO;
+import com.liveTogether.app.board.vo.InquiryVO;
 import com.liveTogether.app.member.vo.MemberVO;
 import com.liveTogether.app.member.vo.MyRoomGuestDTO;
 import com.liveTogether.app.member.vo.RoomGuestDTO;
@@ -178,10 +180,7 @@ public class MemberDAO {
 		public void tourRealDelete(int houseNumber) {
 			sqlSession.delete("Member.tourRealDelete", houseNumber);
 		}
-		
-		
 	
-		
 		// 마이페이지 테이블 스테이터스 1 -> 2 변경
 		public void updateStMypageSecond(String memberId) {
 			sqlSession.update("Member.updateMypageSecond", memberId);
@@ -216,20 +215,37 @@ public class MemberDAO {
 		public void reviewUpdate(RoomGuestVO room) {
 			sqlSession.update("Member.reviewUpdate", room);
 		}
-		
-		
-		
-		
+	
 		//일반 회원 가입자수
 		public int nMemberCount() {
-			return sqlSession.selectOne("nMemberCount");
+			return sqlSession.selectOne("Member.nMemberCount");
 		}
 		
 		//호스트 회원 가입자수
 		public int hMemberCount() {
-			return sqlSession.selectOne("hMemberCount");
+			return sqlSession.selectOne("Member.hMemberCount");
 		}
 
+		//총 리뷰 목록
+		public List<MyRoomGuestDTO> totalReviewList() {
+			return sqlSession.selectList("Member.totalReviewList");
+		}
+		
+		//마이페이지 리뷰리스트 가져오기
+		public RoomGuestVO reviewList(String memberId) {
+			return sqlSession.selectOne("Member.reviewList", memberId);
+		}
+		
+		//마이페이지 문의하기 목록
+		public List<InquiryVO> getQuestion(String memberId ) {
+			return sqlSession.selectList("Member.getQuestion", memberId);
+		}
+		
+		//리뷰삭제
+        public void reviewDelete(String memberId) {
+            sqlSession.update("Member.reviewDelete",memberId);
+        }
+		
 	
 		
 		

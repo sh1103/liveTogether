@@ -672,6 +672,16 @@
 			</form>
 		</div>
 	</article>
+	
+	
+	
+		<!-- 미디어쿼리용 페이지 -->
+	<div id="media">
+		<ul id="media-wrap">
+			<li>PC버전으로만 이용하실 수 있습니다.</li>
+			<li><a href="${pageContext.request.contextPath}/main/main.jsp">메인으로 이동</a></li>
+		</ul>
+	</div>
 
 	<!-- Footer -->
 	<jsp:include page="../fix/footer.jsp" />

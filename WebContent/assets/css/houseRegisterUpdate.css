@@ -224,11 +224,37 @@ li.redFont, div.redFont {
 	color: red;
 }
 
+div#media {
+	display: none;
+}
+
 @media ( max-width : 414px) {
-	.register-container {
-		padding: 0 100px;
+	div#register {
+		position: relative;
+		margin-left: 22px;
 	}
-	.register-container button {
-		padding: 0 10px;
+	div#media {
+		display: block;
+		margin-top: -75px;
+		padding-bottom: 96px;
+	}
+	div.gradation-div {
+		width: 235px;
+	}
+	.register-container {
+		width: 414px;
+		margin: 181px auto;
+	}
+	form#registForm {
+		display: none;
+	}
+	ul#register-info {
+		display: none;
+	}
+	a {
+		color: #555;
+	}
+	a:hover {
+		text-decoration: underline;
 	}
 }

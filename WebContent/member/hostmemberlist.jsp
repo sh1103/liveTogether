@@ -72,14 +72,14 @@
 								<table>
 									<thead>
 										<tr>
-											<th>방 번호</th>
-											<th>이름</th>
-											<th>타입</th>
-											<th>방 성별 타입</th>
-											<th>신청인</th>
-											<th>신청인 성별</th>
-											<th>전화번호</th>
-											<th>승인 버튼</th>
+											<th class="th1">방 번호</th>
+											<th class="th2">방 이름</th>
+											<th class="th3">타입</th>
+											<th class="th4">방 성별</th>
+											<th class="th5">신청인</th>
+											<th class="th6">성별</th>
+											<th class="th7">전화번호</th>
+											<th class="th8">승인 버튼</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -103,7 +103,7 @@
 												</c:forEach>
 											</c:when>
 											<c:otherwise>
-												<tr>
+												<tr class="anotherTr">
 													<td>목록이 없습니다.</td>
 												</tr>
 											</c:otherwise>

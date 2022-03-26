@@ -21,21 +21,24 @@
 				class="mouseover" id="slogun2"
 				src="${pageContext.request.contextPath}/images/slogun2.png">
 			<ul class="menu-btn-list">
-				<li class="btn p_menu"><a href="${pageContext.request.contextPath}/house/FindRoom.ho">방
-						찾기</a>
-					<div>
-						<ul class="mouseover">
-							<li><a href="${pageContext.request.contextPath}/house/AdminOk.ho">관리자페이지</a></li>
-						</ul>
-					</div></li>
+			<c:choose>
+			<c:when test="${memberType eq 'h'}">
 				<li class="btn p_menu"><a href="${pageContext.request.contextPath}/house/HouseRegister.ho">호스팅
 						하기</a></li>
+						</c:when>
+						<c:otherwise>
+						<li class="btn p_menu"><a onclick="a()">호스팅
+						하기</a></li>
+						</c:otherwise>
+			</c:choose>
+				<li class="btn p_menu"><a href="${pageContext.request.contextPath}/house/FindRoom.ho">방
+						찾기</a>
 				<li class="btn p_menu"><a href="${pageContext.request.contextPath}/board/info.jsp">가치살자
 						소개</a>
 					<div>
 						<ul class="mouseover">
-							<li><a href="${pageContext.request.contextPath}/board/BoardListOk.bo">공지사항</a></li>
-							<li><a href="${pageContext.request.contextPath}/member/HostMyPageLookOk.me">호스트페이지</a></li>
+							<li><a href="${pageContext.request.contextPath}/board/BoardListOk.bo">공지사항</a></li>						
+							<li><a href="${pageContext.request.contextPath}/board/InquiryOk.bo">문의하기</a></li>						
 						</ul>
 					</div></li>
 				<c:choose>
@@ -53,7 +56,17 @@
 							<div>
 								<ul class="mouseover">
 									<li><a href="${pageContext.request.contextPath}/member/MemberLogoutOk.me">로그아웃</a></li>
+									<c:choose>
+									<c:when test="${memberType eq 'n'}">
 									<li><a href="${pageContext.request.contextPath}/member/MemberMypageOk.me">마이페이지</a></li>
+									</c:when>
+									<c:when test="${memberType eq 'o'}">
+									<li><a href="${pageContext.request.contextPath}/house/AdminOk.ho">관리자페이지</a></li>
+									</c:when>
+									<c:when test="${memberType eq 'h'}">
+									<li><a href="${pageContext.request.contextPath}/member/HostMyPageLookOk.me">호스트페이지</a></li>
+									</c:when>
+									</c:choose>
 								</ul>
 							</div>
 						</li>

@@ -1,6 +1,6 @@
-/*//fd5a829552ba5aafe83249b169e62ba9
+//fd5a829552ba5aafe83249b169e62ba9
 
-		Kakao.init("fd5a829552ba5aafe83249b169e62ba9");
+		/*Kakao.init("fd5a829552ba5aafe83249b169e62ba9");
 		Kakao.isInitialized();
 
 		function kakaoLogin() {

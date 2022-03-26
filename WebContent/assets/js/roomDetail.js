@@ -31,12 +31,32 @@ Array.from(tour).forEach((t) => {
              return;
           }       
        }else{
-          alert("로그인 후 이용할 수 있습니다");
+          if(confirm("로그인 후 이용하실 수 있습니다. 로그인 페이지로 이동하시겠습니까?")){
+        	  window.location.replace(contextPath + '/member/Login.me');
+          }
           return;             
        }
            
     })
 });
+
+//투어신청 이미지 클릭
+$(".tour-img").on("mouseover", function(){
+	$(".tour-guide").css("display","block");
+})
+
+$(".tour-img").on("mouseout", function(){
+	$(".tour-guide").css("display","none");
+})
+
+$(function () {
+    $(".goingtour").on("click", function(){
+       var href = $(this).attr("href");
+       var target = $(href == "#" || href == "" ? "body" : href);
+       var position = target.offset().top - headerHeight;
+       $("html, body").animate({ scrollTop: position }, 600, "swing");
+    });
+ });
 
 
 var btn = document.getElementsByClassName("click"); // 앵커 후 스타일 주기위한 버튼

@@ -15,8 +15,8 @@
 		<div id="hosting">
 		<a href="${pageContext.request.contextPath}/house/HouseRegister.ho"></a>
 		</div>
-		<div id="room">
-		<a href="#"></a>
+		<div id="inquiry">
+		<a href="${pageContext.request.contextPath}/board/InquiryOk.bo"></a>
 		</div>
 		<div id="top">
 		<a href="#"></a>

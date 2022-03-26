@@ -10,6 +10,7 @@ import com.liveTogether.action.Action;
 import com.liveTogether.action.ActionForward;
 import com.liveTogether.app.house.dao.HouseDAO;
 import com.liveTogether.app.house.vo.HouseDTO;
+import com.liveTogether.app.member.dao.MemberDAO;
 
 public class HostForSaleListOk implements Action{
 
@@ -17,9 +18,9 @@ public class HostForSaleListOk implements Action{
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		HouseDTO dto = new HouseDTO();
 		HouseDAO dao = new HouseDAO();
+		MemberDAO mDao = new MemberDAO();
 		ActionForward af = new ActionForward();
 		HttpSession session = req.getSession();
-		
 		String memberId = (String)session.getAttribute("memberId");
 		
 		dto.setMemberId(memberId);
@@ -56,7 +57,7 @@ public class HostForSaleListOk implements Action{
 		// endPage와 realEndPage를 비교하여 실제 화면에 표시할 endPage를 결정한다.
 		endPage = endPage > realEndPage ? realEndPage : endPage;
 		
-		
+		req.setAttribute("member", mDao.getInfo(memberId));
 		req.setAttribute("houseList", dao.getForSaleList(memberId));
 		req.setAttribute("page", page);
 		req.setAttribute("startPage", startPage);

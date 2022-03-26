@@ -65,13 +65,13 @@
 				<table class="table">
 					<tr>
 						<td class="td td1"><input type="checkbox"  id="term" name="term"></td>
-						<td class="td td2">하우스 이름</td>
+						<td class="td td2">하우스</td>
 						<td class="td td3">성별</td>
 						<td class="td td4">타입</td>
-						<td class="td td5">총 인원수</td>
+						<td class="td td5">인원수</td>
 						<td class="td td6">보증금</td>
 						<td class="td td7">월세</td>
-						<td class="td td8">입주 가능일</td>
+						<td class="td td8">입주일</td>
 						<td class="td9">상태변경</td>
 					</tr>
 					<c:choose>
@@ -106,7 +106,7 @@
 					</c:choose>
 				</table>
 				<div id="width100">
-					<div><button class="button2 blue" >선택 삭제</button></div>
+					<div><button class="button2 blue" >선택삭제</button></div>
 					</div>
 					</form>
 				<!-- 페이징 처리 -->

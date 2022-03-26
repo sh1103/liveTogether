@@ -22,9 +22,11 @@ input::-webkit-input-placeholder {
 	color: #555 !important;
 }
 
-#review-1{
-    height: 64px;
-    line-height: 64px;}
+#review-1 {
+	height: 64px;
+	line-height: 64px;
+}
+
 .star-rating {
 	display: flex;
 	flex-direction: row-reverse;
@@ -35,10 +37,11 @@ input::-webkit-input-placeholder {
 	width: 5em;
 	margin-right: 1em;
 }
- .star-rating label#getstar{
+
+.star-rating label#getstar {
 	-webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #555;
-   -webkit-text-fill-color: yellow;
+	-webkit-text-stroke-color: #555;
+	-webkit-text-fill-color: yellow;
 }
 
 .star-rating input {
@@ -75,35 +78,11 @@ input[type="radio"]+label:before {
 	content: none !important;
 }
 
-.mybtn:hover{
-background-color: #1187cfbf;
+.mybtn:hover {
+	background-color: #1187cfbf;
 }
-a#reviewbtn1 {
-  transition: background-color .5s;
-  border-bottom: 1px solid #dddd !important; margin-right: 1rem; height: 40px;
-  cursor: pointer;
-      width: 7%;
-    text-align: center;
-    border-radius: 2rem;
-}
- #reviewbtn1:hover{
-     background-color: #1187cf;
-    color: #fff;
-    border: 1px solid #e9e9e9;
-}
- #reviewbtn2:hover{
-     background-color: #1187cf;
-    color: #fff;
-    border: 1px solid #e9e9e9;
-}
-a#reviewbtn2{
-  transition: background-color .5s;
-  border-bottom: 1px solid #dddd !important; margin-right: 1rem; height: 40px;
-  cursor: pointer;
-      width: 7%;
-    text-align: center;
-     border-radius: 2rem;
-}
+
+
 </style>
 
 <!-- Header -->
@@ -145,8 +124,11 @@ a#reviewbtn2{
 					href="${pageContext.request.contextPath}/member/MemberMypageTour.me">진행사항</a>
 				</li>
 				<li class="num4"><a
-					href="${pageContext.request.contextPath}/member/mypagecontract.jsp">계약서
-						출력 </a></li>
+					href="${pageContext.request.contextPath}/member/mypagecontract.jsp">계약서출력
+				</a></li>
+				<li class="num5"><a
+					href="${pageContext.request.contextPath}/member/mypagequestion.jsp">문의사항
+				</a></li>
 			</ul>
 		</div>
 
@@ -171,13 +153,19 @@ a#reviewbtn2{
 									<span class="myhousecode">${myTourHouseRoom.getRoomName()}</span>
 									<c:choose>
 										<c:when test="${myTourHouse.getStatus() eq '0'}">
-											<a class="mybtn" id="tourCancel" href="${pageContext.request.contextPath}/member/MemberTourCancelOk.me">투어신청 취소</a>
+											<a class="mybtn" id="tourCancel"
+												href="${pageContext.request.contextPath}/member/MemberTourCancelOk.me">투어신청
+												취소</a>
 										</c:when>
 										<c:when test="${myTourHouse.getStatus() eq  '1'}">
-											<a class="mybtn" id="checkIn" href="${pageContext.request.contextPath}/member/MemberCheckinOk.me">입주 신청</a>
+											<a class="mybtn" id="checkIn"
+												href="${pageContext.request.contextPath}/member/MemberCheckinOk.me">입주
+												신청</a>
 										</c:when>
 										<c:when test="${myTourHouse.getStatus() eq '2'}">
-											<a class="mybtn" id="tourCancel" href="${pageContext.request.contextPath}/member/MemberTourCancelOk.me">입주신청 취소</a>
+											<a class="mybtn" id="tourCancel"
+												href="${pageContext.request.contextPath}/member/MemberTourCancelOk.me">입주신청
+												취소</a>
 										</c:when>
 										<c:when test="${myTourHouse.getStatus() eq '3'}">
 										</c:when>
@@ -314,58 +302,55 @@ a#reviewbtn2{
 										</div>
 									</div>
 
-								<c:choose>
-									<c:when test="${myTourHouseRoom.getStar() eq '0'}">
 									<div class="myconheader4">
-										<div class="info-title">후기 작성하기</div>
-										<div id="review-form">
-											<div class="star-rating auto">
-												<input type="radio" id="5-stars" name="rating" value="5" />
-												<label for="5-stars" class="star pr-4">★</label> 
-												<input type="radio" id="4-stars" name="rating" value="4" /> 
-													<label
-													for="4-stars" class="star">★</label> 
-													<input type="radio"
-													id="3-stars" name="rating" value="3" /> 
-													<label
-													for="3-stars" class="star">★</label> 
-													<input type="radio"
-													id="2-stars" name="rating" value="2" /> 
-													<label
-													for="2-stars" class="star">★</label> 
-													<input type="radio"
-													id="1-star" name="rating" value="1" /> <label for="1-star"
-													class="star">★</label>
+										<c:choose>
+											<c:when test="${myTourHouseRoom.getStar() eq '0'}">
+												<div class="info-title">후기 작성하기</div>
+												<div id="review-form">
+													<div class="star-rating auto">
+														<input type="radio" id="5-stars" name="rating" value="5" />
+														<label for="5-stars" class="star pr-4">★</label> <input
+															type="radio" id="4-stars" name="rating" value="4" /> <label
+															for="4-stars" class="star">★</label> <input type="radio"
+															id="3-stars" name="rating" value="3" /> <label
+															for="3-stars" class="star">★</label> <input type="radio"
+															id="2-stars" name="rating" value="2" /> <label
+															for="2-stars" class="star">★</label> <input type="radio"
+															id="1-star" name="rating" value="1" /> <label
+															for="1-star" class="star">★</label>
 
-											</div>
-											<div id="review">
-												<input type="text" id="reviewText" name="reviewText"
-													placeholder="후기를 등록해주세요.(최대 30자이내)" maxlength='30' value="">
-											</div>
-											<button id="reviewbtn">완료</button>
-										</div>
+													</div>
+													<div id="review">
+														<input type="text" id="reviewText" name="reviewText"
+															placeholder="후기를 등록해주세요.(최대 30자이내)" maxlength='30'>
+													</div>
+													<input type="button" id="reviewbtn" value="완료">
+												</div>
+											</c:when>
+											<c:otherwise>
+												<div class="info-title">후기</div>
+												<div id="review-form">
+													<div class="star-rating auto">
+														<label id="getstar"><c:forEach begin="1"
+																end="${myTourHouseRoom.getStar()}">★</c:forEach></label>
+													</div>
+													<div id="review">
+														<div id="review-1">${myTourHouseRoom.getReview()}</div>
+													</div>
+													<div class="btns-wrap">
+													<a id="reviewbtn1" class='btns' onclick="updateReview()">수정</a> <a id="reviewbtn2" 
+														class='btns' onclick='deleteReview()'>삭제</a>
+													</div>
+												</div>
+											</c:otherwise>
+										</c:choose>
 									</div>
-									</c:when>
-										<c:otherwise>
-					<div class="myconheader4">
-										<div class="info-title">후기</div>
-										<div id="review-form">
-											<div class="star-rating auto">
-												<label id="getstar"><c:forEach begin="1" end="${myTourHouseRoom.getStar()}">★</c:forEach></label>
-											</div>
-											<div id="review">
-												<div id="review-1">${myTourHouseRoom.getReview()}</div>
-											</div>
-											<a id="reviewbtn1">수정</a>
-											<a id="reviewbtn2">삭제</a>
-										</div>
-									</div>
-									</c:otherwise>
-								</c:choose>
-								
+
+
+
 								</div>
-								
-								
+
+
 
 
 							</div>
@@ -394,13 +379,15 @@ a#reviewbtn2{
 
 	<jsp:include page="../fix/footer.jsp" />
 
- 		<%-- var reviewfrm ="${myTourHouseRoom.getReview()}";  --%>
+	<%-- var reviewfrm ="${myTourHouseRoom.getReview()}";  --%>
 
 	<!-- Scripts -->
 	<script>
 		var status = "${myTourHouse.getStatus()}";
 		var contextPath = "${pageContext.request.contextPath}";
-		var reviewfrm ="${myTourHouseRoom.getStar()}";
+		var reviewfrm = "${myTourHouseRoom.getStar()}";
+		var star = "${myTourHouseRoom.getStar()}";
+		var review = "${myTourHouseRoom.getReview()}"
 	</script>
 
 	<script
