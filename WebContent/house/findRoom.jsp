@@ -18,6 +18,7 @@
 </head>
 <body>
 	<c:set var="positionList" value="${positionList}" />
+	<c:set var="keyword" value="${keyword}" />
 	<!-- Header -->
 	<jsp:include page="../fix/header.jsp" />
 
@@ -29,7 +30,8 @@
 			<div class="flex input_wrap">
 				<a id="img_wrap"> </a>
 				<div id="input_wrap">
-					<input type="text" placeholder="지역, 지하철역, 대학주변"> <a>
+					<input type="text" id="searchInput" placeholder="지역, 지하철역, 대학주변"> 
+					<a id="searchA">
 						<div id="input_img"></div>
 					</a>
 				</div>
@@ -199,6 +201,8 @@
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=75a25b651aa07a1facbfaf92c4d784fa"></script>
 <script>
 	var contextPath = "${pageContext.request.contextPath}";
+	var keyword = "${keyword}";
+	
 </script>
 <script>
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -336,7 +340,39 @@
 			
 			checks[index] = true; 
 		});
-		
+	}
+	
+	if(keyword!=null){
+	var inputData=[];
+	inputData=keyword;
+
+	var count = 0;
+	var ps = new kakao.maps.services.Places();
+	if (inputData != null) {
+		kewwordSearch(inputData);
+	}
+	function kewwordSearch(keword) {
+		ps.keywordSearch(keword, placesSearchCB);
+	}
+	function placesSearchCB(data, status, pagination) {
+		if (status === kakao.maps.services.Status.OK) {
+			mapOption = {
+					center : new kakao.maps.LatLng(data[0].y, data[0].x), // 지도의 중심좌표
+					level : 7
+				// 지도의 확대 레벨
+				};
+				map = new kakao.maps.Map(mapContainer, mapOption);
+		}
+		$.ajax({
+			url : contextPath + "/house/HousePositionOk.ho",
+			type : "get",
+			success : jsons,
+			error : function(a, b, c) {
+				console.log("오류" + c);
+			},
+			async : false
+		});
+	}
 	}
 </script>
 

@@ -327,6 +327,7 @@ input#reviewText {
 
 .btns:hover {
 	border-bottom: 1px solid #1187cf !important;
+	color: #1187cf;
 }
 
 @media ( max-width : 414px) {

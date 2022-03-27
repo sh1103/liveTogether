@@ -141,11 +141,9 @@ div.table-cells {
 	border-top-left-radius: 1rem;
 }
 .img-wrap1 {
-	width: 97%;
-	height: 200px;
-	border-top-right-radius: 1rem;
-	background-size: cover;
-	border-top-left-radius: 1rem;
+    width: 99%;
+    height: 200px;
+    background-size: cover;
 }
 
 div.cell-wrap {

@@ -226,7 +226,11 @@
 			return unescape(cookieValue);
 		}
 		});*/
-
+function enterLogin(){
+		if(window.event.keyCode == 13){
+			loginForm.submit();
+		}
+	}
 
 $(document).ready(function() {
     var memberInputId = getCookie("memberInputId");

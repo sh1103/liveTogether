@@ -19,7 +19,7 @@
 	href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square.css"
 	rel="stylesheet">
 </head>
-<body class="is-preload">
+<body class="is-preload" onkeypress="javascript:enterLogin();">
 	<c:if test="${not empty param.code}">
 		<script>
 			alert("아이디 또는 비밀번호를 다시 확인해주세요.");
@@ -45,8 +45,8 @@
 					id="joinTab" href="${pageContext.request.contextPath}/member/Join.me">회원가입</a></li>
 			</ul>
 			<div id="mArticle">
-				<form id="findLoginId" method="post" action="${pageContext.request.contextPath}/member/MemberLoginOk.me" name="loginForm"
-				> <!-- onsubmit="return frm_check();" -->
+				<form id="findLoginId" method="post" action="${pageContext.request.contextPath}/member/MemberLoginOk.me" name="loginForm">
+				 <!-- onsubmit="return frm_check();" -->
 					<div class="content_account">
 						<div class="inp_text">
 							<input type="text" id="findUrlOrNickname" name="memberId"

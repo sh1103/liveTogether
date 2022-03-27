@@ -14,6 +14,11 @@
 	margin: 0 auto;
 }
 
+a{
+	cursor: pointer;
+}
+
+
 #aside #inquiry a {
 	width: 80px;
 	height: 80px;

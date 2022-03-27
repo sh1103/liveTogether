@@ -12,7 +12,17 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/mypagecontract.css" />
 </head>
-
+<style>
+#down1{
+display:none;
+}
+#down2{
+display:none;
+}
+#down3{
+display:none;
+}
+</style>
 <!-- Header -->
 
 <jsp:include page="../fix/header.jsp" />
@@ -136,12 +146,42 @@
                     		</table>
                     		
                     		<!-- 다운로드 -->
-                    		<div class="contract-download-btn">
+                    		<div class="contract-download-btn" id="down1">
                     			<a href="${pageContext.request.contextPath}/upload/trading.doc" target="_blank">
                     				<img src="${pageContext.request.contextPath}/images/wordDownload.png">                    			
                     			</a>
                     			
                     			<a href="${pageContext.request.contextPath}/upload/trading.hwp" target="_blank">
+                    				<img src="${pageContext.request.contextPath}/images/hngDownload.png">                    			
+                    			</a>
+                    		</div>
+                    		
+                    		<div class="contract-download-btn" id="down2">
+                    			<a href="${pageContext.request.contextPath}/upload/realty.docx" target="_blank">
+                    				<img src="${pageContext.request.contextPath}/images/wordDownload.png">                    			
+                    			</a>
+                    			
+                    			<a href="${pageContext.request.contextPath}/upload/realty.hwp" target="_blank">
+                    				<img src="${pageContext.request.contextPath}/images/hngDownload.png">                    			
+                    			</a>
+                    		</div>
+                    		
+                    			<div class="contract-download-btn" id="down3">
+                    			<a href="${pageContext.request.contextPath}/upload/house.docx" target="_blank">
+                    				<img src="${pageContext.request.contextPath}/images/wordDownload.png">                    			
+                    			</a>
+                    			
+                    			<a href="${pageContext.request.contextPath}/upload/house.hwp" target="_blank">
+                    				<img src="${pageContext.request.contextPath}/images/hngDownload.png">                    			
+                    			</a>
+                    		</div>
+                    		
+                    		<div class="contract-download-btn" id="down4">
+                    			<a href="${pageContext.request.contextPath}/upload/store.docx" target="_blank">
+                    				<img src="${pageContext.request.contextPath}/images/wordDownload.png">                    			
+                    			</a>
+                    			
+                    			<a href="${pageContext.request.contextPath}/upload/store.hwp" target="_blank">
                     				<img src="${pageContext.request.contextPath}/images/hngDownload.png">                    			
                     			</a>
                     		</div>

@@ -12,7 +12,7 @@ Array.from(tour).forEach((t) => {
           check = "w";
        }
        if(memberId != ""){
-          if(memberGender == check){
+          if(memberGender == check && memberType == "n"){
              if(confirm("투어신청 하시겠습니까?")){
                 $.ajax({
                    url : contextPath + "/member/MemberMypageTourOk.me",                   
@@ -27,7 +27,7 @@ Array.from(tour).forEach((t) => {
                  return false;
              }
           }else{
-             alert("성별이 일치하지 않습니다");
+             alert("성별이 일치하지 않거나 일반계정이 아닙니다.");
              return;
           }       
        }else{
@@ -170,7 +170,11 @@ btns.forEach(function(value, index, ar){
            $(".sub-wrapper").removeClass("active");
            $(this).addClass("active");        
            count = index;
-           banner.style.transform = "translate(-" + count * 952 + "px)";
+           if (matchMedia("screen and (min-width: 415px)").matches){ 
+        	    banner.style.transform = "translate(-" + count * 952 + "px)";
+        	    }else{
+        	    	banner.style.transform = "translate(-" + count * 352 + "px)";
+        	    }
         })
     });
 
@@ -196,6 +200,10 @@ arrows.forEach((arrow) => {
            btns[count].classList.add("active");
         }
     }
+    if (matchMedia("screen and (min-width: 415px)").matches){ 
     banner.style.transform = "translate(-" + count * 952 + "px)";
+    }else{
+    	banner.style.transform = "translate(-" + count * 352 + "px)";
+    }
 });
 });

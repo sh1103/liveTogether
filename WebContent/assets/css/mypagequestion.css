@@ -303,6 +303,7 @@ div.table-wrap{
 	}
 	table th, table td {
 		font-size: 1px;
+		    text-align: center;
 	}
 	.myconheader3 {
 		margin-top: 2em;
@@ -319,21 +320,12 @@ div.table-wrap{
 		width: 49.75px;
 		text-align: center;
 	}
-	th.th7, td.td7 {
-		border-right: 1px solid #dddddd;
-		width: 84.14px;
-		text-align: center;
-	}
-	th.th8, td.td8 {
-		width: 59.14px;
-		text-align: center;
-	}
 	th {
 		font-weight: bold;
 	}
-	th.th3, td.td3 {
+/* 	th.th3, td.td3 {
 		display: none;
-	}
+	} */
 	tr.anotherTr {
 		display: none;
 	}
@@ -344,5 +336,7 @@ div.table-wrap{
 		font-size: 12px !important;
 		padding-bottom: 10px !important;
 	}
-	
+	.mypage{
+	    height: 500px;
+	    }
 }

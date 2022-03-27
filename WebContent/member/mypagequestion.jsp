@@ -60,8 +60,6 @@
 			</ul>
 		</div>
 
-
-
 			<div class="my">
 				<div class="wrapper">
 					<div class="mypagecontents">
@@ -87,13 +85,21 @@
 												<c:forEach var="inquiry" items="${inquiryList}" varStatus="status">
 													<tr>
 														<td>${status.count}</td>
-														<td>${inquiry.getHouseNumber()}호점</td>
-														<td>${inquiry.getHouseType()}</td>
+														<td>${inquiry.getHouseNumber()}</td>
+														<td>
+														<c:choose>
+												<c:when test="${inquiry.getHouseType() eq 'a' }">아파트</c:when>
+												<c:when test="${inquiry.getHouseType() eq 'v'}">빌라</c:when>
+												<c:when test="${inquiry.getHouseType() eq 'd'}">단독 주택</c:when>
+												<c:when test="${inquiry.getHouseType() eq 'o'}">기타</c:when>
+												<c:otherwise>
+													선택안함
+												</c:otherwise>
+													</c:choose>
+													</td>
 														<td>${inquiry.getTypeOption()}</td>
 														<td>${inquiry.getMemberPhone()}</td>
 														<td>${inquiry.getInquiryContent()}</td>
-														<td>
-														</td>
 													</tr>
 												</c:forEach>
 											</c:when>
