@@ -271,7 +271,7 @@ div#inquiry-first-wrap input[id*="faq-question"]:checked+label em img {
 }
 
 div.inquiryIdWrapper, div.inquiryPhoneWrapper {
-	width: 95%;
+	width: 104%;
 	height: 58.5px;
 	border-bottom: 2.5px solid #1187CF;
 	text-align: left;
@@ -406,5 +406,8 @@ div.inquiryIdWrapper, div.inquiryPhoneWrapper {
 		color: #1187CF;
 		font-size: 10pt;
 		width: 45%;
+	}
+	div.inquiryIdWrapper, div.inquiryPhoneWrapper {
+		width: 95%;
 	}
 }

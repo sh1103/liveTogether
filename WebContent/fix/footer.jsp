@@ -26,13 +26,12 @@
 					</div>
 					<div class="content">
 						<span>© 2021-2022 · 같이살자(주), All Rights Reserved</span><br> 
-						<span>대표자 : 배상혁 </span>
-						<span>사업자등록번호 : 107 - 90 - 77122</span><br>
+						<span>대표자 : Throws3 </span>
+						<span>사업자등록번호 : 123 - 45 - 67890</span><br>
 						<span>서울특별시 강남구 테헤란로 26길 , Throws 3층, 4층</span><br> 
-						<span>대표번호 : 02-4062-3993</span><br>
-						<span>입주 문의 : 02-8727-1103</span><br> 
-						<span>위탁/투자 문의 : 02-4253-5261</span><br>
-						<span>홍보/제휴 문의 : 02-7266-5913<br> 
+						<span>대표번호 : 02-1234-1234</span><br>
+						<span>입주 문의 : 02-1234-1234</span><br> 
+						<span>홍보/제휴 문의 : 02-1234-1234<br></span>
 						<span>상담 가능시간 : 평일 10:00 ~ 18:00 (점심시간12:30~13:30)</span>
 					</div>
 				</div>

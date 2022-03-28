@@ -268,4 +268,23 @@ article.notice-first-wrap tbody.table-tbody tr th {
 		font-size: 10pt;
 		width: 45%;
 	}
+	article.notice-first-wrap th.first-th {
+	width: 15%;
+}
+
+	article.notice-first-wrap th.second-th {
+	width: 55%;
+}
+
+	article.notice-first-wrap th.third-th {
+	width: 30%;
+}
+div#writeWrap {
+    margin-left: auto;
+    width: 25%;
+    height: 35px;
+    margin-right: 9px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 }

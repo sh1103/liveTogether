@@ -19,6 +19,7 @@ public class AdminOk implements Action{
 		HouseDAO hDao = new HouseDAO();
 		MemberDAO mDao = new MemberDAO();
 		BoardDAO bDao = new BoardDAO();
+		req.setAttribute("boardCount", bDao.boardCount());
 		req.setAttribute("houseCount", hDao.houseCount());
 		req.setAttribute("waitCount", hDao.waitCount());
 		req.setAttribute("inquiryCount", hDao.inquiryTotalCount());

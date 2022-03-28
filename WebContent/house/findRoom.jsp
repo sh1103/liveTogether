@@ -217,11 +217,14 @@
 </script>
 <script src="${pageContext.request.contextPath}/assets/js/findRoom.js"></script>
 <script>
-	
+
+
 	
 	$.ajax({
 		url : contextPath + "/house/HousePositionOk.ho",
 		type : "get",
+		dataType: "json",
+		contentType: "application/json;charset=utf-8",
 		success : jsons,
 		error : function(a, b, c) {
 			console.log("오류" + c);

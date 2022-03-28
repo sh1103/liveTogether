@@ -14,29 +14,30 @@
 		<div id="room">
 			<a href="${pageContext.request.contextPath}/house/FindRoom.ho"></a>
 		</div>
-		<div id="hosting">
-			<c:choose>
-				<c:when test="${memberType eq 'h'}">
-					<a href="${pageContext.request.contextPath}/house/HouseRegister.ho"></a>
-				</c:when>
-				<c:otherwise>
-					<a onclick="a()"></a>
-				</c:otherwise>
-			</c:choose>
-		</div>
-		<div id="inquiry">
 		<c:choose>
-				<c:when test="${memberType eq 'h'}">
+			<c:when test="${memberType eq 'h'}">
+				<div id="hosting">
+					<a href="${pageContext.request.contextPath}/house/HouseRegister.ho"></a>
+				</div>
+			</c:when>
+		</c:choose>
+		<c:choose>
+			<c:when test="${memberType eq 'h'}">
+				<div id="inquiry">
 					<a href="${pageContext.request.contextPath}/board/InquiryOk.bo"></a>
-				</c:when>
-				<c:when test="${memberType eq 'n'}">
+				</div>
+			</c:when>
+			<c:when test="${memberType eq 'n'}">
+				<div id="inquiry">
 					<a href="${pageContext.request.contextPath}/board/InquiryOk.bo"></a>
-				</c:when>
-				<c:otherwise>
+				</div>
+			</c:when>
+			<c:otherwise>
+				<div id="inquiry">
 					<a onclick="b()"></a>
-				</c:otherwise>
-			</c:choose>
-		</div>
+				</div>
+			</c:otherwise>
+		</c:choose>
 		<div id="top">
 			<a href="#"></a>
 		</div>

@@ -57,7 +57,7 @@ public class HouseFrontController extends HttpServlet {
 		case "/house/AdminReviewList.ho":
 			af = new AdminReviewList().execute(req, resp);
 			break;
-		case "/house/HousePositionOk.ho":
+		case "/house/HousePositionOk.ho":			
 			af = new HousePositionOk().execute(req, resp);
 			break;
 		case "/house/FindRoom.ho":

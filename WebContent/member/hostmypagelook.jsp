@@ -51,6 +51,8 @@
 					</li>
 					<li class="num4"><a
 						href="${pageContext.request.contextPath}/house/HostForSaleListOk.ho">하우스관리</a></li>
+					<li class="num4"><a
+						href="${pageContext.request.contextPath}/member/HostQuestionOk.me">문의사항</a></li>
 				</ul>
 			</div>
 			<div id="box">

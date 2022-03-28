@@ -88,9 +88,46 @@ public class MemberDAO {
 	}
 	
 	//탈퇴 과정 2
-		public void deleteM(String memberId) {
-			sqlSession.delete("Member.deleteM", memberId);
+		public void updateM(String memberId) {
+			sqlSession.update("Member.updateM", memberId);
 		}
+	//호스트 탈퇴과정 0-호스트의 하우스 가져오기 
+		public int hostDeleteZero(String memberId) {
+			int houseNumber = 0;
+			try {
+				houseNumber = sqlSession.selectOne("Member.hostDeleteZero", memberId);
+			} catch (Exception e) {;}
+			return houseNumber;
+		}
+		//호스트 탈퇴과정 1-룸게스트
+		public void hostDeleteOne(int houseNumber) {
+			sqlSession.delete("Member.hostDeleteOne", houseNumber);
+		}
+		
+		//호스트 탈퇴과정 2-하우스파일
+		public void hostDeleteTwo(int houseNumber) {
+			sqlSession.delete("Member.hostDeleteTwo", houseNumber);
+		}
+		
+		//호스트 탈퇴과정 3-하우스룸 
+		public void hostDeleteThree(int houseNumber) {
+			sqlSession.delete("Member.hostDeleteThree", houseNumber);
+		}
+		
+		//호스트 탈퇴과정 4-하우스
+		public void hostDeleteFour(int houseNumber) {
+			sqlSession.delete("Member.hostDeleteFour", houseNumber);
+		}
+		
+		//로그인 스테이터스 검사 
+		public int findStatus(String memberId) {
+			int status = 0;
+			try {
+				status = sqlSession.selectOne("Member.findStatus", memberId);
+			} catch (Exception e) {;}
+			return status;
+		}
+		
 	
 	//마이페이지 투어신청  방 정보 가져오기
 	public void selectMypageTour(Map<String, Integer> myMap) {

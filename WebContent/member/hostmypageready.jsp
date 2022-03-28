@@ -59,6 +59,8 @@
 					<li class="num4"><a
 						href="${pageContext.request.contextPath}/house/HostForSaleListOk.ho">하우스관리</a>
 					</li>
+					<li class="num4"><a
+						href="${pageContext.request.contextPath}/member/HostQuestionOk.me">문의사항</a></li>
 				</ul>
 			</div>
 
@@ -98,6 +100,21 @@
 								</div>
 							</div>
 						</div>
+						<c:choose>
+						<c:when test="${total eq 0}">
+								<!-- 정보가 없을때 기본값 -->
+								<div id=no>
+									<div id="none">
+										<div id="nonebox">
+											<div id="nonehtag">
+												<h4>현재 확정된 투어가 없습니다.</h4>
+												<h6>투어신청 목록에서 올바른 투어신청을 수락해주세요.</h6>
+											</div>
+										</div>
+									</div>
+								</div>
+							</c:when>
+							<c:otherwise>
 						<div class="myconheader3">
 							<div class="info-title">예정된 투어 목록</div>
 							<div class="table-wrap">
@@ -203,6 +220,8 @@
 								</table>
 							</div>
 						</div>
+						</c:otherwise>
+						</c:choose>
 					</div>
 
 

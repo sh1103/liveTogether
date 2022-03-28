@@ -22,7 +22,12 @@
 <body class="is-preload" onkeypress="javascript:enterLogin();">
 	<c:if test="${not empty param.code}">
 		<script>
-			alert("아이디 또는 비밀번호를 다시 확인해주세요.");
+			alert("아이디 또는 비밀번호를 다시 확인해주세요");
+		</script>
+	</c:if>
+	<c:if test="${not empty param.access}">
+		<script>
+			alert("이미 탈퇴된 계정입니다");
 		</script>
 	</c:if>
 
@@ -101,7 +106,7 @@
 	<script src="${pageContext.request.contextPath}/assets/js/jquery.scrolly.min.js"></script>
 	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	<script>
-		Kakao.init("3df76abdd7389be0cf0063fa01b6ffb4");
+		/* Kakao.init("3df76abdd7389be0cf0063fa01b6ffb4");
 		
 		$("#kakao_btn").on("click", function(){
 		    //1. 로그인 시도
@@ -135,7 +140,7 @@
 		        }
 		      });
 		        
-		}) //
+		})  */
 	</script>
 	<script src="${pageContext.request.contextPath}/assets/js/browser.min.js"></script>
 	<script src="${pageContext.request.contextPath}/assets/js/breakpoints.min.js"></script>

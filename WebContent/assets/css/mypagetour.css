@@ -1,3 +1,16 @@
+/* .my_span01{
+   font-size:2em;
+}
+.inner_ab{
+   position: absolute;
+   bottom: -11.5px;
+   left: 1783px;
+   color: #444;
+}  */
+.inner_ab {
+	display: none;
+}
+
 #no {
 	margin-top: 10em;
 }
@@ -34,15 +47,6 @@
 	margin-top: 4em;
 }
 
-/* .my_span01{
-	font-size:2em;
-}
-.inner_ab{
-	position: absolute;
-	bottom: -11.5px;
-	left: 1783px;
-	color: #444;
-} */
 .my {
 	width: 70%;
 	margin: 0 auto;
@@ -280,7 +284,7 @@ div.column-value {
 	line-height: 55px;
 }
 /* #star{
-	width: 20%;
+   width: 20%;
     text-align: center;
     line-height: 3;
     font-size: larger;
@@ -348,7 +352,7 @@ input#reviewText {
 	.mypagebook1 .notice-content {
 		margin-left: 4em;
 		font-size: smaller;
-		line-height: 1;
+		/* line-height: 1; */
 		width: 65%;
 	}
 	ul {
@@ -371,14 +375,14 @@ input#reviewText {
 		height: 300px;
 	}
 	#no {
-		margin-top: 5em;
+		margin-top: 3em;
 	}
 	#main .inner {
 		background-image: none;
 		height: 76px;
 	}
 	div.mypagetool {
-		margin-top: 0;
+		margin-top: 1em;
 	}
 	.mypage .mypagenotice {
 		width: 100%;
@@ -477,5 +481,14 @@ input#reviewText {
 	}
 	.myconheader3 {
 		margin-bottom: 2em;
+	}
+	.inner_ab {
+		display: block;
+		position: absolute;
+		bottom: -8px;
+		left: 162px;
+	}
+	.my_span01 {
+		font-size: 20px;
 	}
 }

@@ -25,7 +25,7 @@
 			</div>
 			<div class="table-wrapper">
 				<form
-					action="${pageContext.request.contextPath}/house/AdminCheckStandByDeleteOk.ho">
+					action="${pageContext.request.contextPath}/house/AdminCheckStandByDeleteOk.ho" name="clickDelete">
 					<table class="table">
 						<tr>
 							<td class="td td1"><input type="checkbox" id="term"
@@ -85,7 +85,7 @@
 					</table>
 					<div id="width100">
 						<div>
-							<button class="button2 blue">선택 삭제</button>
+							<button class="button2 blue" type="button" onclick="send()">선택 삭제</button>
 						</div>
 					</div>
 				</form>

@@ -39,6 +39,8 @@ div#admin-whole-wrapper div#first-wrapper {
 	background-color: white;
 }
 
+
+
 div#admin-whole-wrapper div#second-wrapper {
 	width: 100%;
 	background-color: #edf0f5;
@@ -370,6 +372,14 @@ div#admin-whole-wrapper div.smartStore-span-wrapper {
 	justify-content: center;
 }
 
+div#admin-whole-wrapper div.write{
+	width: 7.7%;
+	margin-left: 15px;
+}
+div.noticeCount{
+	margin-left: 14px !important;
+}
+
 @media ( max-width : 414px) {
 	#navigation {
 		display: none;
@@ -435,5 +445,8 @@ div#admin-whole-wrapper div.smartStore-span-wrapper {
 	}
 	div#admin-whole-wrapper div.review-wrapper1 {
 		width: 43%;
+	}
+	a{
+		pointer-events: none;
 	}
 }

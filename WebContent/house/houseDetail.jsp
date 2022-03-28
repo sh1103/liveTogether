@@ -39,7 +39,8 @@
 					<div class="go-tour">
 						<a href="#table-wrap" class="goingtour">+ 투어신청</a>
 					</div>
-					<img src="${pageContext.request.contextPath}/images/i.jpg" class="tour-img">
+					<img src="${pageContext.request.contextPath}/images/i.jpg"
+						class="tour-img">
 					<div class="tour-guide">희망지점을 방문해보고 간단한 인터뷰를 진행해보세요!</div>
 				</div>
 			</section>
@@ -75,80 +76,198 @@
 				</div>
 				<div class="slider prev-btn"></div>
 				<div class="slider next-btn"></div>
-				<div class="review">
-					<div class="guest-review">입주자 리뷰</div>
-					<div class="review-wrap">
-						<c:choose>
-							<c:when test="${roomguest != null and fn:length(roomguest) > 0}">
-								<c:forEach var="roomguest" items="${roomguest}">
-									<div class="review-wrapper">
-										<div class="review-flex">
-											<label class="guestinfo">${roomguest.getMemberNickname()}
-												<span class="bar">|</span><c:choose>
-													<c:when test="${roomguest.getMemberGender() eq 'm'}">(남자)</c:when>
-													<c:otherwise>(여자)</c:otherwise>
-												</c:choose>
-											</label>
-											<div class="star-wrap">
-												<c:choose>
-													<c:when test="${roomguest.getStar() eq '5'}">
-														<label class="star active">★</label>
-														<label class="star active">★</label>
-														<label class="star active">★</label>
-														<label class="star active">★</label>
-														<label class="star active">★</label>
-													</c:when>
-													<c:when test="${roomguest.getStar() eq '4'}">
-														<label class="star active">★</label>
-														<label class="star active">★</label>
-														<label class="star active">★</label>
-														<label class="star active">★</label>
-														<label class="star">★</label>
-													</c:when>
-													<c:when test="${roomguest.getStar() eq '3'}">
-														<label class="star active">★</label>
-														<label class="star active">★</label>
-														<label class="star active">★</label>
-														<label class="star">★</label>
-														<label class="star">★</label>
-													</c:when>
-													<c:when test="${roomguest.getStar() eq '2'}">
-														<label class="star active">★</label>
-														<label class="star active">★</label>
-														<label class="star">★</label>
-														<label class="star">★</label>
-														<label class="star">★</label>
-													</c:when>
-													<c:otherwise>
-														<label class="star active">★</label>
-														<label class="star">★</label>
-														<label class="star">★</label>
-														<label class="star">★</label>
-														<label class="star">★</label>
-													</c:otherwise>
-												</c:choose>
-											</div>
-										</div>
-										<p class="real-review">${roomguest.getReview()}</p>
-									</div>
-								</c:forEach>
-							</c:when>
-							<c:otherwise>
-								<div class="noProfile">아직 입주한 사람이 없습니다</div>
-							</c:otherwise>
-						</c:choose>
-					</div>
-				</div>
 			</section>
 
 			<section id="two">
 				<div>
 					<div class="intro">
-						<a href="#two-ex" class="button primary click active">상세 설명</a> <a
+						<a href="#review-ex" class="button primary click active">입주자
+							리뷰</a> <a href="#two-ex" class="button primary click">상세 설명</a> <a
 							href="#three-ex" class="button primary click">방 정보</a> <a
 							href="#four-ex" class="button primary click">세부 정보</a> <a
 							href="#five-ex" class="button primary click">FAQ</a>
 					</div>
+					<div class="review">
+						<fieldset id="review-ex" class="height-fix">
+							<legend>입주자 리뷰</legend>
+						</fieldset>
+						<div class="guest-review">입주자 리뷰</div>
+						<div class="review-wrap">
+							<%-- <c:choose>
+                     <c:when test="${roomguest != null and fn:length(roomguest) > 0}">
+                        <c:forEach var="roomguest" items="${roomguest}">
+                           <div class="review-wrapper">
+                              <div class="review-flex">
+                                 <label class="guestinfo">${roomguest.getMemberNickname()}
+                                    <span class="bar">|</span><c:choose>
+                                       <c:when test="${roomguest.getMemberGender() eq 'm'}"> (남자)</c:when>
+                                       <c:otherwise> (여자)</c:otherwise>
+                                    </c:choose>
+                                 </label>
+                                 <div class="star-wrap">
+                                    <c:choose>
+                                       <c:when test="${roomguest.getStar() eq '5'}">
+                                          <label class="star active">★</label>
+                                          <label class="star active">★</label>
+                                          <label class="star active">★</label>
+                                          <label class="star active">★</label>
+                                          <label class="star active">★</label>
+                                       </c:when>
+                                       <c:when test="${roomguest.getStar() eq '4'}">
+                                          <label class="star active">★</label>
+                                          <label class="star active">★</label>
+                                          <label class="star active">★</label>
+                                          <label class="star active">★</label>
+                                          <label class="star">★</label>
+                                       </c:when>
+                                       <c:when test="${roomguest.getStar() eq '3'}">
+                                          <label class="star active">★</label>
+                                          <label class="star active">★</label>
+                                          <label class="star active">★</label>
+                                          <label class="star">★</label>
+                                          <label class="star">★</label>
+                                       </c:when>
+                                       <c:when test="${roomguest.getStar() eq '2'}">
+                                          <label class="star active">★</label>
+                                          <label class="star active">★</label>
+                                          <label class="star">★</label>
+                                          <label class="star">★</label>
+                                          <label class="star">★</label>
+                                       </c:when>
+                                       <c:otherwise>
+                                          <label class="star active">★</label>
+                                          <label class="star">★</label>
+                                          <label class="star">★</label>
+                                          <label class="star">★</label>
+                                          <label class="star">★</label>
+                                       </c:otherwise>
+                                    </c:choose>
+                                 </div>
+                              </div>
+                              <p class="real-review">${roomguest.getReview()}</p>
+                              <div class="profiles-wrap">
+                              <p class="guest-profile">${rooguest.getmemberProfile()}</p>
+                              </div>
+                           </div>
+                        </c:forEach>
+                     </c:when>
+                     <c:otherwise>
+                        <div class="noProfile">아직 입주한 사람이 없습니다</div>
+                     </c:otherwise>
+                  </c:choose>    --%>
+							<div class="review-wrapper">
+								<div class="review-flex">
+									<label class="guestinfo"><b class="showProfile">닉네임</b>
+										<span class="bar">|</span> (남자) </label>
+									<div class="star-wrap">
+										<label class="star active">★</label> <label
+											class="star active">★</label> <label class="star active">★</label>
+										<label class="star active">★</label> <label
+											class="star active">★</label>
+									</div>
+								</div>
+								<p class="real-review">안녕하세요 정말 멋진 방이 아니네요</p>
+								<div class="profiles-wrap">
+									<p class="guest-profile">안녕하세요 한무밍입니다</p>
+								</div>
+							</div>
+							<div class="review-wrapper">
+								<div class="review-flex">
+									<label class="guestinfo"><b class="showProfile">닉네임</b>
+										<span class="bar">|</span>(남자) </label>
+									<div class="star-wrap">
+										<label class="star active">★</label> <label
+											class="star active">★</label> <label class="star active">★</label>
+										<label class="star active">★</label> <label
+											class="star active">★</label>
+									</div>
+								</div>
+								<p class="real-review">안녕하세요 정말 멋진 방이 아니네요</p>
+								<div class="profiles-wrap">
+									<p class="guest-profile">안녕하세요 한무밍입니다</p>
+								</div>
+							</div>
+							<div class="review-wrapper">
+								<div class="review-flex">
+									<label class="guestinfo">닉네임 <span class="bar">|</span>(남자)
+									</label>
+									<div class="star-wrap">
+										<label class="star active">★</label> <label
+											class="star active">★</label> <label class="star active">★</label>
+										<label class="star active">★</label> <label
+											class="star active">★</label>
+									</div>
+								</div>
+								<p class="real-review">안녕하세요 정말 멋진 방이 아니네요</p>
+							</div>
+							<div class="review-wrapper">
+								<div class="review-flex">
+									<label class="guestinfo">닉네임 <span class="bar">|</span>(남자)
+									</label>
+									<div class="star-wrap">
+										<label class="star active">★</label> <label
+											class="star active">★</label> <label class="star active">★</label>
+										<label class="star active">★</label> <label
+											class="star active">★</label>
+									</div>
+								</div>
+								<p class="real-review">안녕하세요 정말 멋진 방이 아니네요</p>
+							</div>
+							<div class="review-wrapper">
+								<div class="review-flex">
+									<label class="guestinfo">닉네임 <span class="bar">|</span>(남자)
+									</label>
+									<div class="star-wrap">
+										<label class="star active">★</label> <label
+											class="star active">★</label> <label class="star active">★</label>
+										<label class="star active">★</label> <label
+											class="star active">★</label>
+									</div>
+								</div>
+								<p class="real-review">안녕하세요 정말 멋진 방이 아니네요</p>
+							</div>
+							<div class="review-wrapper">
+								<div class="review-flex">
+									<label class="guestinfo">닉네임 <span class="bar">|</span>(남자)
+									</label>
+									<div class="star-wrap">
+										<label class="star active">★</label> <label
+											class="star active">★</label> <label class="star active">★</label>
+										<label class="star active">★</label> <label
+											class="star active">★</label>
+									</div>
+								</div>
+								<p class="real-review">안녕하세요 정말 멋진 방이 아니네요</p>
+							</div>
+							<div class="review-wrapper">
+								<div class="review-flex">
+									<label class="guestinfo">닉네임 <span class="bar">|</span>(남자)
+									</label>
+									<div class="star-wrap">
+										<label class="star active">★</label> <label
+											class="star active">★</label> <label class="star active">★</label>
+										<label class="star active">★</label> <label
+											class="star active">★</label>
+									</div>
+								</div>
+								<p class="real-review">안녕하세요 정말 멋진 방이 아니네요</p>
+							</div>
+							<div class="review-wrapper">
+								<div class="review-flex">
+									<label class="guestinfo">닉네임 <span class="bar">|</span>(남자)
+									</label>
+									<div class="star-wrap">
+										<label class="star active">★</label> <label
+											class="star active">★</label> <label class="star active">★</label>
+										<label class="star active">★</label> <label
+											class="star active">★</label>
+									</div>
+								</div>
+								<p class="real-review">안녕하세요 정말 멋진 방이 아니네요</p>
+							</div>
+						</div>
+					</div>
+
 					<div class="tab">
 						<fieldset id="two-ex" class="height-fix">
 							<legend>상세 설명</legend>
@@ -358,7 +477,7 @@
 											<td>${room.getRoomMonthly()}만원</td>
 											<td>${room.getRoomDate()}</td>
 											<td><button class="button-tour">투어신청</button></td>
-										</tr>									
+										</tr>
 									</c:forEach>
 								</c:when>
 							</c:choose>
@@ -433,7 +552,7 @@
 				<div id="map" style="width: 100%; height: 350px;"></div>
 				<div class="move-wrapper">
 					<a
-						href="https://www.google.co.kr/maps/@${house.getLatitude()},${house.getLongitude()}z"
+						href="https://map.kakao.com/?q=${house.getHouseAddress()}"
 						class="move" target="_blank">${house.getHouseAddress()}
 						${house.getHouseAddressDetail()}</a>
 				</div>
@@ -635,51 +754,51 @@
 <script src="${pageContext.request.contextPath}/assets/js/util.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/main.js"></script>
 <script>
-   var contextPath = "${pageContext.request.contextPath}";
-   var houseNumber = "${house.getHouseNumber()}";
-   var room = "${room}";
-   var memberId = "${memberId}";
-   var memberGender = "${member.getMemberGender()}";
-   var memberType = "${memberType}";
+	var contextPath = "${pageContext.request.contextPath}";
+	var houseNumber = "${house.getHouseNumber()}";
+	var room = "${room}";
+	var memberId = "${memberId}";
+	var memberGender = "${member.getMemberGender()}";
+	var memberType = "${memberType}";
 </script>
 <script src="${pageContext.request.contextPath}/assets/js/roomDetail.js"></script>
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=50e9a68c5f5c2321311332ee213eaf6e"></script>
 <script>
-   var latitude = "<c:out value='${house.getLatitude()}'/>";
-   var longitude = "<c:out value='${house.getLongitude()}'/>";
-   
-   var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-   mapOption = {
-      center : new kakao.maps.LatLng(latitude, longitude), // 지도의 중심좌표
-      level : 5
-   // 지도의 확대 레벨
-   };
+	var latitude = "<c:out value='${house.getLatitude()}'/>";
+	var longitude = "<c:out value='${house.getLongitude()}'/>";
 
-   var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	mapOption = {
+		center : new kakao.maps.LatLng(latitude, longitude), // 지도의 중심좌표
+		level : 5
+	// 지도의 확대 레벨
+	};
 
-   /* var markerPosition = new kakao.maps.LatLng(37.530547, 126.940617);
-   
-   // 마커를 생성합니다
-   var marker = new kakao.maps.Marker({
-      position : markerPosition
-   });
-   
-   // 마커가 지도 위에 표시되도록 설정합니다
-   marker.setMap(map); */
+	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-   var circle = new kakao.maps.Circle({
-      center : new kakao.maps.LatLng(latitude, longitude), // 원의 중심좌표 입니다 
-      radius : 300, // 미터 단위의 원의 반지름입니다 
-      strokeWeight : 5, // 선의 두께입니다 
-      strokeColor : '#013DC4', // 선의 색깔입니다
-      strokeOpacity : 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
-      strokeStyle : 'solid', // 선의 스타일 입니다
-      fillColor : '#CFE7FF', // 채우기 색깔입니다
-      fillOpacity : 0.9
-   // 채우기 불투명도 입니다   
-   });
+	/* var markerPosition = new kakao.maps.LatLng(37.530547, 126.940617);
+	
+	// 마커를 생성합니다
+	var marker = new kakao.maps.Marker({
+	   position : markerPosition
+	});
+	
+	// 마커가 지도 위에 표시되도록 설정합니다
+	marker.setMap(map); */
 
-   circle.setMap(map);
+	var circle = new kakao.maps.Circle({
+		center : new kakao.maps.LatLng(latitude, longitude), // 원의 중심좌표 입니다 
+		radius : 300, // 미터 단위의 원의 반지름입니다 
+		strokeWeight : 5, // 선의 두께입니다 
+		strokeColor : '#013DC4', // 선의 색깔입니다
+		strokeOpacity : 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+		strokeStyle : 'solid', // 선의 스타일 입니다
+		fillColor : '#CFE7FF', // 채우기 색깔입니다
+		fillOpacity : 0.9
+	// 채우기 불투명도 입니다   
+	});
+
+	circle.setMap(map);
 </script>
 </html>

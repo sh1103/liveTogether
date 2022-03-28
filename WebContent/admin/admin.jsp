@@ -13,25 +13,25 @@
 <body>
 	<c:set var="houseCount" value="${houseCount}" />
 	<c:set var="waitCount" value="${waitCount}" />
-	<c:set var="nMemberCount" value="${nMemberCount}"/>
-	<c:set var="hMemberCount" value="${hMemberCount}"/>
-	<c:set var="tourCount" value="${tourCount}"/>
-	<c:set var="waitResidentCount" value="${waitResidentCount}"/>
-	<c:set var="residentCount" value="${residentCount}"/>
-	<c:set var="roomCount" value="${roomCount}"/>
-	<c:set var="fiveReviewCount" value="${fiveReviewCount}"/>
-	<c:set var="fourReviewCount" value="${fourReviewCount}"/>
-	<c:set var="threeReviewCount" value="${threeReviewCount}"/>
-	<c:set var="twoReviewCount" value="${twoReviewCount}"/>
-	<c:set var="oneReviewCount" value="${oneReviewCount}"/>
-	<c:set var="reviewCount" value="${reviewCount}"/>
-	
-	
-	
+	<c:set var="nMemberCount" value="${nMemberCount}" />
+	<c:set var="hMemberCount" value="${hMemberCount}" />
+	<c:set var="tourCount" value="${tourCount}" />
+	<c:set var="waitResidentCount" value="${waitResidentCount}" />
+	<c:set var="residentCount" value="${residentCount}" />
+	<c:set var="roomCount" value="${roomCount}" />
+	<c:set var="fiveReviewCount" value="${fiveReviewCount}" />
+	<c:set var="fourReviewCount" value="${fourReviewCount}" />
+	<c:set var="threeReviewCount" value="${threeReviewCount}" />
+	<c:set var="twoReviewCount" value="${twoReviewCount}" />
+	<c:set var="oneReviewCount" value="${oneReviewCount}" />
+	<c:set var="reviewCount" value="${reviewCount}" />
+
+
+
 	<jsp:include page="../fix/header.jsp" />
-	
-	
-	
+
+
+
 	<div id="admin-whole-wrapper">
 		<div id="navigation">
 			<div id="padding-div">
@@ -111,49 +111,36 @@
 			<div id="second-wrapper">
 				<div class="two-wrapper1" id="two-wrapper-first">
 					<div id="firstBox">
-						<p class="header-p">방관리</p>
+						<p class="header-p">하우스 관리</p>
 						<div id="hr-tag"></div>
 						<div id="guest-host-member-wrapper">
 							<div id="chart-wrapper">
 								<div id="member-first-half">
 									<div id="member-first-first-div">
-										<div id="member-first-first-first-span" class="left-span">
-											<span>글자만</span>
+										<div id="member-first-first-first-span" class="left-span noticeCount">
+											<span><a
+												href="${pageContext.request.contextPath}/board/BoardListOk.bo">등록 된 공지사항</a></span>
 										</div>
+
 										<div class="flex">
 											<div id="member-first-first-second-span">
-												<span class="data">0</span>
+												<span class="data"><a
+													href="${pageContext.request.contextPath}/board/BoardListOk.bo">${boardCount}</a></span>
 											</div>
 											<div id="member-first-first-third-span">
 												<span>건</span><br>
 											</div>
 										</div>
 									</div>
-									<div id="hr-tag2"></div>
-									<div id="member-first-second-div">
-										<div id="member-first-second-first-span" class="left-span">
-											<span>바꿔</span>
+										<div id="hr-tag2"></div>
+									<div id="member-first-first-div">
+										<div id="member-first-first-first-span" class="left-span">
+											<span><a href="${pageContext.request.contextPath}/board/BoardWrite.bo">공지 작성하기</a></span>
 										</div>
-										<div class="flex">
-											<div id="member-first-second-second-span">
-												<span class="data">0</span>
-											</div>
-											<div id="member-first-second-third-span">
-												<span>건</span><br>
-											</div>
-										</div>
-									</div>
-									<div id="hr-tag2"></div>
-									<div id="member-first-third-div">
-										<div id="member-first-third-first-span" class="left-span">
-											<span>주시면</span>
-										</div>
-										<div class="flex">
-											<div id="member-first-third-second-span">
-												<span class="data">0</span>
-											</div>
-											<div id="member-first-third-third-span">
-												<span>건</span><br>
+										<div class="flex write">
+											<div id="member-first-first-second-span">
+												<span class="data"><a
+													href="${pageContext.request.contextPath}/board/BoardWrite.bo">이동</a></span>
 											</div>
 										</div>
 									</div>
@@ -162,7 +149,8 @@
 									<div id="member-second-first-div">
 										<div id="member-second-first-first-span" class="left-span">
 											<span><a
-													href="${pageContext.request.contextPath}/house/AdminStandByOk.ho">승인 대기중인 방</a></span>
+												href="${pageContext.request.contextPath}/house/AdminStandByOk.ho">승인
+													대기중인 방</a></span>
 										</div>
 										<div class="flex">
 											<div id="member-second-first-second-span">
@@ -178,7 +166,8 @@
 									<div id="member-second-second-div">
 										<div id="member-second-second-first-span" class="left-span">
 											<span><a
-													href="${pageContext.request.contextPath}/house/AdminDetailOk.ho">현재 등록된 방</a></span>
+												href="${pageContext.request.contextPath}/house/AdminDetailOk.ho">현재
+													등록된 방</a></span>
 										</div>
 										<div class="flex">
 											<div id="member-second-second-second-span">
@@ -190,28 +179,13 @@
 											</div>
 										</div>
 									</div>
-									<div id="hr-tag2"></div>
-									<div id="member-second-second-div">
-										<div id="member-second-second-first-span" class="left-span">
-											<span>화이팅</span>
-										</div>
-										<div class="flex">
-											<div id="member-second-second-second-span">
-												<span class="data"><a
-													href="${pageContext.request.contextPath}/member/HostMyPageTourOk.me">0</a></span>
-											</div>
-											<div id="member-second-second-third-span">
-												<span>건</span><br>
-											</div>
-										</div>
-									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					
-					
-					
+
+
+
 					<div id="secondBox">
 						<p class="header-p">회원 현황</p>
 						<div id="hr-tag"></div>
@@ -394,11 +368,14 @@
 								<div id="hr-tag4"></div>
 								<div class="review-span-wrapper">
 									<div id="review-first-first-first-span" class="left-span">
-										<span><a href="${pageContext.request.contextPath}/house/AdminReviewList.ho">전체 리뷰</a></span>
+										<span><a
+											href="${pageContext.request.contextPath}/house/AdminReviewList.ho">전체
+												리뷰</a></span>
 									</div>
 									<div class="flex">
 										<div id="review-first-first-second-span">
-											<span class="data"><a href="${pageContext.request.contextPath}/house/AdminReviewList.ho">${reviewCount}</a></span>
+											<span class="data"><a
+												href="${pageContext.request.contextPath}/house/AdminReviewList.ho">${reviewCount}</a></span>
 										</div>
 										<div id="review-first-first-third-span">
 											<span>건</span><br>
@@ -408,11 +385,11 @@
 							</div>
 						</div>
 					</div>
-					
-					
-					
-					
-					
+
+
+
+
+
 					<div id="fourthBox">
 						<p class="header-p">스태프 관리</p>
 						<div id="hr-tag"></div>
@@ -428,8 +405,8 @@
 						</div>
 					</div>
 				</div>
-				
-				
+
+
 				<div class="two-wrapper3">
 					<div id="fifthBox">
 						<p class="header-p">문의 사항</p>
@@ -439,11 +416,14 @@
 								<div id="member-first-half">
 									<div id="member-first-first-div">
 										<div id="member-first-first-first-span" class="left-span">
-											<span><a href="${pageContext.request.contextPath}/board/InquiryAdminOk.bo">총 문의 수</a></span>
+											<span><a
+												href="${pageContext.request.contextPath}/board/InquiryAdminOk.bo">총
+													문의 수</a></span>
 										</div>
 										<div class="flex">
 											<div id="member-first-first-second-span">
-												<span class="data"><a href="${pageContext.request.contextPath}/board/InquiryAdminOk.bo">${inquiryCount}</a></span>
+												<span class="data"><a
+													href="${pageContext.request.contextPath}/board/InquiryAdminOk.bo">${inquiryCount}</a></span>
 											</div>
 											<div id="member-first-first-third-span">
 												<span>건</span><br>
@@ -453,11 +433,14 @@
 									<div id="hr-tag2"></div>
 									<div id="member-first-second-div">
 										<div id="member-first-second-first-span" class="left-span">
-											<span><a href="${pageContext.request.contextPath}/board/InquiryAdminOneOk.bo">총 답변 수</a></span>
+											<span><a
+												href="${pageContext.request.contextPath}/board/InquiryAdminOneOk.bo">총
+													답변 수</a></span>
 										</div>
 										<div class="flex">
 											<div id="member-first-second-second-span">
-												<span class="data"><a href="${pageContext.request.contextPath}/board/InquiryAdminOneOk.bo">${inquiryOneCount}</a></span>
+												<span class="data"><a
+													href="${pageContext.request.contextPath}/board/InquiryAdminOneOk.bo">${inquiryOneCount}</a></span>
 											</div>
 											<div id="member-first-second-third-span">
 												<span>건</span><br>
@@ -468,11 +451,14 @@
 								<div id="member-second-half">
 									<div id="member-second-first-div">
 										<div id="member-second-first-first-span" class="left-span">
-											<span><a href="${pageContext.request.contextPath}/board/InquiryAdminOneOk.bo">답변 완료</a></span>
+											<span><a
+												href="${pageContext.request.contextPath}/board/InquiryAdminOneOk.bo">답변
+													완료</a></span>
 										</div>
 										<div class="flex">
 											<div id="member-second-first-second-span">
-												<span class="data"><a href="${pageContext.request.contextPath}/board/InquiryAdminOneOk.bo">${inquiryOneCount}</a></span>
+												<span class="data"><a
+													href="${pageContext.request.contextPath}/board/InquiryAdminOneOk.bo">${inquiryOneCount}</a></span>
 											</div>
 											<div id="member-second-first-third-span">
 												<span>건</span><br>
@@ -482,11 +468,14 @@
 									<div id="hr-tag2"></div>
 									<div id="member-second-second-div">
 										<div id="member-second-second-first-span" class="left-span">
-											<span><a href="${pageContext.request.contextPath}/board/InquiryAdminZeroOk.bo">답변 필요</a></span>
+											<span><a
+												href="${pageContext.request.contextPath}/board/InquiryAdminZeroOk.bo">답변
+													필요</a></span>
 										</div>
 										<div class="flex">
 											<div id="member-second-second-second-span">
-												<span class="data"><a href="${pageContext.request.contextPath}/board/InquiryAdminZeroOk.bo">${inquiryZeroCount}</a></span>
+												<span class="data"><a
+													href="${pageContext.request.contextPath}/board/InquiryAdminZeroOk.bo">${inquiryZeroCount}</a></span>
 											</div>
 											<div id="member-second-second-third-span">
 												<span>건</span><br>
@@ -497,11 +486,11 @@
 							</div>
 						</div>
 					</div>
-					
-					
-					
-					
-					
+
+
+
+
+
 					<div id="sixthBox">
 						<div id="banner-img">
 							<img src="../images/adminBanner.png" alt="">

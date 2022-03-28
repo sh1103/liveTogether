@@ -3,7 +3,7 @@
 <mapper namespace="houseFiles">
 	<!-- 하우스 파일 추가 -->
 	<insert id="insertHF" parameterType="houseFileVO">
-		insert into tbl_housefile
+		insert into tbl_houseFile
 		(housefileName, houseNumber, housefileNameOriginal)
 		values(#{housefileName}, #{houseNumber}, #{housefileNameOriginal});
 	</insert>

@@ -111,4 +111,8 @@ public class BoardDAO {
 	public void deleteReply(int inquiryNumber) {
 		sqlSession.update("Board.deleteReply", inquiryNumber);
 	}
+	
+	public int boardCount() {
+		return sqlSession.selectOne("Board.boardCount");
+	}
 }

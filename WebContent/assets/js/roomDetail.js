@@ -32,7 +32,7 @@ Array.from(tour).forEach((t) => {
           }       
        }else{
           if(confirm("로그인 후 이용하실 수 있습니다. 로그인 페이지로 이동하시겠습니까?")){
-        	  window.location.replace(contextPath + '/member/Login.me');
+             window.location.replace(contextPath + '/member/Login.me');
           }
           return;             
        }
@@ -40,13 +40,13 @@ Array.from(tour).forEach((t) => {
     })
 });
 
-//투어신청 이미지 클릭
+// 투어신청 이미지 클릭
 $(".tour-img").on("mouseover", function(){
-	$(".tour-guide").css("display","block");
+   $(".tour-guide").css("display","block");
 })
 
 $(".tour-img").on("mouseout", function(){
-	$(".tour-guide").css("display","none");
+   $(".tour-guide").css("display","none");
 })
 
 $(function () {
@@ -93,49 +93,97 @@ success();
 // 스크롤 위치에 따라 액티브클래스(색변경) 주기
 $(window).scroll(function(){ 
     var scrollValue = $(document).scrollTop();
+    console.log(scrollValue);
     if (matchMedia("screen and (min-width: 415px)").matches){ 
-       if(scrollValue > 1580){
+       if(scrollValue > 1119){
           $("div.intro").addClass("introfix");
-          $("div.tab").css("margin-top","200px");
+          $("div.review").css("margin-top","200px");
        }else{
           $("div.intro").removeClass("introfix");   
-          $("div.tab").css("margin-top","0");
+          $("div.review").css("margin-top","0");
        }
     }else { 
-       if(scrollValue > 734){
+       if(scrollValue > 517){
           $("div.intro").addClass("introfix");
-          $("div.tab").css("margin-top","200px");
+          $("div.review").css("margin-top","200px");
        }else{
           $("div.intro").removeClass("introfix");   
-          $("div.tab").css("margin-top","0");
+          $("div.review").css("margin-top","0");
        }
     }
+    if(matchMedia("screen and (min-width: 415px)").matches){ 
+   if($(".tab").offset().top - 240 > scrollValue)
+   btn[0].classList.add("active");
+   btn[1].classList.remove("active");
+    btn[2].classList.remove("active");
+    btn[3].classList.remove("active");
+    btn[4].classList.remove("active");
 
-
-   if($("#two-ex").offset().top - 240 < scrollValue){
-      btn[0].classList.add("active");
-      btn[1].classList.remove("active");
+   if($(".tab").offset().top - 240 <= scrollValue && scrollValue < $("#three-ex").offset().top - 240){
+      btn[0].classList.remove("active");
+      btn[1].classList.add("active");
       btn[2].classList.remove("active");
       btn[3].classList.remove("active");
+      btn[4].classList.remove("active");
    }
     if($("#three-ex").offset().top - 240 <= scrollValue && scrollValue < $("#four-ex").offset().top - 240){
-      btn[1].classList.add("active");
       btn[0].classList.remove("active");
-      btn[2].classList.remove("active");
+      btn[1].classList.remove("active");
+      btn[2].classList.add("active");
       btn[3].classList.remove("active");
+      btn[4].classList.remove("active");
    }
     if($("#four-ex").offset().top - 240 <= scrollValue && scrollValue < $("#five-ex").offset().top - 240){
-      btn[2].classList.add("active");
-      btn[0].classList.remove("active");
-      btn[1].classList.remove("active");
-      btn[3].classList.remove("active");
-   }
-    if($("#five-ex").offset().top - 240 <= scrollValue){
-      btn[3].classList.add("active");
       btn[0].classList.remove("active");
       btn[1].classList.remove("active");
       btn[2].classList.remove("active");
+      btn[3].classList.add("active");
+      btn[4].classList.remove("active");
    }
+    if($("#five-ex").offset().top - 240 <= scrollValue){
+      btn[0].classList.remove("active");
+      btn[1].classList.remove("active");
+      btn[2].classList.remove("active");
+      btn[3].classList.remove("active");
+      btn[4].classList.add("active");
+   }
+    }else{
+       if($(".tab").offset().top - 120 > scrollValue)
+          btn[0].classList.add("active");
+          btn[1].classList.remove("active");
+           btn[2].classList.remove("active");
+           btn[3].classList.remove("active");
+           btn[4].classList.remove("active");
+
+          if($(".tab").offset().top - 120 <= scrollValue && scrollValue < $("#three-ex").offset().top - 120){
+             btn[0].classList.remove("active");
+             btn[1].classList.add("active");
+             btn[2].classList.remove("active");
+             btn[3].classList.remove("active");
+             btn[4].classList.remove("active");
+          }
+           if($("#three-ex").offset().top - 120 <= scrollValue && scrollValue < $("#four-ex").offset().top - 120){
+             btn[0].classList.remove("active");
+             btn[1].classList.remove("active");
+             btn[2].classList.add("active");
+             btn[3].classList.remove("active");
+             btn[4].classList.remove("active");
+          }
+           if($("#four-ex").offset().top - 120 <= scrollValue && scrollValue < $("#five-ex").offset().top - 120){
+             btn[0].classList.remove("active");
+             btn[1].classList.remove("active");
+             btn[2].classList.remove("active");
+             btn[3].classList.add("active");
+             btn[4].classList.remove("active");
+          }
+           if($("#five-ex").offset().top - 120 <= scrollValue){
+             btn[0].classList.remove("active");
+             btn[1].classList.remove("active");
+             btn[2].classList.remove("active");
+             btn[3].classList.remove("active");
+             btn[4].classList.add("active");
+          }
+    }
 
 });
 
@@ -154,11 +202,9 @@ $contract.on("click", function(){
    $live.removeClass("active");
 }) 
 
-// 프로필 펼쳐보기
-
-//룸 사진클릭하면 active를 주기 위한 변수
+// 룸 사진클릭하면 active를 주기 위한 변수
 const btns = document.querySelectorAll("div.sub-wrapper");
-//< > 클릭시 방 사진 이동하는 배너를 위한 변수
+// < > 클릭시 방 사진 이동하는 배너를 위한 변수
 const arrows = document.querySelectorAll("div.slider");
 // 이미지 변경 하기 위한 변수
 const banner = document.querySelector("div#main-img");
@@ -171,10 +217,10 @@ btns.forEach(function(value, index, ar){
            $(this).addClass("active");        
            count = index;
            if (matchMedia("screen and (min-width: 415px)").matches){ 
-        	    banner.style.transform = "translate(-" + count * 952 + "px)";
-        	    }else{
-        	    	banner.style.transform = "translate(-" + count * 352 + "px)";
-        	    }
+               banner.style.transform = "translate(-" + count * 952 + "px)";
+               }else{
+                  banner.style.transform = "translate(-" + count * 352 + "px)";
+               }
         })
     });
 
@@ -203,7 +249,24 @@ arrows.forEach((arrow) => {
     if (matchMedia("screen and (min-width: 415px)").matches){ 
     banner.style.transform = "translate(-" + count * 952 + "px)";
     }else{
-    	banner.style.transform = "translate(-" + count * 352 + "px)";
+       banner.style.transform = "translate(-" + count * 352 + "px)";
     }
 });
 });
+
+// 프로필 띄우기
+var profiles = document.querySelectorAll("b.showProfile");
+var profilewrap = document.querySelectorAll("div.profiles-wrap");
+
+profiles.forEach(function(value, index, ar){
+   ar[index].addEventListener("mouseover", function(){
+      profilewrap[index].style.display = "block";
+   });
+});
+
+profiles.forEach(function(value, index, ar){
+   ar[index].addEventListener("mouseout", function(){
+      profilewrap[index].style.display = "none";
+   });
+});
+

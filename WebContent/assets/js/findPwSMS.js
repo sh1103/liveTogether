@@ -120,7 +120,7 @@ $("#m-btn3").on("click", function(){
 			success: function(){
 //				alert("비밀번호가 변경되었습니다.")
 				setTimeout(function(){;},3000);
-				location.href = contextPath+"/main/main.jsp";
+				location.href = contextPath+"/member/login.jsp";
 			}
 			
 		});		

@@ -105,7 +105,7 @@ input[type="radio"]+label:before {
 		<div id="mypageheader">
 			<div class="inner">
 				<div class="inner_ab">
-					<%-- 	<span class="my_span01">${member.getMemberName()}</span>님의 마이페이지 입니다. --%>
+					<span class="my_span01">${memberName}</span>님의 마이페이지 입니다. 
 				</div>
 			</div>
 		</div>
@@ -124,7 +124,7 @@ input[type="radio"]+label:before {
 					href="${pageContext.request.contextPath}/member/MemberMypageTour.me">진행사항</a>
 				</li>
 				<li class="num4"><a
-					href="${pageContext.request.contextPath}/member/mypagecontract.jsp">계약서출력
+					href="${pageContext.request.contextPath}/member/mypagecontract.jsp">계약서 출력
 				</a></li>
 				<li class="num5"><a
 					href="${pageContext.request.contextPath}/member/mypagequestion.jsp">문의사항
@@ -134,8 +134,7 @@ input[type="radio"]+label:before {
 
 
 		<c:choose>
-			<c:when
-				test="${myTourHouse.getStatus() eq ('0' or '1' or '2' or '3')}">
+			<c:when test="${total eq 0}">
 
 				<div class="mypage">
 

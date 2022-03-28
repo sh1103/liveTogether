@@ -58,6 +58,8 @@
 					<li class="num4"><a
 						href="${pageContext.request.contextPath}/member/HostMemberListOk.me">하우스관리</a>
 					</li>
+					<li class="num4"><a
+						href="${pageContext.request.contextPath}/member/HostQuestionOk.me">문의사항</a></li>
 				</ul>
 			</div>
 
@@ -82,6 +84,21 @@
 								</div>
 							</div>
 						</div>
+						<c:choose>
+							<c:when test="${total eq 0}">
+								<!-- 정보가 없을때 기본값 -->
+								<div id=no>
+									<div id="none">
+										<div id="nonebox">
+											<div id="nonehtag">
+												<h4>현재 거절된 목록이 없습니다.</h4>
+												<h6>요건을 충족하지 못한 입주 신청을 거절하세요.</h6>
+											</div>
+										</div>
+									</div>
+								</div>
+							</c:when>
+							<c:otherwise>
 						<div class="myconheader3">
 							<div class="info-title">신청된 투어 정보</div>
 							<div class="table-wrap">
@@ -129,7 +146,6 @@
 														</tr>
 													</c:forEach>
 											</c:when>
-											<c:otherwise><tr class="anotherTr"><td>목록이 없습니다.</td></tr></c:otherwise>
 										</c:choose>
 									</tbody>
 								</table>
@@ -190,6 +206,8 @@
 				</table>
 							</div>
 						</div>
+						</c:otherwise>
+						</c:choose>
 					</div>
 
 

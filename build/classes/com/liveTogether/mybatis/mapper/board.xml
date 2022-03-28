@@ -189,8 +189,14 @@
 
 	<update id="deleteReply" parameterType="_int">
 		update tbl_inquiry
-		set inquiryResponse= null,
+		set
+		inquiryResponse= null,
 		status=0
 		where inquiryNumber=#{inquiryNumber}
 	</update>
+
+	<select id="boardCount" resultType="_int">
+		select count(boardNumber)
+		from tbl_board
+	</select>
 </mapper>

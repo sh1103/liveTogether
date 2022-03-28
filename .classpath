@@ -15,11 +15,11 @@
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/SANGSANG/Desktop/빌드패스/cos.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/SANGSANG/Desktop/빌드패스/javaSDK-2.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/SANGSANG/Desktop/빌드패스/json-simple-1.1.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/SANGSANG/Desktop/빌드패스/jstl.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/SANGSANG/Desktop/빌드패스/mybatis-3.5.9.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/SANGSANG/Desktop/빌드패스/mysql-connector-java-8.0.27.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/SANGSANG/Desktop/빌드패스/standard.jar"/>
-	<classpathentry exported="true" kind="lib" path="C:/aigb_0900_bsh/Java/resource/java-sdk v2.2/lib/javaSDK-2.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

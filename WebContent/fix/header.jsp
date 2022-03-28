@@ -14,9 +14,9 @@
 <body>
 	<header id="header">
 		<div id="container">
-			<a href="${pageContext.request.contextPath}/house/MainBannerOk.ho"> <img
-				src="${pageContext.request.contextPath}/images/textLogo2.png"></a>
-			<img class="mouseover" id="slogun"
+			<a href="${pageContext.request.contextPath}/house/MainBannerOk.ho">
+				<img src="${pageContext.request.contextPath}/images/textLogo2.png">
+			</a> <img class="mouseover" id="slogun"
 				src="${pageContext.request.contextPath}/images/slogun.png"> <img
 				class="mouseover" id="slogun2"
 				src="${pageContext.request.contextPath}/images/slogun2.png">
@@ -25,26 +25,26 @@
 					<c:when test="${memberType eq 'h'}">
 						<li class="btn p_menu"><a
 							href="${pageContext.request.contextPath}/house/HouseRegister.ho">호스팅
-								하기</a></li>
+								하기</a>
 					</c:when>
-					<c:otherwise>
-						<li class="btn p_menu"><a onclick="a()">호스팅 하기</a></li>
-					</c:otherwise>
 				</c:choose>
 				<li class="btn p_menu"><a
 					href="${pageContext.request.contextPath}/house/FindRoom.ho">방
-						찾기</a>
+						찾기</a></li>
 				<li class="btn p_menu"><a
-					href="${pageContext.request.contextPath}/board/info.bo">가치살자
-						소개</a>
+					href="${pageContext.request.contextPath}/board/info.bo">가치살자 소개</a></li>
+				<li class="btn p_menu"><a
+					href="${pageContext.request.contextPath}/board/BoardListOk.bo">공지사항</a></li>
+				<li class="btn p_menu"><a
+					href="${pageContext.request.contextPath}/board/InquiryOk.bo">문의하기</a>
 					<div>
 						<ul class="mouseover">
-							<li><a
-								href="${pageContext.request.contextPath}/board/BoardListOk.bo">공지사항</a></li>
-							<li><a
-								href="${pageContext.request.contextPath}/board/InquiryOk.bo">문의하기</a></li>
+							<li></li>
+							<li></li>
 						</ul>
-					</div></li>
+					</div>	
+				</li>
+
 				<c:choose>
 					<c:when test="${memberId eq null}">
 						<li class="btn p_menu"><a
@@ -84,8 +84,9 @@
 			</ul>
 		</div>
 		<div id="container-mobile">
-			<a href="${pageContext.request.contextPath}/house/MainBannerOk.ho"> <img
-				src="${pageContext.request.contextPath}/images/textLogo2.png"></a>
+			<a href="${pageContext.request.contextPath}/house/MainBannerOk.ho">
+				<img src="${pageContext.request.contextPath}/images/textLogo2.png">
+			</a>
 			<div id="nav-wrap">
 				<input type="checkbox" id="menuicon"> <label id="icon-label"
 					for="menuicon"> <span></span> <span></span> <span></span>
@@ -123,6 +124,12 @@
 							<input type="button" name="join" value="로그아웃"
 								onclick="location.href='${pageContext.request.contextPath}/member/MemberLogoutOk.me'">
 						</c:when>
+						<c:when test="${memberType eq 'a'}">
+							<input type="button" name="login" value="관리자페이지"
+								onclick="location.href='${pageContext.request.contextPath}/house/AdminOk.ho'">
+							<input type="button" name="join" value="로그아웃"
+								onclick="location.href='${pageContext.request.contextPath}/member/MemberLogoutOk.me'">
+						</c:when>
 					</c:choose>
 				</div>
 				<div id="menu-wrap">
@@ -130,20 +137,14 @@
 						<a href="${pageContext.request.contextPath}/house/FindRoom.ho">방
 							찾기</a>
 					</div>
-					<c:choose>
-						<c:when test="${memberType eq 'h'}">
+
+						<c:if test="${memberType eq 'h'}">
 							<div class="menu">
 								<a
 									href="${pageContext.request.contextPath}/house/HouseRegister.ho">호스팅
 									하기</a>
 							</div>
-						</c:when>
-						<c:otherwise>
-							<div class="menu">
-								<a onclick="a()">호스팅 하기</a>
-							</div>
-						</c:otherwise>
-					</c:choose>
+						</c:if>
 					<div class="menu">
 						<a href="${pageContext.request.contextPath}/board/info.bo">가치살자
 							소개</a>

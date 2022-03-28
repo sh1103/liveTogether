@@ -66,6 +66,8 @@ public class MemberFrontController extends HttpServlet {
 			af = new MemberCheckPwOk().execute(req, resp);
 		} else if (command.equals("/member/MemberDelete.me")) {
 			af = new MemberDelete().execute(req, resp);
+		} else if (command.equals("/member/MemberHostDelete.me")) {
+			af = new MemberHostDelete().execute(req, resp);
 		} else if (command.equals("/member/HostDeleteSecondOk.me")) {
 			af = new HostDeleteSecondOk().execute(req, resp);
 		} else if (command.equals("/member/HostMyPageCompleteOk.me")) {
@@ -113,21 +115,24 @@ public class MemberFrontController extends HttpServlet {
 		} else if (command.equals("/member/HostMyPageUpdateOk.me")) {
 			af = new HostMyPageUpdateOk().execute(req, resp);
 		} else if (command.equals("/member/MemberQuestionListOk.me")) {
-            af = new MemberQuestionListOk().execute(req, resp);
+			af = new MemberQuestionListOk().execute(req, resp);
 		} else if (command.equals("/member/MemberReviewDeleteOk.me")) {
 			af = new MemberReviewDeleteOk().execute(req, resp);
 		} else if (command.equals("/member/MemberFindPwCountOk.me")) {
 			af = new MemberFindPwCountOk().execute(req, resp);
-		}else if(command.equals("/member/MemberLogin.me")) {
+		} else if (command.equals("/member/MemberLogin.me")) {
 			af = new ActionForward();
 			af.setRedirect(false);
 			af.setPath("/member/login.jsp");
-		}else if(command.equals("/member/Main.me")) {
-		af = new ActionForward();
-		af.setRedirect(false);
-		af.setPath("/main/main.jsp");
+		} else if (command.equals("/member/Main.me")) {
+			af = new ActionForward();
+			af.setRedirect(false);
+			af.setPath("/main/main.jsp");
+		} else if (command.equals("/member/HostPageUpdateOk.me")) {
+			af = new HostPageUpdateOk().execute(req, resp);
+		} else if (command.equals("/member/HostQuestionOk.me")) {
+			af = new HostQuestionOk().execute(req, resp);
 		}
-		
 		if (af != null) {
 			if (af.isRedirect()) {
 				// redirect

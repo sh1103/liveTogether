@@ -12,6 +12,8 @@
 	href="${pageContext.request.contextPath}/assets/css/main.css" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/assets/css/mainpage.css" />
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=75a25b651aa07a1facbfaf92c4d784fa&libraries=services,clusterer,drawing"></script>
 <title>가치살자 - 메인페이지</title>
 </head>
 <body>
@@ -45,26 +47,38 @@
 							</div>
 							<div id="slide-wrap">
 								<div class="flex_wrap">
-									<div class="slide-cell">성신여대쉐어하우스</div>
-									<div class="slide-cell">가양역쉐어하우스</div>
-									<div class="slide-cell">개포동쉐어하우스</div>
-									<div class="slide-cell">강남쉐어하우스</div>
-									<div class="slide-cell">상혁쉐어하우스</div>
-									<div class="slide-cell">승근쉐어하우스</div>
+									<div class="slide-cell">장소로 검색하기</div>
+									<div class="slide-cell">도로명 검색하기</div>
+									<div class="slide-cell">지번으로 검색하기</div>
+									<div class="slide-cell">건물로 검색하기</div>
+									<div class="slide-cell">역으로 검색하기</div>
+									<div class="slide-cell">학교로 검색하기</div>
 								</div>
 							</div>
 							<div id="slide-wrap-mobile">
 								<div class="flex_wrap-mobile">
-									<div class="slide-cell-mobile">성신여대쉐어하우스</div>
-									<div class="slide-cell-mobile">가양역쉐어하우스</div>
-									<div class="slide-cell-mobile">개포동쉐어하우스</div>
-									<div class="slide-cell-mobile">강남삼쉐어하우스</div>
-									<div class="slide-cell-mobile">상혁쉐어하우스</div>
-									<div class="slide-cell-mobile">승근쉐어하우스</div>
+									<div class="slide-cell-mobile">장소로 검색하기</div>
+									<div class="slide-cell-mobile">도로명 검색하기</div>
+									<div class="slide-cell-mobile">지번으로 검색하기</div>
+									<div class="slide-cell-mobile">건물로 검색하기</div>
+									<div class="slide-cell-mobile">역으로 검색하기</div>
+									<div class="slide-cell-mobile">학교로 검색하기</div>
 								</div>
 							</div>
 						</div>
 					</form>
+				</div>
+
+
+				<div id="result-wrap">
+					<div id="result-container">
+						<div>
+							<div id="result-flex">
+								<span id="result">검색결과가 0건 있습니다.</span>
+								<button onclick="search()">검색하기</button>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -136,7 +150,7 @@
 			</div>
 		</section>
 	</article>
-
+	<div id="map" style="display:'none'"></div>
 
 	<section id="one" class="wrapper alt style2">
 		<div class="title">최근 등록된 가치살집</div>
@@ -164,10 +178,13 @@
 		</div>
 	</section>
 
-
 	<!-- footer -->
 	<jsp:include page="../fix/footer.jsp" />
 </body>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=75a25b651aa07a1facbfaf92c4d784fa"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="${pageContext.request.contextPath}/assets/js/mainpage.js"></script>
 </html>
