@@ -113,7 +113,7 @@
                            accept-charset="UTF-8" method="post">
 
                            <div class="column-wrapper email">
-                              <label class="col01">이메일</label>
+                              <label class="col01">아이디</label>
                               <div class="static">${member.getMemberId()}</div>
                            </div>
 
